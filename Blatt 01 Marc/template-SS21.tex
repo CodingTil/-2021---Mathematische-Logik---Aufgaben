@@ -1,0 +1,220 @@
+\documentclass[a4paper,11pt]{article}
+
+% Layout
+\usepackage[a4paper, left=3cm, right=3cm, top=2cm, bottom=3cm]{geometry} % kleinere Ränder
+% \usepackage{parskip}
+
+% Umlaute in der Datei erlauben, auf Deutsch umstellen
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english, ngerman]{babel}
+%\usepackage[english]{babel} % for submissions in ENGLISH
+
+% Mathesymbole und Ähnliches
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{microtype}
+% \usepackage{stmaryrd}
+
+% Grafiken und PDFs einfügen
+\usepackage{graphicx}
+% \usepackage{pdfpages}
+
+% PDF-Tools
+\usepackage[hidelinks, unicode]{hyperref}
+
+% Abbildungen
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc}
+
+% Reelle, Natürliche, Ganze, Rationale Zahlen
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+
+% Fraktur für Strukturen
+\newcommand{\A}{\ensuremath{\mathfrak A}}
+\newcommand{\B}{\ensuremath{\mathfrak B}}
+\newcommand{\I}{\ensuremath{\mathfrak I}}
+
+% Makros für logische Operatoren
+\newcommand{\xor}{\ensuremath{\oplus}} % exklusives oder
+\newcommand{\impl}{\ensuremath{\rightarrow}} % logische Implikation
+
+% Meistens ist \varphi schöner als \phi, genauso bei \theta
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+
+% Aufzählungen anpassen (alternativ: \arabic, \alph)
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+% BITTE NICHT ÄNDERN: interne Kommandos für die Informationen (Blattnummer, Gruppe, ...)
+% PLEASE DO NOT EDIT THIS SECTION
+
+\newcommand{\printsheet}{?}
+\newcommand{\sheet}[1]{%
+\renewcommand{\printsheet}{#1}%
+}
+
+\newcommand{\printgroup}{?}
+\newcommand{\group}[1]{%
+\renewcommand{\printgroup}{#1}%
+}
+
+\newcommand{\printmembers}{}
+\newcommand{\printmember}[3]{{#2} {#3} & {#1} \\}
+
+\newcommand{\pdfmembers}{}
+\newcommand{\pdfmember}[3]{{#1} {#3}, {#2}; }
+
+\newcommand{\member}[3]{%
+\expandafter\renewcommand\expandafter\printmembers\expandafter{\printmembers\printmember{#1}{#2}{#3}}%
+\expandafter\renewcommand\expandafter\pdfmembers\expandafter{\pdfmembers\pdfmember{#1}{#2}{#3}}%
+}
+
+\AtBeginDocument{\hypersetup{
+    pdftitle = {Übungsblatt \printsheet},
+    pdfauthor = {Abgabegruppe \printgroup: \pdfmembers},
+    pdfsubject = {Mathematische Logik}
+}}
+
+% <-------- HIER alle Informationen eintragen ========================
+% enter your information here
+\sheet{0} % Nummer des Blatts / number of exercise sheet
+\group{0} % Gruppennummer der Abgabegruppe in Moodle / group number from Moodle
+% Die Gruppennummer erscheint NICHT auf dem Blatt (nur in den PDF-Metadaten).
+% The group number does NOT appear on the sheet (check the PDF meta data).
+
+% alle Gruppenmitglieder in der Form \member{Matrikelnummer}{Vorname}{Nachname}
+% group members are entered as \member{matriculation number}{first name}{last name}
+\member{123456}{Vorname}{Nachname}
+\member{654321}{Firstname}{Lastname}
+\member{162534}{Dritter}{Name}
+%\member{999999}{Viertes}{Mitglied}
+
+\begin{document}
+
+% Platz für die Punktetabelle und Kommentare
+\hfill
+\begin{Form}
+\begin{tabular}{c}
+\\
+Gesamtpunkte: \\[2mm]
+\TextField[name=points, width=20mm, align=1, bordercolor={0 0 0}]{} \\
+\\
+\end{tabular}
+\end{Form}
+
+% Kopfzeile
+{\raggedright
+\begin{tabular}{l}
+    MaLo \\
+    SS 2021 \\
+    \today{} \\
+\end{tabular}}
+\hfill
+{\Large Übungsblatt \printsheet}
+\hfill
+\begin{tabular}{l l}
+\printmembers
+\end{tabular}
+\hrule
+
+
+% <-------- HIER beginnt die Lösung ========================
+% your SOLUTION starts here
+
+\section*{Aufgabe 2}
+
+\paragraph*{ a) }
+Eine geeignete Variablenmenge für dieses Problem ist eine Boolsche Variable pro Fach. Der Wahrheitswert gibt an ob ein Fach belegt wurde oder nicht. Somit ergeben sich folgende Variablen: $A$ für Algebra, $C$ für Computeralgebra, $E$ für Ethik, $F$ für Formale Systeme und $G$ für Grundlagen der Mathematik.
+
+\paragraph*{ b) }
+\begin{itemize}
+	\item $ (A \vee C \vee E \vee F \vee G) \land \neg (A \land C \land E \land F \land G) $
+	\item $ (C \land E \land F) \vee \neg C $
+	\item $ (A \land G) \vee (\neg A \land \neg G) $
+	\item $ (A \land C) \vee \neg A $
+	\item $ \neg F $
+	\item $ G $
+	\item $ (\neg F \vee G) \land \neg (\neg F \land G)$
+\end{itemize}
+
+\paragraph*{ c) }
+Angenommen David hat Recht. Dann haben Sie $G$ belegt. Dies bedeutet wegen (iii) auch, dass Sie $A$ belegt haben müssen. Wegen (iv) müssen Sie also auch $C$ belegt haben. Und wegen (ii) müssen Sie auch $E$ und $F$ belegt haben. Dies kann aber nicht sein weil Sie laut (i) nicht alle 5 Fächer belegt haben. David hat also kein Recht.
+
+Nun muss also noch überprüft werden ob Bertrand tatsächlich Recht hat:
+
+Angenommen Bertrand hat Recht. Dann haben Sie $F$ nicht belegt, wegen (v). Dies führt dazu, dass ebenfalls $C$ nicht belegt wurde (wegen (ii)) und dies bedeutet, dass Sie nicht $A$ belegt haben können (wegen (iv)). Dies bedeutet ausserdem dass Sie nicht $G$ belegt haben können (wegen (iii)). Dies bedeutet dass Davids Aussage nicht stimmt was Kurts Meinung bestätigt. Das einzige belegte Fach ist dann $E$ welches belegt werden muss um (i) zu erfüllen.
+
+Da alle logischen Schritte ab der Annahme, dass Bertrand Recht hat zwingent waren gibt es keine weitere Lösungen.
+
+\section*{Aufgabe 3}
+
+\paragraph*{ a) (i) }
+$ (A \xor B) \xor (C \xor D)) $ kann verstanden werden als: ``Nur eine Variable ist Wahr, alle anderen sich Falsch''. Das führt dazu, dass auf der rechten Seite mindestens eine der beiden Folgerungen zu $ 0 \rightarrow 0 \Leftrightarrow 1 $ ausgewertet wird. Durch die Negationen vor den Folgerungen wird dieses Wahr zu einen Falsch bevor er 2 Mal verundet wird. Somit ist diese Formel unerfüllbar.
+
+\paragraph*{ (ii) }
+$ X \rightarrow \neg X $ kann zu $ \neg X $ vereinfacht werden. Das selbe gilt für $Y$. Damit die Teilformel links von dem Und Wahr ist muss mindestens eine der beiden Variable also Falsch sein. $ X \rightarrow 0 $ kann ebenfalls zu $ \neg X $ vereinfacht werden. $ 1 \rightarrow Y $ kann hingegen zu $Y$ vereinfacht werden. Um $ (\neg X) \xor Y $ zu erfüllen und die Voraussetzung von der linken Teilformel zu erfüllen (mindestens ein Falsch) müssen beide Variablen Falsch sein. Also ist $ X = 0 $ und $ Y = 0 $ die einzig mögliche Lösung. Somit sind die anderen 3 möglichen Variablenbelegungen eine Lösung für die negierte Formel und es handelt sich dementsprechend um eine nicht-triviale Formel.
+
+\paragraph*{ b) }
+In diesem Beweis verwenden wir mehrmals die Tautologie: $ A \vee (A \land B) \equiv A $. Diese gilt offensichtlich, da um $A \land B$ zu erfüllen $A$ Wahr sein muss und dann bereits die Teilformel vor dem Oder Wahr ist und somit die ganze Aussage bereits Wahr ist. Also ist die rechte Teilformel irrelevant bei der Berechnung des Wahrheitswertes.
+
+Wir vereinfachen zunächst die erste Formel:
+\begin{align*}
+	& (A \vee (A \land B)) \vee (C \land D)\\
+	& A \vee (C \land D)\\
+\end{align*}
+
+Dann vereinfachen wir die zweite Formel:
+\begin{align*}
+	& (\neg C \rightarrow A) \land ((\neg A \rightarrow C) \land \neg(\neg A \land \neg D))\\
+	& (C \vee A) \land (A \vee C) \land (A \vee D)\\
+	& (A \vee C) \land (A \vee D)\\
+	& A \vee (C \land A) \vee (A \land D) \vee (C \land D) \\
+	& A \vee (A \land D) \vee (C \land D) \\
+	& A \vee (C \land D)
+\end{align*}
+
+\section*{Aufgabe 4}
+
+\paragraph*{ (a) }
+$\varphi = \neg X_{11} \land X_{12} \land X_{13} \land \neg X_{21} \land X_{22} \land \neg X_{23} \land X_{31} \land X_{32} \land \neg X_{33} $
+
+\paragraph* { (b) }
+\begin{align*}
+	\varphi_n = \bigvee_{1 \leq i,j \leq n, i \neq j} X_{ij} X_{ji}
+\end{align*}
+
+Die Formel funktioniert indem sie alle möglichen gerichteten Kreise der Länge 2, explizit also die beiden Kanten aus denen es besteht, hintereinander Verodert. Wenn ein gerichteter Graph der Länge 2 tatsächlich existiert, z.B. zwischen den Knoten $x$ und $y$, dann gibt es auch die Kanten $X_{xy}$ und $X_{yx}$ und somit wird die Formel $\varphi$ wahr sein, da durch die eine wahre Aussage die ganze Veroderung wahr ist.
+
+\paragraph*{ (c) }
+Sei:
+\begin{align*}
+	Y_i = \neg X_{ii} \land \neg \left( \bigvee_{1 \leq j \leq n; j \neq i} X_{ji} \right) \land \neg \left( \bigvee_{1 \leq j \leq n; j \neq i} X_{ij} \right)
+\end{align*}
+
+sodass $Y_i$ genau dann wahr ist wenn der Knoten $i$ ein isolierter Knoten ist.
+
+Nun muss noch geprüft werden ob mindestens die Hälfte der Knoten die Bedingung erfüllt, also ob die mindestens die Hälfte der $Y_i$ wahr ist. Angenommen mindestens die Hälfte der Knoten erfüllen tatsächlich die Bedingung. Dann existiert eine Paarung aller Knoten sodass kein Knoten der die Bedingung nicht erfüllt mit einem seiner gleichen Art gepaart wird. Falls $n$ ungerade ist igonieren wir zunächst das letzte Element. Um eine dieser Paarung zu finden betrachten wir zuerst alle möglichen Paarungen der Knoten. Dafür sei $\Pi$ die Menge aller Permutationen über $\underline{n}$. Für eine bestimmte Permutation $\pi \in \Pi$ definieren wir die Paare: $(\pi (2k-1), \pi (2k))$ für alle $1 \leq k \leq \frac{n}{2}$.
+Angenommen wir kennen bereits eine passende Permutation $\pi$, dann können wir $Y_i$ und $Y_j$ verodern für alle Paare $(i, j)$. Diese Veroderungen werden immer Wahr sein, da wir die Paare so gebildet haben, dass in jedem Paar mindestens ein isolierter Knoten ist. Schliesslich verunden wir die Ergebnisse aller Paare zusammen. Den ignorierten Knoten bei ungeradem $n$ verunden wir ebenfalls. Zusammengesetzt haben wir dann für eine Permutation $\pi \in \Pi$ und geradem n:
+\begin{align*}
+	Z_{\pi} = \bigvee_{1 \leq k \leq \frac{n}{2}} Y_{\pi (2k-1)} \land Y_{\pi (2k)}
+\end{align*}
+
+Für ungerades n gilt hingegen:
+\begin{align*}
+	Z_{\pi} = Y_{\pi (n)} \lor \left( \bigvee_{1 \leq k \leq \frac{n}{2}} Y_{\pi (2k-1)} \land Y_{\pi (2k)} \right)
+\end{align*}
+
+Schliesslich muss noch die passende Permutation $\pi$ gefunden werden. Zum Glück reicht es aus wenn eine Permutation passt, sodass wir einfach alle durchprobieren können und die Ergebnisse verodern können sodass bereits eine funktionierende Permutation zum Schluss zu einem Wahr führt:
+\begin{align*}
+	\varphi_n = \bigvee_{\pi \in \Pi}Z_{\pi}
+\end{align*}
+
+Das die Formel für Graphen mit mindestens der Hälfte an isolierten Knoten wahr ausgibt ist während dem Beweis klar geworden. Zur Korrektheit fehlt aber noch zu beweisen, dass die Formel auch Falsch ergibt wenn die Bedingung nicht erfüllt ist. Das dies Tatsächlich der Fall ist liegt daran, dass es keine Permutation geben wird, sodass in jedem Paar mindestens ein isolierter Knoten vorhanden ist da es nicht genug isolierte Knoten gibt. Somit wird $Z_{\pi}$ für alle $\pi$ Falsch sein und die Gesammtformel gibt ebenfalls Falsch aus.
+
+\end{document}
