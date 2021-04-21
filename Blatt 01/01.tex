@@ -17,6 +17,7 @@
 \usepackage{amssymb}
 \usepackage{microtype}
 \usepackage{stmaryrd}
+\usepackage{enumitem}
 
 % Grafiken und PDFs einfügen
 \usepackage{graphicx}
@@ -83,7 +84,7 @@
 
 % <-------- HIER alle Informationen eintragen ========================
 % enter your information here
-\sheet{X} % Nummer des Blatts / number of exercise sheet
+\sheet{01} % Nummer des Blatts / number of exercise sheet
 \group{55} % Gruppennummer der Abgabegruppe in Moodle / group number from Moodle
 % Die Gruppennummer erscheint NICHT auf dem Blatt (nur in den PDF-Metadaten).
 % The group number does NOT appear on the sheet (check the PDF meta data).
@@ -131,9 +132,7 @@ Gesamtpunkte: \\[2mm]
 E-Test
 
 \section*{Aufgabe 2}
-
-\renewcommand{\labelenumi}{(\alph{enumi})}
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 	\item	Zu Beginn weisen wir jedem der Module ``Algebra'', ``Computeralgebra'', ``Ethik'', ``Formale Systeme'' und ``Grundlagen der Mathematik'' eine Aussagenvariable zu. Wir bekommen also:
 			$$ \tau \coloneqq \{ A,C,E,F,G \} $$
 			Diese Variablen haben folgende Semantik. Definieren wir $J$, die aussagenlogische Interpretation. Dann gilt:
@@ -158,66 +157,85 @@ E-Test
 
 
 	\item	Aus (b) können wir nun $\phi$ definieren:
-			$$ \phi \coloneqq \phi_{i} \land \phi_{ii} \land \phi_{iii} \land \phi_{iv} \land \phi_{v} \land \phi_{vi} \land \phi_{vii} \land $$
+			$$ \phi \coloneqq \phi_{i} \land \phi_{ii} \land \phi_{iii} \land \phi_{iv} \land \phi_{v} \land \phi_{vi} \land \phi_{vii} $$
 			
 			\begin{itemize}
-			\item[Fall 1]	
+				\item[Fall 1]	Angenommen David hat Recht.\\
+								Dann haben Sie $G$ belegt. Dies bedeutet wegen (iii) auch, dass Sie $A$ belegt haben müssen. Wegen (iv) müssen Sie also auch $C$ belegt haben. Und wegen (ii) müssen Sie auch $E$ und $F$ belegt haben. Dies kann aber nicht sein weil Sie laut (i) nicht alle 5 Fächer belegt haben. David hat also kein Recht.
+				
+				\item[Fall 2]	Angenommen Bertrand hat Recht.\\
+								Dann haben Sie $F$ nicht belegt, wegen (v). Dies führt dazu, dass ebenfalls $C$ nicht belegt wurde (wegen (ii)) und dies bedeutet, dass Sie nicht $A$ belegt haben können (wegen (iv)). Dies bedeutet außerdem dass Sie nicht $G$ belegt haben können (wegen (iii)). Dies bedeutet dass Davids Aussage nicht stimmt was Kurts Meinung bestätigt. Das einzige belegte Fach ist dann $E$ welches belegt werden muss um (i) zu erfüllen.
 			\end{itemize}
+			
+			Da alle logischen Schritte ab der Annahme, dass Bertrand Recht hat zwingent waren gibt es keine weitere Lösungen.
 \end{enumerate}
 
 
 \section*{Aufgabe 3}
 Einige offensichtliche Zwischenschritte werden wir hier zur Übersicht überspringen.
-\renewcommand{\labelenumi}{(\alph{enumi})}
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 	\item
-	\begin{itemize}
-	\item[(i)]	\begin{itemize}
-				\item[(1)]	$J(\phi) = 1$ gdw. $J((A \xor B) \xor (C \xor D)) = 1 = J((\neg (A \impl B) \land \neg (C \impl D))$
-				\item[(2)]	$J((\neg (A \impl B) \land \neg (C \impl D)) = 1$ gdw. $J(A) = 0 = J(C)$ und $J(B) = 1 = J(D)$
-				\item[(3)]	$J((A \xor B) \xor (C \xor D)) = 1$ gdw. genau eine Variable $X \in \{A,B,C,D\}$ $J(X) = 1$, alle anderen Variablen $Y \in {A,B,C,D}, Y \neq X$ $J(Y) = 0$
-				\end{itemize}
+		\begin{enumerate}[label=(\roman*)]
+			\item
+				\begin{enumerate}[label=(\arabic*)]
+					\item	$J(\phi) = 1$ gdw. $J((A \xor B) \xor (C \xor D)) = 1 = J((\neg (A \impl B) \land \neg (C \impl D))$
+					\item	$J((\neg (A \impl B) \land \neg (C \impl D)) = 1$ gdw. $J(A) = 0 = J(C)$ und $J(B) = 1 = J(D)$
+					\item	$J((A \xor B) \xor (C \xor D)) = 1$ gdw. genau eine Variable $X \in \{A,B,C,D\}$ $J(X) = 1$, alle anderen Variablen $Y \in {A,B,C,D}, Y \neq X$ $J(Y) = 0$
+				\end{enumerate}
 				(2) und (3) stehen aber im Widerspruch. Daher ist $\phi$ unerfüllbar.
 				
-	\item[(ii)]	\begin{itemize}
-				\item[(1)]	$J(\phi) = 1$ gdw. $J((X \impl \neg X) \lor (Y \impl \neg Y)) = 1 = J((X \impl 0) \xor (1 \impl Y))$
-				\item[(2)]	$J((X \impl \neg X) \lor (Y \impl \neg Y)) = 1$ gdw. nicht sowohl $J(X) = 1$ und $J(Y) = 1$
-				\item[(3)]	$J((X \impl 0) \xor (1 \impl Y)) = 1$ gdw. sowohl $J(X) = 1$ und $J(Y) = 1$ ODER $J(X) = 0$ und $J(Y) = 0$
-				\end{itemize}
+			\item
+				\begin{enumerate}[label=(\arabic*)]
+					\item	$J(\phi) = 1$ gdw. $J((X \impl \neg X) \lor (Y \impl \neg Y)) = 1 = J((X \impl 0) \xor (1 \impl Y))$
+					\item	$J((X \impl \neg X) \lor (Y \impl \neg Y)) = 1$ gdw. nicht sowohl $J(X) = 1$ und $J(Y) = 1$
+					\item	$J((X \impl 0) \xor (1 \impl Y)) = 1$ gdw. sowohl $J(X) = 1$ und $J(Y) = 1$ ODER $J(X) = 0$ und $J(Y) = 0$
+				\end{enumerate}
 				$\phi$ ist also genau dann erfüllt, wenn $J(X) = 0$ und $J(Y) = 0$.\\
-				\\Betrachte $\neg \phi$:
-				$\neg \phi$ ist genau dann erfüllt, wenn $\phi$ nicht erfüllt ist. Folglich ist $J(\neg \phi) = 1$ gdw. $J(X) = 1$ und $J(Y) = 0$ ODER $J(X) = 1$ und $J(Y) = 1$ ODER $J(X) = 0$ und $J(Y) = 1$.\\
+				\\Betrachte $\neg \phi$:\\
+				$\neg \phi$ ist genau dann erfüllt, wenn $\phi$ nicht erfüllt ist. Folglich ist $J(\neg \phi) = 1$ gdw. $J(\phi) = 0$, also $J(X) = 1$ und $J(Y) = 0$ ODER $J(X) = 1$ und $J(Y) = 1$ ODER $J(X) = 0$ und $J(Y) = 1$.\\
 				\\Da sowohl $\phi$ als auch $\neg \phi$ erfüllbar sind, ist $\phi$ nicht-trivial.
-	\end{itemize}
+		\end{enumerate}
 			
 	\item
-	\begin{equation}
-	\begin{split}
-	(\neg C \impl A) \land ((\neg A \impl C) \land \neg(\neg A \land \neg D)) &\Leftrightarrow (C \lor A) \land ((A \lor C) \land (A \lor D)) \\
-		&\Leftrightarrow  (C \lor A) \land (A \lor (C \land D))) \\
-		&\Leftrightarrow  A \lor (C \land (C \land D)) \\
-		&\Leftrightarrow A \lor (C \land D) \\
-		&\Leftrightarrow (A \land 1) \lor (C \land D) \\
-		&\Leftrightarrow (A \land (0 \impl B)) \lor (C \land D) \\
-		&\Leftrightarrow (A \land (1 \lor B)) \lor (C \land D) \\
-		&\Leftrightarrow ((A \land 1) \lor (A \land B)) \lor (C \land D) \\
-		&\Leftrightarrow (A \lor (A \land B)) \lor (C \land D)
-	\end{split}
-	\end{equation}
-			 
+		\begin{align*}
+		(\neg C \impl A) \land ((\neg A \impl C) \land \neg(\neg A \land \neg D)) &\Leftrightarrow (C \lor A) \land ((A \lor C) \land (A \lor D)) \\
+			&\Leftrightarrow  (C \lor A) \land (A \lor (C \land D))) \\
+			&\Leftrightarrow  A \lor (C \land (C \land D)) \\
+			&\Leftrightarrow A \lor (C \land D) \\
+			&\Leftrightarrow (A \land 1) \lor (C \land D) \\
+			&\Leftrightarrow (A \land (0 \impl B)) \lor (C \land D) \\
+			&\Leftrightarrow (A \land (1 \lor B)) \lor (C \land D) \\
+			&\Leftrightarrow ((A \land 1) \lor (A \land B)) \lor (C \land D) \\
+			&\Leftrightarrow (A \lor (A \land B)) \lor (C \land D)
+		\end{align*}
 \end{enumerate}
 
 
 
 \section*{Aufgabe 4}
-\renewcommand{\labelenumi}{(\alph{enumi})}
-\begin{enumerate}
-\item	$\phi \coloneqq \neg X_{11} \land X_{12} \land X_{13} \land \neg X_{21} \land X_{22} \land \neg X_{23} \land \neg X_{31} \land X_{32} \land \neg X_{33}$
+\begin{enumerate}[label=(\alph*)]
+	\item	$\phi \coloneqq \neg X_{11} \land X_{12} \land X_{13} \land \neg X_{21} \land X_{22} \land \neg X_{23} \land X_{31} \land X_{32} \land \neg X_{33}$
 
-\item	$\phi \coloneqq \bigvee\limits_{0 \leq i,j < n} (X_{ij} \land X_{ji})$\\
-		Mit dieser Formel muss mindestens ein Knotenpaar $\{i,j\}$ beide Kanten $(i,j)$ und $(j,i)$ zwischen sich haben. Also gibt es immer mindestens einen Kreis der Länge 2 als induzierten Teilgraphen $H=(\{i,j\}, \{(i,j),(j,i)\})$.
+	\item	\[\phi_n \coloneqq \bigvee_{\substack{0 \leq i,j < n \\ i \neq j}} (X_{ij} \land X_{ji})\]
+			Mit dieser Formel muss mindestens ein Knotenpaar $\{i,j\}$ beide Kanten $(i,j)$ und $(j,i)$ zwischen sich haben. Also gibt es immer mindestens einen Kreis der Länge 2 als induzierten Teilgraphen $H=(\{i,j\}, \{(i,j),(j,i)\})$.
 
-\item	asdasd
+	\item	Sei:
+			\[ Y_i = \neg X_{ii} \land \neg \left( \bigvee_{1 \leq j \leq n; j \neq i} X_{ji} \right) \land \neg \left( \bigvee_{1 \leq j \leq n; j \neq i} X_{ij} \right) \]
+			sodass $Y_i$ genau dann wahr ist wenn der Knoten $i$ ein isolierter Knoten ist.
+
+			Nun muss noch geprüft werden ob mindestens die Hälfte der Knoten die Bedingung erfüllt, also ob die mindestens die Hälfte der $Y_i$ wahr ist. Angenommen mindestens die Hälfte der Knoten erfüllen tatsächlich die Bedingung. Dann existiert eine Paarung aller Knoten sodass kein Knoten der die Bedingung nicht erfüllt mit einem seiner gleichen Art gepaart wird. Falls $n$ ungerade ist igonieren wir zunächst das letzte Element. Um eine dieser Paarung zu finden betrachten wir zuerst alle möglichen Paarungen der Knoten. Dafür sei $\Pi$ die Menge aller Permutationen über $\underline{n}$. Für eine bestimmte Permutation $\pi \in \Pi$ definieren wir die Paare: $(\pi (2k-1), \pi (2k))$ für alle $1 \leq k \leq \frac{n}{2}$.\\
+		
+			Angenommen wir kennen bereits eine passende Permutation $\pi$, dann können wir $Y_i$ und $Y_j$ verodern für alle Paare $(i, j)$. Diese Veroderungen werden immer Wahr sein, da wir die Paare so gebildet haben, dass in jedem Paar mindestens ein isolierter Knoten ist. Schliesslich verunden wir die Ergebnisse aller Paare zusammen. Den ignorierten Knoten bei ungeradem $n$ verunden wir ebenfalls. Zusammengesetzt haben wir dann für eine Permutation $\pi \in \Pi$ und geradem n:
+				\[ Z_{\pi} = \bigvee_{1 \leq k \leq \frac{n}{2}} Y_{\pi (2k-1)} \land Y_{\pi (2k)} \]
+
+				Für ungerades n gilt hingegen:
+				\[ Z_{\pi} = Y_{\pi (n)} \lor \left( \bigvee_{1 \leq k \leq \frac{n}{2}} Y_{\pi (2k-1)} \land Y_{\pi (2k)} \right) \]
+
+				Schliesslich muss noch die passende Permutation $\pi$ gefunden werden. Zum Glück reicht es aus wenn eine Permutation passt, sodass wir einfach alle durchprobieren können und die Ergebnisse verodern können sodass bereits eine funktionierende Permutation zum Schluss zu einem Wahr führt:
+			
+				\[ \varphi_n = \bigvee_{\pi \in \Pi}Z_{\pi} \]
+
+				Das die Formel für Graphen mit mindestens der Hälfte an isolierten Knoten wahr ausgibt ist während dem Beweis klar geworden. Zur Korrektheit fehlt aber noch zu beweisen, dass die Formel auch Falsch ergibt wenn die Bedingung nicht erfüllt ist. Das dies Tatsächlich der Fall ist liegt daran, dass es keine Permutation geben wird, sodass in jedem Paar mindestens ein isolierter Knoten vorhanden ist da es nicht genug isolierte Knoten gibt. Somit wird $Z_{\pi}$ für alle $\pi$ Falsch sein und die Gesammtformel gibt ebenfalls Falsch aus.
 \end{enumerate}
 
 \section*{Aufgabe 5*}
