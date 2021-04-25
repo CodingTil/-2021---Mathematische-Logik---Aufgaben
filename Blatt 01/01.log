@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.9)  21 APR 2021 22:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.9)  25 APR 2021 17:13
 entering extended mode
 **./01.tex
 (01.tex
@@ -1034,6 +1034,15 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
 04.
  (C:\Users\Til Mohr\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
+LaTeX Font Info:    Trying to load font information for U+euf on input line 138
+.
+ (C:\Users\Til Mohr\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+(C:\Users\Til Mohr\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-euf.cfg
+File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
+
+)
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
 40.
  (C:\Users\Til Mohr\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
@@ -1042,17 +1051,17 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 193--197
+Underfull \hbox (badness 10000) in paragraph at lines 190--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--197
+Underfull \hbox (badness 10000) in paragraph at lines 190--194
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
@@ -1061,36 +1070,37 @@ Package rerunfilecheck Info: File `01.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 25211 strings out of 479321
- 458901 string characters out of 2855115
- 788826 words of memory out of 3000000
- 42101 multiletter control sequences out of 15000+600000
- 432276 words of font info for 83 fonts, out of 8000000 for 9000
+ 25238 strings out of 479321
+ 459500 string characters out of 2855115
+ 788835 words of memory out of 3000000
+ 42116 multiletter control sequences out of 15000+600000
+ 433150 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 87i,8n,88p,755b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,8n,88p,755b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc
 }{C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.
 enc}{C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-math
 sy.enc}{C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-m
 athex.enc}{C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/l
 m-ts1.enc}{C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/l
-m-ec.enc}<C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
-/lmbx12.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/lm/lmex10.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/lm/lmmi10.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/lm/lmmi6.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/lm/lmmi8.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/lm/lmr10.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/lm/lmr12.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/font
-s/type1/public/lm/lmr6.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/lm/lmr8.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/lm/lmss10.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Til Mohr/AppData/Local/Programs/M
-iKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on 01.pdf (4 pages, 191019 bytes).
+m-ec.enc}<C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/euler/eufm10.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/lm/lmbx12.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/lm/lmex10.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/lm/lmmi10.pfb><C:/Users/Til Mohr/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/Til Mohr/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Til Mohr/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/Til Mohr/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Til Mohr/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/Til Mohr/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/Til Mohr/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Users/Til Mohr/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Til Mohr/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/Til Mohr/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on 01.pdf (4 pages, 193073 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
+ 129 PDF objects out of 1000 (max. 8388607)
  26 named destinations out of 1000 (max. 500000)
  16431 words of extra memory for PDF output out of 17280 (max. 10000000)
 
