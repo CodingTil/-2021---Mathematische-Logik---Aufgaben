@@ -135,13 +135,13 @@ E-Test
 \begin{enumerate}[label=(\alph*)]
 	\item	Zu Beginn weisen wir jedem der Module ``Algebra'', ``Computeralgebra'', ``Ethik'', ``Formale Systeme'' und ``Grundlagen der Mathematik'' eine Aussagenvariable zu. Wir bekommen also:
 			$$ \tau \coloneqq \{ A,C,E,F,G \} $$
-			Diese Variablen haben folgende Semantik. Definieren wir $J$, die aussagenlogische Interpretation. Dann gilt:
+			Diese Variablen haben folgende Semantik. Definieren wir $\mathfrak{I}$, die aussagenlogische Interpretation. Dann gilt:
 			\begin{itemize}
-				\item $J(A)$ gdw. ``Algebra'' belegt wurde
-				\item $J(C)$ gdw. ``Computeralgebra'' belegt wurde
-				\item $J(E)$ gdw. ``Ethik'' belegt wurde
-				\item $J(F)$ gdw. ``Formale Systeme'' belegt wurde
-				\item $J(G)$ gdw. ``Grundlagen der Mathematik'' belegt wurde
+				\item $\mathfrak{I}(A)$ gdw. ``Algebra'' belegt wurde
+				\item $\mathfrak{I}(C)$ gdw. ``Computeralgebra'' belegt wurde
+				\item $\mathfrak{I}(E)$ gdw. ``Ethik'' belegt wurde
+				\item $\mathfrak{I}(F)$ gdw. ``Formale Systeme'' belegt wurde
+				\item $\mathfrak{I}(G)$ gdw. ``Grundlagen der Mathematik'' belegt wurde
 			\end{itemize}
 
 
@@ -156,10 +156,7 @@ E-Test
 			\end{itemize}
 
 
-	\item	Aus (b) können wir nun $\phi$ definieren:
-			$$ \phi \coloneqq \phi_{i} \land \phi_{ii} \land \phi_{iii} \land \phi_{iv} \land \phi_{v} \land \phi_{vi} \land \phi_{vii} $$
-			
-			\begin{itemize}
+	\item	\begin{itemize}
 				\item[Fall 1]	Angenommen David hat Recht.\\
 								Dann haben Sie $G$ belegt. Dies bedeutet wegen (iii) auch, dass Sie $A$ belegt haben müssen. Wegen (iv) müssen Sie also auch $C$ belegt haben. Und wegen (ii) müssen Sie auch $E$ und $F$ belegt haben. Dies kann aber nicht sein weil Sie laut (i) nicht alle 5 Fächer belegt haben. David hat also kein Recht.
 				
@@ -178,21 +175,21 @@ Einige offensichtliche Zwischenschritte werden wir hier zur Übersicht überspri
 		\begin{enumerate}[label=(\roman*)]
 			\item
 				\begin{enumerate}[label=(\arabic*)]
-					\item	$J(\phi) = 1$ gdw. $J((A \xor B) \xor (C \xor D)) = 1 = J((\neg (A \impl B) \land \neg (C \impl D))$
-					\item	$J((\neg (A \impl B) \land \neg (C \impl D)) = 1$ gdw. $J(A) = 0 = J(C)$ und $J(B) = 1 = J(D)$
-					\item	$J((A \xor B) \xor (C \xor D)) = 1$ gdw. genau eine Variable $X \in \{A,B,C,D\}$ $J(X) = 1$, alle anderen Variablen $Y \in {A,B,C,D}, Y \neq X$ $J(Y) = 0$
+					\item	$\mathfrak{I}(\phi) = 1$ gdw. $\mathfrak{I}((A \xor B) \xor (C \xor D)) = 1 = \mathfrak{I}((\neg (A \impl B) \land \neg (C \impl D))$
+					\item	$\mathfrak{I}((\neg (A \impl B) \land \neg (C \impl D)) = 1$ gdw. $\mathfrak{I}(A) = 0 = \mathfrak{I}(C)$ und $\mathfrak{I}(B) = 1 = \mathfrak{I}(D)$
+					\item	$\mathfrak{I}((A \xor B) \xor (C \xor D)) = 1$ gdw. genau eine Variable $X \in \{A,B,C,D\}$ $\mathfrak{I}(X) = 1$, alle anderen Variablen $Y \in \{A,B,C,D\}, Y \neq X$ $\mathfrak{I}(Y) = 0$
 				\end{enumerate}
 				(2) und (3) stehen aber im Widerspruch. Daher ist $\phi$ unerfüllbar.
 				
 			\item
 				\begin{enumerate}[label=(\arabic*)]
-					\item	$J(\phi) = 1$ gdw. $J((X \impl \neg X) \lor (Y \impl \neg Y)) = 1 = J((X \impl 0) \xor (1 \impl Y))$
-					\item	$J((X \impl \neg X) \lor (Y \impl \neg Y)) = 1$ gdw. nicht sowohl $J(X) = 1$ und $J(Y) = 1$
-					\item	$J((X \impl 0) \xor (1 \impl Y)) = 1$ gdw. sowohl $J(X) = 1$ und $J(Y) = 1$ ODER $J(X) = 0$ und $J(Y) = 0$
+					\item	$\mathfrak{I}(\phi) = 1$ gdw. $\mathfrak{I}((X \impl \neg X) \lor (Y \impl \neg Y)) = 1 = \mathfrak{I}((X \impl 0) \xor (1 \impl Y))$
+					\item	$\mathfrak{I}((X \impl \neg X) \lor (Y \impl \neg Y)) = 1$ gdw. nicht sowohl $\mathfrak{I}(X) = 1$ und $\mathfrak{I}(Y) = 1$
+					\item	$\mathfrak{I}((X \impl 0) \xor (1 \impl Y)) = 1$ gdw. sowohl $\mathfrak{I}(X) = 1$ und $\mathfrak{I}(Y) = 1$ ODER $\mathfrak{I}(X) = 0$ und $\mathfrak{I}(Y) = 0$
 				\end{enumerate}
-				$\phi$ ist also genau dann erfüllt, wenn $J(X) = 0$ und $J(Y) = 0$.\\
+				$\phi$ ist also genau dann erfüllt, wenn $\mathfrak{I}(X) = 0$ und $\mathfrak{I}(Y) = 0$.\\
 				\\Betrachte $\neg \phi$:\\
-				$\neg \phi$ ist genau dann erfüllt, wenn $\phi$ nicht erfüllt ist. Folglich ist $J(\neg \phi) = 1$ gdw. $J(\phi) = 0$, also $J(X) = 1$ und $J(Y) = 0$ ODER $J(X) = 1$ und $J(Y) = 1$ ODER $J(X) = 0$ und $J(Y) = 1$.\\
+				$\neg \phi$ ist genau dann erfüllt, wenn $\phi$ nicht erfüllt ist. Folglich ist $\mathfrak{I}(\neg \phi) = 1$ gdw. $\mathfrak{I}(\phi) = 0$, also $\mathfrak{I}(X) = 1$ und $\mathfrak{I}(Y) = 0$ ODER $\mathfrak{I}(X) = 1$ und $\mathfrak{I}(Y) = 1$ ODER $\mathfrak{I}(X) = 0$ und $\mathfrak{I}(Y) = 1$.\\
 				\\Da sowohl $\phi$ als auch $\neg \phi$ erfüllbar sind, ist $\phi$ nicht-trivial.
 		\end{enumerate}
 			
@@ -203,7 +200,6 @@ Einige offensichtliche Zwischenschritte werden wir hier zur Übersicht überspri
 			&\Leftrightarrow  A \lor (C \land (C \land D)) \\
 			&\Leftrightarrow A \lor (C \land D) \\
 			&\Leftrightarrow (A \land 1) \lor (C \land D) \\
-			&\Leftrightarrow (A \land (0 \impl B)) \lor (C \land D) \\
 			&\Leftrightarrow (A \land (1 \lor B)) \lor (C \land D) \\
 			&\Leftrightarrow ((A \land 1) \lor (A \land B)) \lor (C \land D) \\
 			&\Leftrightarrow (A \lor (A \land B)) \lor (C \land D)
@@ -216,11 +212,11 @@ Einige offensichtliche Zwischenschritte werden wir hier zur Übersicht überspri
 \begin{enumerate}[label=(\alph*)]
 	\item	$\phi \coloneqq \neg X_{11} \land X_{12} \land X_{13} \land \neg X_{21} \land X_{22} \land \neg X_{23} \land X_{31} \land X_{32} \land \neg X_{33}$
 
-	\item	\[\phi_n \coloneqq \bigvee_{\substack{0 \leq i,j < n \\ i \neq j}} (X_{ij} \land X_{ji})\]
+	\item	\[\phi_n \coloneqq \bigvee_{\substack{1 \leq i,j \leq n \\ i \neq j}} (X_{ij} \land X_{ji})\]
 			Mit dieser Formel muss mindestens ein Knotenpaar $\{i,j\}$ beide Kanten $(i,j)$ und $(j,i)$ zwischen sich haben. Also gibt es immer mindestens einen Kreis der Länge 2 als induzierten Teilgraphen $H=(\{i,j\}, \{(i,j),(j,i)\})$.
 
 	\item	Sei:
-			\[ Y_i = \neg X_{ii} \land \neg \left( \bigvee_{1 \leq j \leq n; j \neq i} X_{ji} \right) \land \neg \left( \bigvee_{1 \leq j \leq n; j \neq i} X_{ij} \right) \]
+			\[ Y_i = \neg X_{ii} \land \neg \left( \bigvee_{\substack{1 \leq j \leq n \\ j \neq i}} X_{ji} \right) \land \neg \left( \bigvee_{\substack{1 \leq j \leq n \\ j \neq i}} X_{ij} \right) \]
 			sodass $Y_i$ genau dann wahr ist wenn der Knoten $i$ ein isolierter Knoten ist.
 
 			Nun muss noch geprüft werden ob mindestens die Hälfte der Knoten die Bedingung erfüllt, also ob die mindestens die Hälfte der $Y_i$ wahr ist. Angenommen mindestens die Hälfte der Knoten erfüllen tatsächlich die Bedingung. Dann existiert eine Paarung aller Knoten sodass kein Knoten der die Bedingung nicht erfüllt mit einem seiner gleichen Art gepaart wird. Falls $n$ ungerade ist igonieren wir zunächst das letzte Element. Um eine dieser Paarung zu finden betrachten wir zuerst alle möglichen Paarungen der Knoten. Dafür sei $\Pi$ die Menge aller Permutationen über $\underline{n}$. Für eine bestimmte Permutation $\pi \in \Pi$ definieren wir die Paare: $(\pi (2k-1), \pi (2k))$ für alle $1 \leq k \leq \frac{n}{2}$.\\
