@@ -1,0 +1,221 @@
+\documentclass[a4paper,11pt]{article}
+
+% Layout
+\usepackage[a4paper, left=3cm, right=3cm, top=2cm, bottom=3cm]{geometry} % kleinere Ränder
+\usepackage{parskip}
+
+% Umlaute in der Datei erlauben, auf Deutsch umstellen
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english, ngerman]{babel}
+%\usepackage[english]{babel} % for submissions in ENGLISH
+
+% Mathesymbole und Ähnliches
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+
+% Grafiken und PDFs einfügen
+\usepackage{graphicx}
+\usepackage{pdfpages}
+
+% PDF-Tools
+\usepackage[hidelinks, unicode]{hyperref}
+
+% Abbildungen
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc}
+
+% Reelle, Natürliche, Ganze, Rationale Zahlen
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+
+% Fraktur für Strukturen
+\newcommand{\A}{\ensuremath{\mathfrak A}}
+\newcommand{\B}{\ensuremath{\mathfrak B}}
+\newcommand{\I}{\ensuremath{\mathfrak I}}
+
+% Makros für logische Operatoren
+\newcommand{\xor}{\ensuremath{\oplus}} % exklusives oder
+\newcommand{\impl}{\ensuremath{\rightarrow}} % logische Implikation
+
+% Meistens ist \varphi schöner als \phi, genauso bei \theta
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+
+% Aufzählungen anpassen (alternativ: \arabic, \alph)
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+% BITTE NICHT ÄNDERN: interne Kommandos für die Informationen (Blattnummer, Gruppe, ...)
+% PLEASE DO NOT EDIT THIS SECTION
+
+\newcommand{\printsheet}{?}
+\newcommand{\sheet}[1]{%
+\renewcommand{\printsheet}{#1}%
+}
+
+\newcommand{\printgroup}{?}
+\newcommand{\group}[1]{%
+\renewcommand{\printgroup}{#1}%
+}
+
+\newcommand{\printmembers}{}
+\newcommand{\printmember}[3]{{#2} {#3} & {#1} \\}
+
+\newcommand{\pdfmembers}{}
+\newcommand{\pdfmember}[3]{{#1} {#3}, {#2}; }
+
+\newcommand{\member}[3]{%
+\expandafter\renewcommand\expandafter\printmembers\expandafter{\printmembers\printmember{#1}{#2}{#3}}%
+\expandafter\renewcommand\expandafter\pdfmembers\expandafter{\pdfmembers\pdfmember{#1}{#2}{#3}}%
+}
+
+\AtBeginDocument{\hypersetup{
+    pdftitle = {Übungsblatt \printsheet},
+    pdfauthor = {Abgabegruppe \printgroup: \pdfmembers},
+    pdfsubject = {Mathematische Logik}
+}}
+
+% <-------- HIER alle Informationen eintragen ========================
+% enter your information here
+\sheet{01} % Nummer des Blatts / number of exercise sheet
+\group{55} % Gruppennummer der Abgabegruppe in Moodle / group number from Moodle
+% Die Gruppennummer erscheint NICHT auf dem Blatt (nur in den PDF-Metadaten).
+% The group number does NOT appear on the sheet (check the PDF meta data).
+
+% alle Gruppenmitglieder in der Form \member{Matrikelnummer}{Vorname}{Nachname}
+% group members are entered as \member{matriculation number}{first name}{last name}
+\member{405401}{Marc}{Ludevid}
+\member{405409}{Andrés}{Montoya}
+\member{405959}{Til}{Mohr}
+%\member{999999}{Viertes}{Mitglied}
+
+\begin{document}
+
+% Platz für die Punktetabelle und Kommentare
+\hfill
+\begin{Form}
+\begin{tabular}{c}
+\\
+Gesamtpunkte: \\[2mm]
+\TextField[name=points, width=20mm, align=1, bordercolor={0 0 0}]{} \\
+\\
+\end{tabular}
+\end{Form}
+
+% Kopfzeile
+{\raggedright
+\begin{tabular}{l}
+    MaLo \\
+    SS 2021 \\
+    \today{} \\
+\end{tabular}}
+\hfill
+{\Large Übungsblatt \printsheet}
+\hfill
+\begin{tabular}{l l}
+\printmembers
+\end{tabular}
+\hrule
+
+
+% <-------- HIER beginnt die Lösung ========================
+% your SOLUTION starts here
+
+\section*{Aufgabe 1}
+E-Test
+
+\section*{Aufgabe 2}
+\begin{enumerate}[label=(\alph*)]
+	\item 	Aus der VL wissen wir, dass $\{\neg, \land\}$ funktional vollständig ist.
+			\begin{itemize}
+				\item $\neg x \equiv m(x,x,x,x)$
+				\item $x \land y \equiv m(x,x,y,m(x,x,x,x))$
+			\end{itemize}
+			Da $\{\neg, \land\}$ funktional vollständig ist und wir dies mit $\{m\}$ darstellen können, ist auch $\{m\}$ funktional vollständig.
+	\item	
+	\item	
+\end{enumerate}
+
+
+
+
+
+\section*{Aufgabe 3}
+\begin{enumerate}[label=(\alph*)]
+	\item	\begin{align*}
+				M_0 &= \emptyset \\
+				M_1 &= \{B\} \\
+				M_2 &= \{B, D\} \\
+				M_3 &= \{B, D, F, A\} \\
+				M_4 &= \{B, D, F, A\} \coloneqq M
+			\end{align*}
+			Der Algorithmus terminiert.\\
+			Das Minimale Modell ist: $\mathfrak{I}: A \mapsto 1, B \mapsto 1, C \mapsto 0, D \mapsto 1, E \mapsto 0, F \mapsto 1$
+	\item	$\Phi$ ist offensichtlich äquivalent zu $\Phi' \coloneqq \{X \impl Y, X \land Z \impl Y\}$ und $\psi$ äquivalent zu $\psi' \coloneqq (X \impl X) \land (X \impl Y) \land (X \impl Z) = (X \impl Y) \land (X \impl Z)$\\
+			...
+\end{enumerate}
+
+
+\newpage
+
+
+\section*{Aufgabe 4}
+\begin{enumerate}[label=(\alph*)]
+	\item	$\varphi = \bigwedge_{i=1}^{n} \varphi_i$ mit $\varphi_i = \begin{cases}(\bigwedge_{j=1}^{m_i-1} X_{i,j}) \impl X_{i,m} \\ \bigwedge_{j=1}^{m_i} X_{i,j} \end{cases}$.\\
+			Offensichtlich gilt für ein $\mathfrak{I} \models \varphi$ auch $\mathfrak{I} \models \varphi_i$ für alle $i$ in $\varphi$.\\
+			Sei nun $\mathfrak{I}_1 \models \varphi$, $\mathfrak{I}_2 \models \varphi$. Für jedes $i$ in $\varphi$ unterscheiden wir nun 2 Fälle:
+			\begin{itemize}
+				\item	Falls für alle $1 \leq j \leq m_i$ gilt: $\mathfrak{I}_1(X_{i,j}) = 1 = \mathfrak{I}_2(X_{i,j})$, dann ist auch $(\mathfrak{I}_1 \cup \mathfrak{I}_2)(X_{i,j}) = 1$, weshalb $\mathfrak{I}_1 \cup \mathfrak{I}_2 \models \varphi_i$ stimmt.
+				\item	Falls für ein $1 \leq j \leq m_i$ gilt: $\mathfrak{I}_1(X_{i,j}) = 0$ oder $\mathfrak{I}_2(X_{i,j}) = 0$, dann ist auch $(\mathfrak{I}_1 \cup \mathfrak{I}_2)(X_{i,j}) = 0$, weshalb $\mathfrak{I}_1 \cup \mathfrak{I}_2 \models \varphi_i$ stimmt.
+			\end{itemize}
+			Also gilt $\mathfrak{I}_1 \cup \mathfrak{I}_2 \models \varphi_i$ für alle $i$ in $\varphi$, weshalb auch $\mathfrak{I}_1 \cup \mathfrak{I}_2 \models \varphi$ gelten muss.
+	
+	\item	Da Horn-Formeln unter Schnitt abgeschlossen sind, muss es auch immer ein eindeutiges kleinstes Modell zu einer Horn-Formel $\varphi$ geben:
+			Gäbe es kein eindeutiges kleinstes Modell, sondern 2 voneinander verschiedene minimale Modelle $\mathfrak{I}_1, \mathfrak{I}_2$ so wäre $\mathfrak{I}_1 \cup \mathfrak{I}_2 \not\models \varphi$, da $\mathfrak{I}_1 \cup \mathfrak{I}_2 \leq \mathfrak{I}_1$ und $\mathfrak{I}_1 \cup \mathfrak{I}_2 \leq \mathfrak{I}_2$, jedoch $\mathfrak{I}_1, \mathfrak{I}_2$ minimal sind, also insbesondere $\mathfrak{I}_1 \cup \mathfrak{I}_2$ nicht minimal.\\
+			Widerspruch!\\
+			Es muss immer ein eindeutiges kleinstes Modell zu einer Horn-Formel $\varphi$ geben!
+	
+	\item	\begin{itemize}
+				\item 	$\mathfrak{I}_1: T,R,U \mapsto 1; S \mapsto 0$ und $\mathfrak{I}_2: T,S,R \mapsto 1; U \mapsto 0$ sind Modelle von $\varphi_1$, jedoch ist $\mathfrak{I}_1 \cup \mathfrak{I}_2: T,R \mapsto 1; S,U \mapsto 0$ kein Modell von $\varphi_1$. Da jedoch Horn-Formeln unter Schnitt abgeschlossen sind, ist $\varphi_1$ nicht äquivalent zu einer Horn-Formel.
+				\item	\begin{align*}
+							\varphi_2 	&\equiv (\neq A \impl (B \lor C)) \land (\neq B \impl (A \lor C)) \land (\neq C \impl (A \lor B)) \\
+										&\equiv (A \lor B \lor C) \land (A \lor B \lor C) \land (A \lor B \lor C) \\
+										&\equiv A \lor B \lor C
+						\end{align*}
+						Auch dies ist offensichtlich keine Horn-Formel aus derselben Begründung. Zudem darf eine Klausel in einer Horn-Formel höchstens ein positives Literal vorkommen. Hier sind es aber 3.
+			\end{itemize}
+\end{enumerate}
+
+
+\newpage
+
+
+\section*{Aufgabe 5}
+\begin{enumerate}[label=(\alph*)]
+	\item	\begin{enumerate}[label=(\roman*)]
+				\item	Diese Aussage ist richtig.\\
+						Wie oben bereits gesagt, gilt $\Phi \models \psi$ offensichtlich für alle $\psi \in \Psi$, wenn $\Phi \models \bigwedge \Psi$ gilt. Also muss auch für jedes $\Psi_0 \subseteq \Psi$ $Phi \models \psi_0$ für alle $\psi_0 \in \Psi_0$ gelten, also auch $\Phi \models \Psi_0$.
+				\item	Diese Aussage ist falsch.\\
+						Sei $\Phi = \Psi = \{X\}$ und $\Psi_0 = \{X, \neg X\}$. Es gilt zwar $\Phi \models \Psi$, jedoch nicht $\Phi \models \Psi_0$!
+			\end{enumerate}
+	
+	\item	Angenommen $\Phi$ ist erfüllbar und es gilt $\Phi \models \psi$. Dann gibt es also ein Modell $\mathfrak{I}$ zu $\Phi$, welches auch Modell von $\psi$ ist. Dann kann aber $\Phi \models \neg \psi$ nicht gelten, da dieses Modell $\mathfrak{I}$ kein Modell von $\neg \psi$ sein kann. Dies führt zum Widerspruch. Also kann $\Phi$ nicht erfüllbar sein.
+	
+	\item	Da $\Psi_i \cap \Psi_{i+1} = \Psi_{i+1}$ für alle $i \in \mathbb{N}$, ist $\bigcap_{i\in\mathbb{N}} \Psi_i \models \vartheta$
+\end{enumerate}
+
+
+
+
+
+\section*{Aufgabe 6}
+$\Phi \coloneqq \{X_u \xor X_v \vert \{u,v\} \in E\}$\\
+Wenn Kante zwischen $u$ und $v$, dann muss einer der beiden in $W_0$ sein ($X_i = 0$), der andere in $W_1$ ($X_i = 1$).
+\end{document}
