@@ -84,7 +84,7 @@
 
 % <-------- HIER alle Informationen eintragen ========================
 % enter your information here
-\sheet{01} % Nummer des Blatts / number of exercise sheet
+\sheet{02} % Nummer des Blatts / number of exercise sheet
 \group{55} % Gruppennummer der Abgabegruppe in Moodle / group number from Moodle
 % Die Gruppennummer erscheint NICHT auf dem Blatt (nur in den PDF-Metadaten).
 % The group number does NOT appear on the sheet (check the PDF meta data).
@@ -139,12 +139,25 @@ E-Test
 				\item $x \land y \equiv m(x,x,y,m(x,x,x,x))$
 			\end{itemize}
 			Da $\{\neg, \land\}$ funktional vollständig ist und wir dies mit $\{m\}$ darstellen können, ist auch $\{m\}$ funktional vollständig.
-	\item	
+			
+	\item	Wir zeigen mittels Induktion, dass die Boolsche Funktion $\neg$ sich nicht aus $\{\impl, u, 1\}$ darstellen lässt.
+			\begin{itemize}
+				\item[I.A.]	Konstante $1$ \\
+							Ausgangsvariable $x \in \tau$
+				\item[I.S.]	$\varphi = \psi \impl \theta$, falls $\psi$ und $\theta$ bereits gebildete Formeln sind \\
+							$\varphi = u(\psi, \theta, \lambda)$, falls $\psi$, $\theta$ und $\lambda$ bereits gebildete Formeln sind
+			\end{itemize}
+			Hieraus erkennt man jedoch, dass $\varphi$ nie $\neg$ darstellen kann, da: \\
+			$1 \impl x \equiv x \impl x \equiv x \equiv u(1,1,x) \equiv u(1,x,1) \equiv u(x,1,1) \equiv u(x,x,x)$ \\
+			und \\
+			$x \impl 1 \equiv 1 \equiv u(1,x,x) \equiv u(x,1,x) \equiv u(x,x,1)$\\
+			Aus diesem Grund ist $\{\impl, u, 1\}$ nicht funktional vollständig.
+
 	\item	
 \end{enumerate}
 
 
-
+\newpage
 
 
 \section*{Aufgabe 3}
@@ -159,7 +172,9 @@ E-Test
 			Der Algorithmus terminiert.\\
 			Das Minimale Modell ist: $\mathfrak{I}: A \mapsto 1, B \mapsto 1, C \mapsto 0, D \mapsto 1, E \mapsto 0, F \mapsto 1$
 	\item	$\Phi$ ist offensichtlich äquivalent zu $\Phi' \coloneqq \{X \impl Y, X \land Z \impl Y\}$ und $\psi$ äquivalent zu $\psi' \coloneqq (X \impl X) \land (X \impl Y) \land (X \impl Z) = (X \impl Y) \land (X \impl Z)$\\
-			...
+			$\Phi'$ besteht also nur aus Horn-Formeln und $\psi'$ selber ist eine Horn-Formel.\\
+			Da $\Phi \models \psi$ bzw. $\Phi' \models \psi'$ genau dann gilt, wenn jedes Modell von $\Phi'$ auch ein Modell von $\psi'$ ist, und wir hier eben nur Horn-Formeln haben, gilt $\Phi \models \psi$ eben auch genau dann, wenn das minimale Modell von $\Phi$ dem von $\psi$ entspricht.\\
+			Der Markierungsalgorithmus liefert uns für alle Horn-Formeln das minimale Modell $\mathfrak{I}: X,Y,Z \mapsto 0$. Also gilt $\Phi \models \psi$.
 \end{enumerate}
 
 
