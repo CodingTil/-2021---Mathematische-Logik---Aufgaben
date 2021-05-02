@@ -153,7 +153,26 @@ E-Test
 			$x \impl 1 \equiv 1 \equiv u(1,x,x) \equiv u(x,1,x) \equiv u(x,x,1)$\\
 			Aus diesem Grund ist $\{\impl, u, 1\}$ nicht funktional vollständig.
 
-	\item	
+	\item	Für $f \in B^n$ beliebig gilt laut Aufgabenstellung, dass $f$ nicht monoton, also gibt es $a, b \in \{0,1\}^n$ mit $a \leq b$ für die gilt: $f(a) \not \leq f(b)$, also $f(a) > f(b)$ bzw. $f(a) = 1$ und $f(b) = 0$. Sei ein Paar $a,b$ gegeben die diese Bedingung erfüllen. Wenn es mehrere gibt wähle eins, sodass b minimal ist wenn dieses als Binärzahl interpretiert wird. Da $a$ und $b$ nicht gleich sind (andernfalls wäre $f(a) = f(b)$) gilt $a < b$ und somit gibt es einen Index $0 \leq i < n$ sodass $a_i < b_i$. Dementsprechen ist $a_i = 0$ und $b_i = 1$.
+
+			Außerdem wissen wir, dass aufgrund der Minimalität von $b$, wenn man $b$ so zu $b_{i=0}$ abwandelt dass man an der Stelle mit Index $i$ eine $0$ einfügt, dann $f(b_{i=0}) = 1$. Beweis: Andernfalls wäre $a, b_{i=0}$ ebenfalls ein Paar, für das sowohl $a \leq b_{i=0}$, wegen $a_i = 0$, als auch $f(a) \not \leq f(b_{i=0})$ gilt, weil $f(b_{i=0}) = 0$ wäre. $b_{i=0}$ ist als Binärzahl kleiner als $b$ was der Voraussetzung widerspricht, dass $b$ minimal gewählt wurde.
+
+			Schließlich definieren wir die Funktion $b': \{0,1\} \rightarrow \{0,1\}$ sodass $b'(X) = f(b_{i=X})$ wobei $b_{i=X}$ ein abgeändertes $b$ ist, wobei $b_i$ auf den Wert $X$ gesetzt wurde.
+
+			Wir wissen also:
+
+			\begin{itemize}
+    			\item $b'(1) \equiv 0$, denn für jedes Paar $a,b$ für das die Bedingungen der nicht-Monotinie gelten, $b_i = 1$ sein muss. Somit ist $b'(1) = f(b)$ denn $b$ wird nicht abgeändert.
+   				\item $b'(0) \equiv 1$, denn wenn $b'(0) \equiv 0$ gelten würde, $a, b_{i=0}$ ein Paar wäre das die Bedingung der nicht-Monotonie erfüllt und somit $b$ nicht minimal im Sinne einer binären Zahl wäre.
+			\end{itemize}
+
+			Es gilt also:
+
+			$$
+    			\neg X = b'(X)
+			$$
+
+			Somit haben wir die Negation aus $b'$ und implizit aus $f$ abgeleitet und somit ist die gegebene Menge funktional vollständig.
 \end{enumerate}
 
 
@@ -187,20 +206,20 @@ E-Test
 			Offensichtlich gilt für ein $\mathfrak{I} \models \varphi$ auch $\mathfrak{I} \models \varphi_i$ für alle $i$ in $\varphi$.\\
 			Sei nun $\mathfrak{I}_1 \models \varphi$, $\mathfrak{I}_2 \models \varphi$. Für jedes $i$ in $\varphi$ unterscheiden wir nun 2 Fälle:
 			\begin{itemize}
-				\item	Falls für alle $1 \leq j \leq m_i$ gilt: $\mathfrak{I}_1(X_{i,j}) = 1 = \mathfrak{I}_2(X_{i,j})$, dann ist auch $(\mathfrak{I}_1 \cup \mathfrak{I}_2)(X_{i,j}) = 1$, weshalb $\mathfrak{I}_1 \cup \mathfrak{I}_2 \models \varphi_i$ stimmt.
-				\item	Falls für ein $1 \leq j \leq m_i$ gilt: $\mathfrak{I}_1(X_{i,j}) = 0$ oder $\mathfrak{I}_2(X_{i,j}) = 0$, dann ist auch $(\mathfrak{I}_1 \cup \mathfrak{I}_2)(X_{i,j}) = 0$, weshalb $\mathfrak{I}_1 \cup \mathfrak{I}_2 \models \varphi_i$ stimmt.
+				\item	Falls für alle $1 \leq j \leq m_i$ gilt: $\mathfrak{I}_1(X_{i,j}) = 1 = \mathfrak{I}_2(X_{i,j})$, dann ist auch $(\mathfrak{I}_1 \cap \mathfrak{I}_2)(X_{i,j}) = 1$, weshalb $\mathfrak{I}_1 \cap \mathfrak{I}_2 \models \varphi_i$ stimmt.
+				\item	Falls für ein $1 \leq j \leq m_i$ gilt: $\mathfrak{I}_1(X_{i,j}) = 0$ oder $\mathfrak{I}_2(X_{i,j}) = 0$, dann ist auch $(\mathfrak{I}_1 \cap \mathfrak{I}_2)(X_{i,j}) = 0$, weshalb $\mathfrak{I}_1 \cap \mathfrak{I}_2 \models \varphi_i$ stimmt.
 			\end{itemize}
-			Also gilt $\mathfrak{I}_1 \cup \mathfrak{I}_2 \models \varphi_i$ für alle $i$ in $\varphi$, weshalb auch $\mathfrak{I}_1 \cup \mathfrak{I}_2 \models \varphi$ gelten muss.
+			Also gilt $\mathfrak{I}_1 \cap \mathfrak{I}_2 \models \varphi_i$ für alle $i$ in $\varphi$, weshalb auch $\mathfrak{I}_1 \cap \mathfrak{I}_2 \models \varphi$ gelten muss.
 	
 	\item	Da Horn-Formeln unter Schnitt abgeschlossen sind, muss es auch immer ein eindeutiges kleinstes Modell zu einer Horn-Formel $\varphi$ geben:
-			Gäbe es kein eindeutiges kleinstes Modell, sondern 2 voneinander verschiedene minimale Modelle $\mathfrak{I}_1, \mathfrak{I}_2$ so wäre $\mathfrak{I}_1 \cup \mathfrak{I}_2 \not\models \varphi$, da $\mathfrak{I}_1 \cup \mathfrak{I}_2 \leq \mathfrak{I}_1$ und $\mathfrak{I}_1 \cup \mathfrak{I}_2 \leq \mathfrak{I}_2$, jedoch $\mathfrak{I}_1, \mathfrak{I}_2$ minimal sind, also insbesondere $\mathfrak{I}_1 \cup \mathfrak{I}_2$ nicht minimal.\\
+			Gäbe es kein eindeutiges kleinstes Modell, sondern 2 voneinander verschiedene minimale Modelle $\mathfrak{I}_1, \mathfrak{I}_2$ so wäre $\mathfrak{I}_1 \cap \mathfrak{I}_2 \not\models \varphi$, da $\mathfrak{I}_1 \cap \mathfrak{I}_2 \leq \mathfrak{I}_1$ und $\mathfrak{I}_1 \cap \mathfrak{I}_2 \leq \mathfrak{I}_2$, jedoch $\mathfrak{I}_1, \mathfrak{I}_2$ minimal sind, also insbesondere $\mathfrak{I}_1 \cap \mathfrak{I}_2$ nicht minimal.\\
 			Widerspruch!\\
 			Es muss immer ein eindeutiges kleinstes Modell zu einer Horn-Formel $\varphi$ geben!
 	
 	\item	\begin{itemize}
-				\item 	$\mathfrak{I}_1: T,R,U \mapsto 1; S \mapsto 0$ und $\mathfrak{I}_2: T,S,R \mapsto 1; U \mapsto 0$ sind Modelle von $\varphi_1$, jedoch ist $\mathfrak{I}_1 \cup \mathfrak{I}_2: T,R \mapsto 1; S,U \mapsto 0$ kein Modell von $\varphi_1$. Da jedoch Horn-Formeln unter Schnitt abgeschlossen sind, ist $\varphi_1$ nicht äquivalent zu einer Horn-Formel.
+				\item 	$\mathfrak{I}_1: T,R,U \mapsto 1; S \mapsto 0$ und $\mathfrak{I}_2: T,S,R \mapsto 1; U \mapsto 0$ sind Modelle von $\varphi_1$, jedoch ist $\mathfrak{I}_1 \cap \mathfrak{I}_2: T,R \mapsto 1; S,U \mapsto 0$ kein Modell von $\varphi_1$. Da jedoch Horn-Formeln unter Schnitt abgeschlossen sind, ist $\varphi_1$ nicht äquivalent zu einer Horn-Formel.
 				\item	\begin{align*}
-							\varphi_2 	&\equiv (\neq A \impl (B \lor C)) \land (\neq B \impl (A \lor C)) \land (\neq C \impl (A \lor B)) \\
+							\varphi_2 	&\equiv (\neg A \impl (B \lor C)) \land (\neg B \impl (A \lor C)) \land (\neg C \impl (A \lor B)) \\
 										&\equiv (A \lor B \lor C) \land (A \lor B \lor C) \land (A \lor B \lor C) \\
 										&\equiv A \lor B \lor C
 						\end{align*}
@@ -216,7 +235,7 @@ E-Test
 \begin{enumerate}[label=(\alph*)]
 	\item	\begin{enumerate}[label=(\roman*)]
 				\item	Diese Aussage ist richtig.\\
-						Wie oben bereits gesagt, gilt $\Phi \models \psi$ offensichtlich für alle $\psi \in \Psi$, wenn $\Phi \models \bigwedge \Psi$ gilt. Also muss auch für jedes $\Psi_0 \subseteq \Psi$ $Phi \models \psi_0$ für alle $\psi_0 \in \Psi_0$ gelten, also auch $\Phi \models \Psi_0$.
+						Wie oben bereits gesagt, gilt $\Phi \models \psi$ offensichtlich für alle $\psi \in \Psi$, wenn $\Phi \models \bigwedge \Psi$ gilt. Also muss auch für jedes $\Psi_0 \subseteq \Psi$ $\Phi \models \psi_0$ für alle $\psi_0 \in \Psi_0$ gelten, also auch $\Phi \models \Psi_0$.
 				\item	Diese Aussage ist falsch.\\
 						Sei $\Phi = \Psi = \{X\}$ und $\Psi_0 = \{X, \neg X\}$. Es gilt zwar $\Phi \models \Psi$, jedoch nicht $\Phi \models \Psi_0$!
 			\end{enumerate}
@@ -232,5 +251,10 @@ E-Test
 
 \section*{Aufgabe 6}
 $\Phi \coloneqq \{X_u \xor X_v \vert \{u,v\} \in E\}$\\
-Wenn Kante zwischen $u$ und $v$, dann muss einer der beiden in $W_0$ sein ($X_i = 0$), der andere in $W_1$ ($X_i = 1$).
+Falls $\Phi$ erfüllbar ist, dann gibt es ein Modell $\mathfrak{I}$ für $\Phi$. Für alle $v \in V$ gilt dann:\\
+Falls $\mathfrak{I}(X_v) = 0$, dann ist $v \in W_0$.\\
+Falls $\mathfrak{I}(X_v) = 1$, dann ist $v \in W_1$.\\
+$G$ ist genau dann bipartit, wenn $\Phi$ erfüllbar ist. Nach dem Kompaktheitssatz ist $\Phi$ genau dann erfüllbar, wenn jede endliche Teilmenge $\Phi_0$ von $\Phi$ erfüllbar ist, also jeder endliche Teilgraph von $G$ bipartit ist.\\
+Folglich ist $G$ genau dann erfüllbar, wen jeder endliche Teilgraph von $G$ bipartit ist.
+
 \end{document}
