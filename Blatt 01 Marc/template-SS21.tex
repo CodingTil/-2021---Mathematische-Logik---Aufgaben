@@ -217,4 +217,13 @@ Schliesslich muss noch die passende Permutation $\pi$ gefunden werden. Zum Glüc
 
 Das die Formel für Graphen mit mindestens der Hälfte an isolierten Knoten wahr ausgibt ist während dem Beweis klar geworden. Zur Korrektheit fehlt aber noch zu beweisen, dass die Formel auch Falsch ergibt wenn die Bedingung nicht erfüllt ist. Das dies Tatsächlich der Fall ist liegt daran, dass es keine Permutation geben wird, sodass in jedem Paar mindestens ein isolierter Knoten vorhanden ist da es nicht genug isolierte Knoten gibt. Somit wird $Z_{\pi}$ für alle $\pi$ Falsch sein und die Gesammtformel gibt ebenfalls Falsch aus.
 
+\section*{Aufgabe 5}
+Wenn $\varphi$ und $\vartheta$ nicht erfüllbar sind ist die Lösung trivial da man für $\psi$ einfach $1$ nehmen kann, da sich $\varphi$ und $\neg \psi$ bzw. $\vartheta$ und $\psi$ auf jeden Fall widersprechen werden, da es keine Interpretation gibt die $\varphi$ oder $\vartheta$ erfüllt und somit es auch keine Interpretation gibt die $\varphi \wedge \neg \psi$ oder $\vartheta \wedge \psi$ erfüllt.
+
+Wenn nur $\varphi$ nicht erfüllbar ist, ist die Lösung ebenfalls trivial mit $\psi = 0$. $\varphi$ und $\neg \psi$ widersprechen sich offensichtlich, da es keine Interpretation gibt die $\varphi \wedge \neg 0$ erfüllt, weil $\varphi$ bereits unerfüllbar ist. $\vartheta$ und $\psi$ widersprechen sich ebenfalls, da $\psi$ unerfüllbar ist und somit $\vartheta \wedge \psi$ auch unerfüllbar ist.
+
+Ab jetzt betrachten wir also nur noch $\varphi$ und $\vartheta$ die beide erfüllbar sind.
+
+Seien die beiden aussagenlogischen Formeln $\varphi$ und $\vartheta$ als boolsche Formeln in Disjunktiver Normalform gegeben. Wenn sich die beiden Formeln widersprechen, dann ist $\varphi \wedge \vartheta$ unerfüllbar. Durch ``ausmultiplizieren'' der Verundung kann man diese Formel ebenfalls in eine Disjunktive Normalform bringen. Da diese Formel unerfüllbar ist wird es in jedem der Konjunktionsterm jeweils ein Literal geben, was es auch in negierter Form im selben Konjunktionsterm gibt (z.B. $X$ und $\neg X$), da es ansonsten eine Interpretation gäbe, mit dem einer der Konjunktionsterme erfüllt werden könnte und somit wäre $\varphi \wedge \vartheta$ erfüllbar. Da $\varphi$ und $\vartheta$ erfüllbar sind kommt jeweils einer dieser Literale ursprünglich aus einer Formeln und das negierte Literal aus der anderen Formel. Also ist die Variable dieser Literale in $\tau(\varphi \cap \vartheta)$.
+
 \end{document}
