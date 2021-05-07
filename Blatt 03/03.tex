@@ -1,0 +1,193 @@
+\documentclass[a4paper,11pt]{article}
+
+% Layout
+\usepackage[a4paper, left=3cm, right=3cm, top=2cm, bottom=3cm]{geometry} % kleinere Ränder
+\usepackage{parskip}
+
+% Umlaute in der Datei erlauben, auf Deutsch umstellen
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english, ngerman]{babel}
+%\usepackage[english]{babel} % for submissions in ENGLISH
+
+% Mathesymbole und Ähnliches
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+
+% Grafiken und PDFs einfügen
+\usepackage{graphicx}
+\usepackage{pdfpages}
+
+% PDF-Tools
+\usepackage[hidelinks, unicode]{hyperref}
+
+% Abbildungen
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc}
+
+% Reelle, Natürliche, Ganze, Rationale Zahlen
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+
+% Fraktur für Strukturen
+\newcommand{\A}{\ensuremath{\mathfrak A}}
+\newcommand{\B}{\ensuremath{\mathfrak B}}
+\newcommand{\I}{\ensuremath{\mathfrak I}}
+
+% Makros für logische Operatoren
+\newcommand{\xor}{\ensuremath{\oplus}} % exklusives oder
+\newcommand{\impl}{\ensuremath{\rightarrow}} % logische Implikation
+
+% Meistens ist \varphi schöner als \phi, genauso bei \theta
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+
+% Aufzählungen anpassen (alternativ: \arabic, \alph)
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+% BITTE NICHT ÄNDERN: interne Kommandos für die Informationen (Blattnummer, Gruppe, ...)
+% PLEASE DO NOT EDIT THIS SECTION
+
+\newcommand{\printsheet}{?}
+\newcommand{\sheet}[1]{%
+\renewcommand{\printsheet}{#1}%
+}
+
+\newcommand{\printgroup}{?}
+\newcommand{\group}[1]{%
+\renewcommand{\printgroup}{#1}%
+}
+
+\newcommand{\printmembers}{}
+\newcommand{\printmember}[3]{{#2} {#3} & {#1} \\}
+
+\newcommand{\pdfmembers}{}
+\newcommand{\pdfmember}[3]{{#1} {#3}, {#2}; }
+
+\newcommand{\member}[3]{%
+\expandafter\renewcommand\expandafter\printmembers\expandafter{\printmembers\printmember{#1}{#2}{#3}}%
+\expandafter\renewcommand\expandafter\pdfmembers\expandafter{\pdfmembers\pdfmember{#1}{#2}{#3}}%
+}
+
+\AtBeginDocument{\hypersetup{
+    pdftitle = {Übungsblatt \printsheet},
+    pdfauthor = {Abgabegruppe \printgroup: \pdfmembers},
+    pdfsubject = {Mathematische Logik}
+}}
+
+% <-------- HIER alle Informationen eintragen ========================
+% enter your information here
+\sheet{03} % Nummer des Blatts / number of exercise sheet
+\group{55} % Gruppennummer der Abgabegruppe in Moodle / group number from Moodle
+% Die Gruppennummer erscheint NICHT auf dem Blatt (nur in den PDF-Metadaten).
+% The group number does NOT appear on the sheet (check the PDF meta data).
+
+% alle Gruppenmitglieder in der Form \member{Matrikelnummer}{Vorname}{Nachname}
+% group members are entered as \member{matriculation number}{first name}{last name}
+\member{405401}{Marc}{Ludevid}
+\member{405409}{Andrés}{Montoya}
+\member{405959}{Til}{Mohr}
+%\member{999999}{Viertes}{Mitglied}
+
+\begin{document}
+
+% Platz für die Punktetabelle und Kommentare
+\hfill
+\begin{Form}
+\begin{tabular}{c}
+\\
+Gesamtpunkte: \\[2mm]
+\TextField[name=points, width=20mm, align=1, bordercolor={0 0 0}]{} \\
+\\
+\end{tabular}
+\end{Form}
+
+% Kopfzeile
+{\raggedright
+\begin{tabular}{l}
+    MaLo \\
+    SS 2021 \\
+    \today{} \\
+\end{tabular}}
+\hfill
+{\Large Übungsblatt \printsheet}
+\hfill
+\begin{tabular}{l l}
+\printmembers
+\end{tabular}
+\hrule
+
+
+% <-------- HIER beginnt die Lösung ========================
+% your SOLUTION starts here
+
+\section*{Aufgabe 1}
+E-Test
+
+\section*{Aufgabe 2}
+\begin{enumerate}[label=(\alph*)]
+	\item 	Wir erhalten die Klauselmenge $\{\{A,D,E\},\{B,\neg D\},\{C\},\{\neg B,\neg D\}\}$ für die linke Seite und die Klauselmenge $\{\{A,E\},\{A,C\}\}$ für die rechte Seite.\\
+			
+			\textbf{UNSURE:}\\
+			Die Folgebeziehung gilt nun genau dann, wenn die Vereinigung beider Klauselmengen erfüllbar ist, also die leere Klausel $\square$ in in der Resolution vorhanden ist.
+			\\\dots
+	
+	\item	\begin{enumerate}[label={i$=$\arabic*:}, start=0]
+				\item	$\{\{\neg A, B, D\}, \{\neg B, \neg D\}, \{A\}, \{\neg E, D\}, \{C\}, \{C, \neg B\}, \{E\}\}$
+				\item	$\{\{B,D\}, \{\neg A,C,D\}, \{D\}\}$
+				\item	$\{\{\neg B\}\}$
+			\end{enumerate}
+			$\text{PRes}^*(K) = \text{PRes}_2(K)$. Da $\square \not\in \text{PRes}^*$ ist $K$ erfüllbar.
+\end{enumerate}
+
+
+
+\section*{Aufgabe 3}
+\begin{enumerate}[label=(\alph*)]
+	\item	\textbf{Ich glaube das ist doch eher die b)?}
+			
+			Eine Klauselmenge $K$ ist bekanntlich genau dann erfüllbar, wenn $\text{Res}^*(K)$ erfüllbar ist. Wenn nun PRes korrekt sein soll, dann muss $K$ genau dann erfüllbar sein, wenn $\text{PRes}^*(K)$ erfüllbar ist, insbesondere also auch, wenn $\text{Res}^*(K)$ erfüllbar ist.\\
+			Da PRes eine Spezialform von Res ist, können wir die Korrektheit von PRes daran zeigen, dass PRes nichts an der Erfüllbarkeit von Res ändert. Dazu beweisen wir, dass der Resolutionsschritt die Erfüllbarkeit beibehält:\\
+			
+			Sei $C$ eine Resolvente zweier Klauseln aus $K$.\\
+			Angenommen $C$ sei weder tautologisch, noch tut eine Klausel $C' \in K$ existieren mit $C' \subseteq C$. Dann ist $C$ sowohl in Res als auch in PRes. In diesem Fall wird die Erfüllbarkeit also beibehalten.\\
+			Angenommen $C$ sei tautologisch. Dann ist $C$ immer erfüllbar. In Resolutionsschritt von Res wird $C$ zwar Res hinzugefügt, jedoch ändert dies nicht die Erfüllbarkeit, da ja alle Klauseln in $K$ (bzw. ja auch Res) erfüllbar sein müssen. Also ändert das Weglassen einer solchen Klausel $C$ in PRes nicht die Erfüllbarkeit.\\
+			Angenommen es existiert ein $C' \in K$ mit $C' \subseteq C$. Wenn $K$ erfüllbar ist, ist $C'$ erfüllbar, und somit auch $C$ erfüllbar. In diesem Fall kann man $C'$ also weglassen. Wenn $K$ nicht erfüllbar ist und $C'$ erfüllbar ist, ist auch $C$ erfüllbar. Selbst wenn wir jedoch $C$ hinzufügen würden, dann wäre $K$ nicht erfüllbar. Genauso wenn $C'$ nicht erfüllbar ist.
+			
+			Also haben wir gezeigt, dass PRes die Erfüllbarkeit von $K$ beibehält.
+			
+	\item	
+\end{enumerate}
+
+
+
+
+
+\section*{Aufgabe 4}
+\begin{enumerate}[label=(\alph*)]
+	\item	
+			
+	\item	
+\end{enumerate}
+
+
+
+
+\section*{Aufgabe 5}
+\textbf{IDEE}\\
+Definiere $X_{A,i}$ für alle $A \in \text{Pot}(\mathbb{N}), i \in \mathbb{N}$. $\mathfrak{I}(X_{A,i})=1$ gdw. $i \in A$.\\
+
+Sei:
+$$\varphi_{A,B,i} \coloneqq X_{A,i} \land \neg X_{B,i} \land \bigwedge_{i \neq j \in \mathbb{N}} \left(\left(X_{A,j} \impl X_{B,j}\right) \land \left(X_{B,j \impl X_{A,j}}\right)\right)$$ für $A,B \in \text{Pot}(\mathbb{N}), A \neq B, i \in \mathbb{N}$.\\
+$\varphi_{A,B,i}$ ist genau dann wahr, wenn bis auf $i$ jedes $j$, welches in $A$ ist, auch in $B$ ist, und andersrum. Nur $i$ ist in $A$ und nicht in $B$.\\
+
+$$\Phi \coloneqq \{\bigvee_{i \in \mathbb{N}} \varphi_{A,B,i} \mid A,B \in \text{Pot}(\mathbb{N}), A \neq B\}$$
+
+\end{document}
