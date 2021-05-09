@@ -133,37 +133,84 @@ E-Test
 
 \section*{Aufgabe 2}
 \begin{enumerate}[label=(\alph*)]
-	\item 	Wir erhalten die Klauselmenge $\{\{A,D,E\},\{B,\neg D\},\{C\},\{\neg B,\neg D\}\}$ für die linke Seite und die Klauselmenge $\{\{A,E\},\{A,C\}\}$ für die rechte Seite.\\
-			
-			\textbf{UNSURE:}\\
-			Die Folgebeziehung gilt nun genau dann, wenn die Vereinigung beider Klauselmengen erfüllbar ist, also die leere Klausel $\square$ in in der Resolution vorhanden ist.
-			\\\dots
+	\item Um die gegebene Folgerungsbeziehung zu beweisen zeigen wir, dass $\{ A \lor E \lor D, (D	\rightarrow B) \land \neg (C \rightarrow (D \land B)), \neg (A \lor (E \land C)) \}$ unerfüllbar ist.
+
+		Dazu konstruieren wir zunächst eine geeignete Klauselmenge K:
+
+		$K = \{ \{ A \lor E \lor D \}, \{ D \rightarrow B \}, \{ \neg (C \rightarrow (D \land B))\}, \{ \neg (A \lor (E \land C))\}\}$
+
+		Dies kann durch mehereres Vereinfach auf folgende Klauselmenge vereinfacht werden:
+
+		$K = \{ \{ A \lor E \lor D \}, \{ \neg D \lor B \}, \{ C \}, \{ \neg D \lor \neg B \}, \{ \neg A \}, \{ \neg E \lor \neg C\} \}$
+
+		Nun wenden wir das Resulutionskalkül an und erhalten:
+
+		$\{ \{ E \lor D \}, \{ \neg D \}, \{ \neg E \} \}$ und durch erneutes anwenden:
+
+		$\{ \{ D \}, \{ \neg D \} \}$ und schliesslich:
+
+		$\{ \square \}$
+
+		Somit ist die Folgerungsbeziehung bewiesen.
 	
 	\item	\begin{enumerate}[label={i$=$\arabic*:}, start=0]
 				\item	$\{\{\neg A, B, D\}, \{\neg B, \neg D\}, \{A\}, \{\neg E, D\}, \{C\}, \{C, \neg B\}, \{E\}\}$
-				\item	$\{\{B,D\}, \{\neg A,C,D\}, \{D\}\}$
-				\item	$\{\{\neg B\}\}$
+				\item	$\{\{B,D\}, \{\neg A,C,D\}, \{\neg B, \neg E \}, \{D\}\}$
+				\item	$\{\{D,\neg E\}, \{\neg B\}\}$
+				\item	$\{\}$
 			\end{enumerate}
-			$\text{PRes}^*(K) = \text{PRes}_2(K)$. Da $\square \not\in \text{PRes}^*$ ist $K$ erfüllbar.
+			Da bei der dritten Iteration es keine Veränderung mehr gibt gilt: $\text{PRes}^*(K) = \text{PRes}_2(K)$. Da $\square \not\in \text{PRes}^*$ und der Algorithmus vollständig ist, ist $K$ erfüllbar.
 \end{enumerate}
 
 
 
 \section*{Aufgabe 3}
 \begin{enumerate}[label=(\alph*)]
-	\item	\textbf{Ich glaube das ist doch eher die b)?}
-			
-			Eine Klauselmenge $K$ ist bekanntlich genau dann erfüllbar, wenn $\text{Res}^*(K)$ erfüllbar ist. Wenn nun PRes korrekt sein soll, dann muss $K$ genau dann erfüllbar sein, wenn $\text{PRes}^*(K)$ erfüllbar ist, insbesondere also auch, wenn $\text{Res}^*(K)$ erfüllbar ist.\\
-			Da PRes eine Spezialform von Res ist, können wir die Korrektheit von PRes daran zeigen, dass PRes nichts an der Erfüllbarkeit von Res ändert. Dazu beweisen wir, dass der Resolutionsschritt die Erfüllbarkeit beibehält:\\
-			
-			Sei $C$ eine Resolvente zweier Klauseln aus $K$.\\
-			Angenommen $C$ sei weder tautologisch, noch tut eine Klausel $C' \in K$ existieren mit $C' \subseteq C$. Dann ist $C$ sowohl in Res als auch in PRes. In diesem Fall wird die Erfüllbarkeit also beibehalten.\\
-			Angenommen $C$ sei tautologisch. Dann ist $C$ immer erfüllbar. In Resolutionsschritt von Res wird $C$ zwar Res hinzugefügt, jedoch ändert dies nicht die Erfüllbarkeit, da ja alle Klauseln in $K$ (bzw. ja auch Res) erfüllbar sein müssen. Also ändert das Weglassen einer solchen Klausel $C$ in PRes nicht die Erfüllbarkeit.\\
-			Angenommen es existiert ein $C' \in K$ mit $C' \subseteq C$. Wenn $K$ erfüllbar ist, ist $C'$ erfüllbar, und somit auch $C$ erfüllbar. In diesem Fall kann man $C'$ also weglassen. Wenn $K$ nicht erfüllbar ist und $C'$ erfüllbar ist, ist auch $C$ erfüllbar. Selbst wenn wir jedoch $C$ hinzufügen würden, dann wäre $K$ nicht erfüllbar. Genauso wenn $C'$ nicht erfüllbar ist.
-			
-			Also haben wir gezeigt, dass PRes die Erfüllbarkeit von $K$ beibehält.
-			
-	\item	
+	\item z.z. bereinigte Resolutionskalkül ist korrekt, also für $K$ Klauselmenge, $C_1$ und $C_2$ aus $K$ und $C$ Resolvente aus $C_1$ und $C_2$	
+
+		Es gibt 2 Fälle:
+		\begin{itemize}
+			\item $C$ ist nicht tautologisch und es gibt keine Klausel $C'$ in $K$ sodass $C'$ eine Untermenge von $C$ ist:
+
+				Dieser Fall ist analog zum normalen Resoltionskalkül und somit gilt, dass $K \cup {C}$ equivalent zu $K$ ist.
+			\item Andernfalls:
+
+					In diesem Fall wird $C$ nicht zur Klauselmenge hinzugefügt und somit gilt trivialerweise, dass $K$ nach dem Resolutionsschritt equivalent zu $K$ vor dem Resoltuionsschritt ist
+
+		\end{itemize}
+
+		Wenn man durch wiederholtes Anwenden der Resolutionsregel eine Klauselmenge $K'$ erhält, welche die leere Menge enthält, dann ist $K$ unerfüllbar, da $K$ zu $K'$ equivalent ist.
+
+	\item z.z. bereinigtes Resultionskalkül ist vollständig.
+
+		Dazu zeigen wir, dass wenn leere Menge in $Res_k(K)$ ist, dann auch leere Menge in $PRes_k(K)$ ist. Da das normale Resolutionskalkül vollständig ist, muss dann auch das bereinigte Resolutionskalkül vollständig sein.
+
+		Dazu beweisen wir per Induktion, dass für alle $i$ gilt: Für alle Klauseln $C \in Res_i(K)$ gilt: Entweder ist $C$ tautologisch oder es gibt $C' \in PRes_i(K)$ sodass $C'$ eine Untermenge von $C$ ist.
+		Wenn für alle $i$ diese Aussage gilt, dann gilt offensichtlich auch, dass falls die leere Menge in $Res_k(K)$ ist, die leere Menge auch in $PRes_k(K)$ ist, da die leere Menge nicht tautologisch ist und somit es ein $C' \in PRes_k(K)$ geben muss dass eine Untermenge von der leeren Menge ist. Dies kann nur die leere Menge sein.
+
+		Induktionsanfang: $(i=0)$: $PRes_0(K) = Res_0(K)$ also gilt die Aussage trivialerweise
+
+		Induktionsschritt $(i \Rightarrow i+1)$:
+
+			Da für alle $C \in Res_i(K)$ gilt, dass diese entweder tautologisch sind oder es ein $C' \in PRes_i(K)$ gibt welches eine Untermenge von $C$ ist müssen wir die Aussage ausschliesslich für alle $C \in Res_{i+1}(K)\backslash Res_i(K)$ prüfen. Für alle diese $C$ gilt:
+
+			$C$ ist Resolvente aus $C_1, C_2 \in Res_i(K)$. Also sind jeweils $C_1$ und $C_2$ entweder tautologisch oder es exitieren entsprechende $C'_1, C'_2 \in PRes_i(K)$ sodass $C'_1$ eine Untermenge von $C_1$ ist und $C'_2$ eine Untermenge von $C_2$ ist.
+
+			Wir unterscheiden 2 Fälle:
+			\begin{itemize}
+				\item $C$ ist tautologisch, dann gilt die Aussage trivialerweise.
+				\item $C$ ist nicht tautologisch. Dafür kann man ebenfalls 4 Fälle unterscheiden:
+					\begin{itemize}
+						\item $C_1$ ist tautologisch, also $C_1$ ist Obermenge von $\{X, \bar{X}\}$ und $C_2$ nicht. Dann kann man entweder über $X$ resolvieren, wodurch das entstehende $C$ eine Obermenge von $C_2$ ist, dementsprechend gibt es in $PRes_{i+1}(K)$ eine Klausel, nämlich $C'_2$ die eine Untermenge von $C$ ist, oder man resolviert nicht über $X$, dann ist $C$ ebenfalls eine tautologische Klausel und die Aussage gilt ebenfalls.
+						\item $C_2$ ist tautlogisch und $C_1$ nicht. Analog zu Fall 1.
+						\item $C_1$ und $C_2$ sind tautologisch. Dann ist $C$ auch eine tautologische Klausel und die Aussage gilt.
+						\item Sowohl $C_1$ als auch $C_2$ sind nicht tautologisch. Dann gibt es in $PRes_i(K)$ Klauseln $C'_1$ und $C'_2$ welche beide jeweils Untermengen von $C_1$ und $C_2$ sind. Die Resolvente $C'$ aus $C'_1$ und $C'_2$ ist eine Untermenge von $C$, da jedes Literal in $C'$ entweder aus $C'_1$ oder $C'_2$ kommt, somit auch auf jeden Fall in $C_1$ oder $C_2$ vorhanden sind und folglich auch in $C$. Da $C$ nicht tautologisch ist, ist es $C'$ auch nicht. Wenn es eine Klausel $C'' \in PRes_i(K)$ gibt sodass $C''$ eine Untermenge von $C'$ ist, dann gibt es auch in $PRes_{i+1}(K)$ eine Klausel die eine Untermenge von $C$ ist, nämlich $C''$. Wenn es so ein $C''$ nicht gibt, dann wird $C' \in PRes_{i+1}(K)$ sein und somit gibt es ebenfalls eine Klausel die eine Untermenge von $C$ ist.
+					\end{itemize}
+			\end{itemize}
+
+			Somit ist per Induktion bewiesen, dass das bereinigte Resolutionskalkül vollständig ist.
+
+
 \end{enumerate}
 
 
@@ -172,7 +219,14 @@ E-Test
 
 \section*{Aufgabe 4}
 \begin{enumerate}[label=(\alph*)]
-	\item	
+	\item Für $\Phi$ endlich ist die Aussage trivial mit $\Phi_0 = \Phi$
+
+		Für $\Phi$ unendlich:
+
+		$\Phi$ abhängig ist nach definition genau dann der Fall wenn ein $\varphi \in \Phi$ existiert sodass gilt: $\Phi \backslash \{ \varphi \} \models \varphi$.
+		Wir können nun den Kompaktheitssatz anwenden und erhalten folgende equivalente Aussage: es ex. ein $\varphi \in \Phi$ und eine endl. Teilmenge $\Phi'_0$ von $\Phi \backslash \{ \varphi \}$ sodass gilt: $\Phi'_0 \models \varphi$.
+		Nun definieren wir $\Phi_0 = \Phi'_0 \cup \{\varphi \}$ und stellen fest dass $\Phi'_0 \models \varphi$ genau dann gilt wenn $\Phi_0$ abhängig ist.
+		Also ist $\Phi$ genau dann abhänig wenn es ein endliches $\Phi_0$ gibt dass ebenfalls abhänig ist.
 			
 	\item	
 \end{enumerate}
@@ -181,13 +235,18 @@ E-Test
 
 
 \section*{Aufgabe 5}
-\textbf{IDEE}\\
-Definiere $X_{A,i}$ für alle $A \in \text{Pot}(\mathbb{N}), i \in \mathbb{N}$. $\mathfrak{I}(X_{A,i})=1$ gdw. $i \in A$.\\
+Beweis per Kompaktheitssatz:
 
-Sei:
-$$\varphi_{A,B,i} \coloneqq X_{A,i} \land \neg X_{B,i} \land \bigwedge_{i \neq j \in \mathbb{N}} \left(\left(X_{A,j} \impl X_{B,j}\right) \land \left(X_{B,j \impl X_{A,j}}\right)\right)$$ für $A,B \in \text{Pot}(\mathbb{N}), A \neq B, i \in \mathbb{N}$.\\
-$\varphi_{A,B,i}$ ist genau dann wahr, wenn bis auf $i$ jedes $j$, welches in $A$ ist, auch in $B$ ist, und andersrum. Nur $i$ ist in $A$ und nicht in $B$.\\
+Sei $X_A$ für $A \in \mathcal{P}(\mathbb{N})$ genau dann $1$ wenn $A \in M$.
 
-$$\Phi \coloneqq \{\bigvee_{i \in \mathbb{N}} \varphi_{A,B,i} \mid A,B \in \text{Pot}(\mathbb{N}), A \neq B\}$$
+Damit die Bedingungen aus der Aufgabenstellung erfüllt sind muss für jedes $A \in \mathcal{P}(\mathbb{N})$ gelten, dass nach dem hinzufügen von einem $c \in \mathbb{N}$ und $c \not \in A$ gilt: $X_A = \neg X_{A \cup \{c\}}$
+
+Somit ist $\Phi = \{X_A = \neg X_{A \cup \{c\}}$ für alle $A \in \mathcal{P}(\mathbb{N})$ und für alle $c \in \mathbb{N}$ mit $c \not \in A\}$
+
+Sei $\Phi_0$ eine beliebige endliche Untermenge von $\Phi$. z.z.: $\Phi_0$ ist erfüllbar.
+
+Sei $\mathfrak{I}(X_A)$ genau dann $1$ wenn $|A|$ ungerade ist. $\mathfrak{I}$ erfüllt dann $\Phi_0$ da $||A| - |A \cup \{c\}|| = 1$ für alle $A$ und für alle $c \in \mathbb{N}$ mit $c \not \in A$. Deswegen ist $\mathfrak{I}(X_A) = 1 \oplus \mathfrak{I}(X_{A \cup \{c\}}) = 1$. Somit ist jede Aussagenlogische Formel in $\Phi_0$ trivialerweise erfüllt.
+
+Da jede endliche Teilmenge von $\Phi$ erfüllbar ist, ist $\Phi$ ebenfalls erfüllbar und somit ist es möglich alle Teilmengen der natürlichen Zahlen in zwei disjunkte Gruppen $M$ und $N$ zu teilen, sodass keine zwei benachbarten Mengen in der selben Gruppe sind.
 
 \end{document}
