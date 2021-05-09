@@ -133,30 +133,26 @@ E-Test
 
 \section*{Aufgabe 2}
 \begin{enumerate}[label=(\alph*)]
-	\item Um die gegebene Folgerungsbeziehung zu beweisen zeigen wir, dass $\{ A \lor E \lor D, (D	\rightarrow B) \land \neg (C \rightarrow (D \land B)), \neg (A \lor (E \land C)) \}$ unerfüllbar ist.
+	\item 	Um die gegebene Folgerungsbeziehung zu beweisen zeigen wir, dass $\{ A \lor E \lor D, (D	\rightarrow B) \land \neg (C \rightarrow (D \land B)), \neg (A \lor (E \land C)) \}$ unerfüllbar ist.
+	
+			Dazu konstruieren wir zunächst eine geeignete Klauselmenge $K$:
 
-		Dazu konstruieren wir zunächst eine geeignete Klauselmenge K:
+			$K = \{ \{ A, E, D \}, \{ \neg D, B \}, \{ C \}, \{ \neg D, \neg B \}, \{ \neg A \}, \{ \neg E, \neg C\} \}$
 
-		$K = \{ \{ A \lor E \lor D \}, \{ D \rightarrow B \}, \{ \neg (C \rightarrow (D \land B))\}, \{ \neg (A \lor (E \land C))\}\}$
+			Nun wenden wir das Resulutionskalkül an und erhalten:
 
-		Dies kann durch mehereres Vereinfach auf folgende Klauselmenge vereinfacht werden:
+			$\{ \{ E, D \}, \{ \neg D \}, \{ \neg E \} \}$ und durch erneutes anwenden:
 
-		$K = \{ \{ A \lor E \lor D \}, \{ \neg D \lor B \}, \{ C \}, \{ \neg D \lor \neg B \}, \{ \neg A \}, \{ \neg E \lor \neg C\} \}$
+			$\{ \{ D \}, \{ \neg D \} \}$ und schliesslich:
+		
+			$\{ \square \}$
 
-		Nun wenden wir das Resulutionskalkül an und erhalten:
-
-		$\{ \{ E \lor D \}, \{ \neg D \}, \{ \neg E \} \}$ und durch erneutes anwenden:
-
-		$\{ \{ D \}, \{ \neg D \} \}$ und schliesslich:
-
-		$\{ \square \}$
-
-		Somit ist die Folgerungsbeziehung bewiesen.
+			Somit ist die Folgerungsbeziehung bewiesen.
 	
 	\item	\begin{enumerate}[label={i$=$\arabic*:}, start=0]
 				\item	$\{\{\neg A, B, D\}, \{\neg B, \neg D\}, \{A\}, \{\neg E, D\}, \{C\}, \{C, \neg B\}, \{E\}\}$
 				\item	$\{\{B,D\}, \{\neg A,C,D\}, \{\neg B, \neg E \}, \{D\}\}$
-				\item	$\{\{D,\neg E\}, \{\neg B\}\}$
+				\item	$\{\{\neg B\}\}$
 				\item	$\{\}$
 			\end{enumerate}
 			Da bei der dritten Iteration es keine Veränderung mehr gibt gilt: $\text{PRes}^*(K) = \text{PRes}_2(K)$. Da $\square \not\in \text{PRes}^*$ und der Algorithmus vollständig ist, ist $K$ erfüllbar.
@@ -241,7 +237,7 @@ Sei $X_A$ für $A \in \mathcal{P}(\mathbb{N})$ genau dann $1$ wenn $A \in M$.
 
 Damit die Bedingungen aus der Aufgabenstellung erfüllt sind muss für jedes $A \in \mathcal{P}(\mathbb{N})$ gelten, dass nach dem hinzufügen von einem $c \in \mathbb{N}$ und $c \not \in A$ gilt: $X_A = \neg X_{A \cup \{c\}}$
 
-Somit ist $\Phi = \{X_A = \neg X_{A \cup \{c\}}$ für alle $A \in \mathcal{P}(\mathbb{N})$ und für alle $c \in \mathbb{N}$ mit $c \not \in A\}$
+Somit ist $\Phi = \{(X_A \land \neg X_{A \cup \{c\}}) \lor (\neg X_A \land X_{A \cup \{c\}}) \mid \text{ für alle } A \in \mathcal{P}(\mathbb{N}) \text{ und für alle } c \in \mathbb{N}$ mit $c \not \in A\}$
 
 Sei $\Phi_0$ eine beliebige endliche Untermenge von $\Phi$. z.z.: $\Phi_0$ ist erfüllbar.
 
