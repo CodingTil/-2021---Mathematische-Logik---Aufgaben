@@ -1,0 +1,289 @@
+\documentclass[a4paper,11pt]{article}
+
+% Layout
+\usepackage[a4paper, left=3cm, right=3cm, top=2cm, bottom=3cm]{geometry} % kleinere Ränder
+\usepackage{parskip}
+
+% Umlaute in der Datei erlauben, auf Deutsch umstellen
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[english, ngerman]{babel}
+%\usepackage[english]{babel} % for submissions in ENGLISH
+
+% Mathesymbole und Ähnliches
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{microtype}
+\usepackage{stmaryrd}
+\usepackage{enumitem}
+\usepackage{bussproofs}
+
+% Grafiken und PDFs einfügen
+\usepackage{graphicx}
+\usepackage{pdfpages}
+
+% PDF-Tools
+\usepackage[hidelinks, unicode]{hyperref}
+
+% Abbildungen
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc}
+
+% Reelle, Natürliche, Ganze, Rationale Zahlen
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+
+% Fraktur für Strukturen
+\newcommand{\A}{\ensuremath{\mathfrak A}}
+\newcommand{\B}{\ensuremath{\mathfrak B}}
+\newcommand{\I}{\ensuremath{\mathfrak I}}
+
+% Makros für logische Operatoren
+\newcommand{\xor}{\ensuremath{\oplus}} % exklusives oder
+\newcommand{\impl}{\ensuremath{\rightarrow}} % logische Implikation
+
+% Meistens ist \varphi schöner als \phi, genauso bei \theta
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+
+% Aufzählungen anpassen (alternativ: \arabic, \alph)
+\renewcommand{\labelenumi}{(\roman{enumi})}
+
+% BITTE NICHT ÄNDERN: interne Kommandos für die Informationen (Blattnummer, Gruppe, ...)
+% PLEASE DO NOT EDIT THIS SECTION
+
+\newcommand{\printsheet}{?}
+\newcommand{\sheet}[1]{%
+\renewcommand{\printsheet}{#1}%
+}
+
+\newcommand{\printgroup}{?}
+\newcommand{\group}[1]{%
+\renewcommand{\printgroup}{#1}%
+}
+
+\newcommand{\printmembers}{}
+\newcommand{\printmember}[3]{{#2} {#3} & {#1} \\}
+
+\newcommand{\pdfmembers}{}
+\newcommand{\pdfmember}[3]{{#1} {#3}, {#2}; }
+
+\newcommand{\member}[3]{%
+\expandafter\renewcommand\expandafter\printmembers\expandafter{\printmembers\printmember{#1}{#2}{#3}}%
+\expandafter\renewcommand\expandafter\pdfmembers\expandafter{\pdfmembers\pdfmember{#1}{#2}{#3}}%
+}
+
+\AtBeginDocument{\hypersetup{
+    pdftitle = {Übungsblatt \printsheet},
+    pdfauthor = {Abgabegruppe \printgroup: \pdfmembers},
+    pdfsubject = {Mathematische Logik}
+}}
+
+% <-------- HIER alle Informationen eintragen ========================
+% enter your information here
+\sheet{04} % Nummer des Blatts / number of exercise sheet
+\group{55} % Gruppennummer der Abgabegruppe in Moodle / group number from Moodle
+% Die Gruppennummer erscheint NICHT auf dem Blatt (nur in den PDF-Metadaten).
+% The group number does NOT appear on the sheet (check the PDF meta data).
+
+% alle Gruppenmitglieder in der Form \member{Matrikelnummer}{Vorname}{Nachname}
+% group members are entered as \member{matriculation number}{first name}{last name}
+\member{405401}{Marc}{Ludevid}
+\member{405409}{Andrés}{Montoya}
+\member{405959}{Til}{Mohr}
+%\member{999999}{Viertes}{Mitglied}
+
+\begin{document}
+
+% Platz für die Punktetabelle und Kommentare
+\hfill
+\begin{Form}
+\begin{tabular}{c}
+\\
+Gesamtpunkte: \\[2mm]
+\TextField[name=points, width=20mm, align=1, bordercolor={0 0 0}]{} \\
+\\
+\end{tabular}
+\end{Form}
+
+% Kopfzeile
+{\raggedright
+\begin{tabular}{l}
+    MaLo \\
+    SS 2021 \\
+    \today{} \\
+\end{tabular}}
+\hfill
+{\Large Übungsblatt \printsheet}
+\hfill
+\begin{tabular}{l l}
+\printmembers
+\end{tabular}
+\hrule
+
+
+% <-------- HIER beginnt die Lösung ========================
+% your SOLUTION starts here
+
+\section*{Aufgabe 1}
+E-Test
+
+\section*{Aufgabe 2}
+\begin{enumerate}[label=(\alph*)]
+	\item	Falls $\varphi_1$ unerfüllbar ist, dann muss $\varphi_1 \Rightarrow \emptyset$ gültig sein.
+			
+			\begin{prooftree}
+						\AxiomC{$X \lor Y \Rightarrow X, Y$}
+							
+							\RightLabel{$(*)$}
+							\AxiomC{$X, Z \Rightarrow Y$}
+							\AxiomC{$Y, Z \Rightarrow Y$}
+							
+						\LeftLabel{$(\lor \Rightarrow)$}
+						\BinaryInfC{$X \lor Y, Z \Rightarrow Y$}
+					
+					\LeftLabel{$(\rightarrow \Rightarrow)$}
+					\BinaryInfC{$X \lor Y, X \impl Z \Rightarrow Y$}
+					
+					\AxiomC{$X \lor Y, X \impl Z \Rightarrow \neg Z$}
+					
+				\LeftLabel{$(\Rightarrow \land)$}
+				\BinaryInfC{$X \lor Y, X \impl Z \Rightarrow Y \land \neg Z$}
+				
+				\LeftLabel{$(\neg \Rightarrow)$}
+				\UnaryInfC{$\neg (Y \land \neg Z), X \lor Y, X \impl Z \Rightarrow \emptyset$}
+				
+				\LeftLabel{$(\land \Rightarrow)$}
+				\UnaryInfC{$\neg (Y \land \neg Z), (X \lor Y) \land (X \impl Z) \Rightarrow \emptyset$}
+				
+				\LeftLabel{$(\land \Rightarrow)$}
+				\UnaryInfC{$\neg (Y \land \neg Z) \land ((X \lor Y) \land (X \impl Z)) \Rightarrow \emptyset$}
+			\end{prooftree}
+			
+			$(*)$ liefert uns jedoch die falsifizierende Interpretation $\mathfrak{I}: X,Z \mapsto 1, Y \mapsto 0$, die also ein Modell für $\varphi_1$ ist.
+	
+	\item	Falls $\varphi_2$ eine Tautologie ist, muss $\emptyset \Rightarrow \varphi_2$ gültig sein.
+	
+			\begin{prooftree}
+						\AxiomC{$C \Rightarrow C, A, B$}
+						
+						\AxiomC{$B \Rightarrow C, A, B$}					
+						
+					\LeftLabel{$(\lor \Rightarrow)$}
+					\BinaryInfC{$C \lor B \Rightarrow C, A, B$}					
+					
+					\LeftLabel{$(\Rightarrow \lor)$}
+					\UnaryInfC{$C \lor B \Rightarrow C, A \lor B$}
+					
+					\AxiomC{$C \lor B, C \Rightarrow C$}
+				
+				\LeftLabel{$(\rightarrow \Rightarrow)$}
+				\BinaryInfC{$(A \lor B) \impl C, C \lor B \Rightarrow C$}
+				
+				\LeftLabel{$(\neg \Rightarrow)$}
+				\UnaryInfC{$(A \lor B) \impl C, C \lor B, \neg C \Rightarrow C$}
+				
+				\LeftLabel{$(\Rightarrow \neg)$}
+				\UnaryInfC{$(A \lor B) \impl C, C \lor B \Rightarrow C, \neg\neg C$}
+				
+				\LeftLabel{$(\Rightarrow \lor)$}
+				\UnaryInfC{$(A \lor B) \impl C, C \lor B \Rightarrow C \lor \neg\neg C$}
+				
+				\LeftLabel{$(\land \Rightarrow)$}
+				\UnaryInfC{$((A \lor B) \impl C) \land (C \lor B) \Rightarrow C \lor \neg\neg C$}
+				
+				\LeftLabel{$(\Rightarrow \rightarrow)$}
+				\UnaryInfC{$\emptyset \Rightarrow (((A \lor B) \impl C) \land (C \lor B)) \impl (C \lor \neg\neg C)$}
+			\end{prooftree}
+			
+			Da alle Blätter Axiome sind, ist die Sequenz bewiesen und $\varphi_2$ also eine Tautologie.
+\end{enumerate}
+
+
+\newpage
+
+
+\section*{Aufgabe 3}
+\begin{enumerate}[label=(\alph*)]
+	\item	
+	\item	
+	
+			% Unsicher, wollte aber noch nicht löschen :)
+			%Wenn die erste Prämisse gültig ist, dann muss $\Gamma, \neg \psi, \neg \vartheta \Rightarrow \Delta$ auch gültig sein, denn es kann kein Modell der linken Seite geben, die $\psi$ oder $\vartheta$ erfüllt. Folglich muss auch $\Gamma \Rightarrow \Delta$ gültig sein, oder $\Gamma, \neg \psi, \neg \vartheta$ hat kein Modell.\\
+			%Angenommen $\Gamma \Rightarrow \Delta$ ist gültig und die zweite Prämisse auch. Dann ist die Konklusion offensichtlich auch gültig.\\
+			%Angenommen $\Gamme \Rightarrow \Delta$ ist nicht gültig, aber die zweite Prämisse wohl. Dann ist $\Gamma, \varphi \Rightarrow \psi$ oder $\Gamma, \varphi \Rightarrow \vartheta$ gültig. Gilt ersteres, dann ist die Konklusion gültig .....
+			%Die Schlussregel ist also korrekt.
+\end{enumerate}
+
+\newpage
+
+
+\section*{Aufgabe 4}
+\begin{enumerate}[label=(\alph*)]
+	\item	\begin{prooftree}
+			\AxiomC{$\Gamma \Rightarrow \Delta, \varphi, \psi$}
+			\AxiomC{$\Gamma, \varphi, \psi \Rightarrow \Delta$}
+			
+			\LeftLabel{$(\leftrightarrow \Rightarrow)$}
+			\BinaryInfC{$\Gamma, \varphi \leftrightarrow \psi \Rightarrow \Delta$}
+			\end{prooftree}
+			
+			
+			\begin{prooftree}
+			\AxiomC{$\Gamma, \varphi \Rightarrow \Delta, \psi$}
+			\AxiomC{$\Gamma, \psi \Rightarrow \Delta, \varphi$}
+			
+			\LeftLabel{$(\Rightarrow \leftrightarrow)$}
+			\BinaryInfC{$\Gamma \Rightarrow \Delta, \varphi \leftrightarrow \psi$}
+			\end{prooftree}
+	\item	\begin{enumerate}[label=(\roman*)]
+				\item	Sei $\Gamma = \emptyset = \Delta, \psi = x, \vartheta = \neg x$. Die Prämisse $x, \neg x \Rightarrow \emptyset$ ist offensichtlich gültig, da die linke Seite unerfüllbar ist. Die Konklusion ist jedoch ungültig, da $x \lor \neg x$ erfüllbar ist.\\
+						Somit ist $(\lor \Rightarrow)'$ nicht korrekt.
+						
+				\item	Fall 1: Sei $\Gamma \Rightarrow \Delta$ gültig. Dann sind offensichtlich beide Prämissen und die Konklusion gültig.\\
+						Fall 2: Sei $\Gamma \Rightarrow \Delta$ nicht gültig. Damit die Prämissen gültig sind, muss $\Gamma \Rightarrow \psi$ und $\Gamma \Rightarrow \vartheta$ gelten. Dann ist ja auch $\Gamma \Rightarrow \psi \lor \vartheta$ gültig.\\
+						Damit ist $(\Rightarrow \lor)'$ korrekt.\\
+						
+						
+						Das erweiterte Sequenzenkalkül ist jedoch nicht korrekt.\\
+						Sei $\Gamma = \{x\}, \Delta = \emptyset, \psi = x, \vartheta = \neg x$.
+						Dann ist $\Gamma \Rightarrow \Delta, \psi \lor \vartheta$ nach dem unveränderten Sequenzenkalkül offensichtlich gültig:
+						\begin{prooftree}
+							\AxiomC{$x \Rightarrow x, \neg x$}
+							
+							\LeftLabel{$(\Rightarrow \lor)$}
+							\UnaryInfC{$x \Rightarrow x \lor \neg x$}
+						\end{prooftree}
+						
+						Unter Verwendung von $(\Rightarrow \lor)'$ erhalten wir jedoch eine falsifizierende Interpretation $\mathfrak{I}$:
+						\begin{prooftree}
+								\AxiomC{$x \Rightarrow x$}
+										
+									\AxiomC{$x \Rightarrow \emptyset$}										
+										
+								\LeftLabel{$(\Rightarrow \neg)$}
+								\UnaryInfC{$x \Rightarrow \neg x$}
+							
+							\LeftLabel{$(\Rightarrow \lor)'$}
+							\BinaryInfC{$x \Rightarrow x \lor \neg x$}
+						\end{prooftree}
+						$\mathfrak{I}: x \mapsto 1$
+						
+						Da wir nun aus einer gültigen Sequenz Ungültigkeit ableiten können, ist das erweiterte Sequenzenkalkül nicht korrekt.
+						
+				\item	Es ist plausibel, dass $\mathfrak{I}_1, \mathfrak{I}_2$ keine falsifizierende Interpretationen sind, da, wie gesagt, der erweiterte Sequenzenkalkül nicht korrekt ist. Es gibt also Sequenzen, die gültig sind, jedoch nicht als gültig abgeleitet werden.\\
+						Damit beide Interpretationen falsifizierend sind, müsste der erweiterte Sequenzenkalkül korrekt sein.
+			\end{enumerate}
+\end{enumerate}
+
+
+\newpage
+
+
+\section*{Aufgabe 5}
+
+\end{document}
