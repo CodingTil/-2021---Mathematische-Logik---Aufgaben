@@ -248,6 +248,10 @@ E-Test
 						Fall 2: Sei $\Gamma \Rightarrow \Delta$ nicht gültig. Damit die Prämissen gültig sind, muss $\Gamma \Rightarrow \psi$ und $\Gamma \Rightarrow \vartheta$ gelten. Dann ist ja auch $\Gamma \Rightarrow \psi \lor \vartheta$ gültig.\\
 						Damit ist $(\Rightarrow \lor)'$ korrekt.\\
 						
+						Damit ist der Sequenzenkalkül immer noch korrekt, wenn wir die Benutzung der Schlussregel $(\Rightarrow \lor)'$ erlauben, denn, angenommen es wäre nicht korrekt, würden wir auf einen Widerspruch laufen:\\
+						Sei der Sequenzenkalkül also nicht korrekt. Dann gibt es eine nicht-gültige Sequenz, die trotzdem als gültig abgeleitet werden kann. Dann sind die Prämissen von $(\Rightarrow \lor)'$ gültig. Da aber $(\Rightarrow \lor)'$ korrekt ist, muss auch die Konklusion gültig sein. Dies führt zu einem Widerspruch.
+						
+				\item	Es ist plausibel, dass $\mathfrak{I}_1, \mathfrak{I}_2$ keine falsifizierende Interpretationen sind, da der erweiterte Sequenzenkalkül nicht vollständig ist. Es gibt also Sequenzen, die gültig sind, jedoch nicht als gültig abgeleitet werden:\\
 						
 						Das erweiterte Sequenzenkalkül ist jedoch nicht korrekt.\\
 						Sei $\Gamma = \{x\}, \Delta = \emptyset, \psi = x, \vartheta = \neg x$.
@@ -273,10 +277,10 @@ E-Test
 						\end{prooftree}
 						$\mathfrak{I}: x \mapsto 1$
 						
-						Da wir nun aus einer gültigen Sequenz Ungültigkeit ableiten können, ist das erweiterte Sequenzenkalkül nicht korrekt.
+						Da wir nun aus einer gültigen Sequenz Ungültigkeit ableiten können, ist das erweiterte Sequenzenkalkül nicht vollständig.
 						
-				\item	Es ist plausibel, dass $\mathfrak{I}_1, \mathfrak{I}_2$ keine falsifizierende Interpretationen sind, da, wie gesagt, der erweiterte Sequenzenkalkül nicht korrekt ist. Es gibt also Sequenzen, die gültig sind, jedoch nicht als gültig abgeleitet werden.\\
-						Damit beide Interpretationen falsifizierend sind, müsste der erweiterte Sequenzenkalkül korrekt sein.
+						
+						Damit beide Interpretationen falsifizierend sind, müsste der erweiterte Sequenzenkalkül vollständig sein.
 			\end{enumerate}
 \end{enumerate}
 
