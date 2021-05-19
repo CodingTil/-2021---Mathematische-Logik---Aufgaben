@@ -289,5 +289,22 @@ E-Test
 
 
 \section*{Aufgabe 5}
+Sei der Baum $T$ folgendermassen definiert:
+
+Jeder Knoten im Baum ist eine Fliesenverlegung $f: (\{0,...,n\}, \{0,...,n\}) \rightarrow \{0,...,m\}$ wobei $n$ der Tiefe der Tiefe des Knotens im Baum entspricht. Für die Wurzel gilt also $f_w: (\{\}, \{\}) \rightarrow \{0,...,m\}$, was die eindeutige Fliesenverlegung für einen Raum der Grösse $0 \times 0$ ist.
+
+Für jeden Knoten mit der Fliesenverlegung $f$ und einer Tiefe $n$ bilden wir die möglichen Kinderknoten $f'$ folgendermassen:
+
+$f': (\{0,...,n,n+1\}, \{0,...,n,n+1\}) \rightarrow \{0,...,m\}$ wobei gelten muss $f'(x,y) = f(x,y)$ für alle $0 \leq x,y \leq n$.
+
+Jeder Kinderknoten ist also eine Erweiterung der Fliesenverlegung auf eine Reihe und eine Spalte mehr.
+
+Für die restlichen $f'(x,y)$ für $x = n+1$ oder $y = n+1$ muss sichergestellt werden, dass die Fliesenverlegungsregeln eingehalten werden. Für $f'(x,y)$ und $0 \leq x,y \leq n$ gelten die Fliesenverlegungsregeln bereits wegen dem induktiven Aufbau des Baums.
+
+Da nicht sichergestellt ist das es so eine Fliesenverlegung $f'$ existiert kann es Knoten geben die keine Kinder haben und somit ein Blatt sind.
+
+Um das Lemma von König anwenden zu können müssen wir noch zeigen, dass alle Knoten endliche Unterknoten haben. Das ist natürlich offensichtlich da jeder Knoten der Tiefe $i$ höchstens $m^{2i + 1}$ Kinderknoten haben kann.
+
+Also können wir das Lemmma von König anwenden. Wenn es also für $m$ verschiedene Fliesen möglich ist für jedes beliebiges $n$ eine Fliesenverlegung $f$ zu finden, dann gibt es im Baum $T$ ebenfalls diese Fliesenverlegung $f$. Aufgrund der Konstruktion hat $f$ die Tiefe $n$ und somit gibt es in $T$ für jedes beliebige $n$ einen Weg $(f_0, f_1, ..., f_n)$ der Länge $n$. Das Lemma von König folgert nun, dass es somit auch einen unendlichen Weg $(f_0, f_1, ...)$ in $T$ gibt. Dauraus folgt, dass es eine Fliesenverlegung $f: (\mathbb{N},\mathbb{N}) \rightarrow \{0,...,m\}$ gibt indem man $f(x,y) = f_{max\{x,y\}}(x,y)$ nutzt.
 
 \end{document}
