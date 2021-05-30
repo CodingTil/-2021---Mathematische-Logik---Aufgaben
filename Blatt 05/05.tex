@@ -139,12 +139,12 @@ E-Test
 			
 						Die kleinste Substruktur, dessen Universum $\mathbb{N}$ enthält, ist $\mathfrak{B}' \coloneqq (\mathbb{Z}, +, -, \cdot)$:\\
 						Es gilt offensichtlich $\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{R}$ und für alle $a,b \in \mathbb{Z}$ gilt nun auch $a+b, a-b, a \cdot b \in \mathbb{Z}$. Also sind die hier vorkommenden Funktionen $+,-,\cdot$ alle Restriktionen auf $\mathbb{Z}$ und abgeschlossen. Damit ist $\mathfrak{B}'$ eine Substruktur von $\mathfrak{R}$.\\
-						$\mathfrak{B}'$ ist auch die kleinste Substruktur, dessen Universum $\mathbb{N}$ enthält : Würde man ein Element $c,0 \in \mathbb{Z}, c \not\in \mathbb{N}$, also folglich $0-c \in \mathbb{N}$, aus dem Universum entfernen, so wäre $0 - (0-c)$ nicht im Universum, weshalb man auch $0-c$ entfernen müsste, da die Struktur sonst nicht $\{-\}$-abgeschlossen ist. Dann würde das Universum dieser Struktur jedoch nicht mehr $\mathbb{N}$ enthalten!
+						$\mathfrak{B}'$ ist auch die kleinste Substruktur, dessen Universum $\mathbb{N}$ enthält: Würde man ein Element $c,0 \in \mathbb{Z}, c \not\in \mathbb{N}$, also folglich $0-c \in \mathbb{N}$, aus dem Universum entfernen, so wäre $0 - (0-c)$ nicht im Universum, weshalb man auch $0-c$ entfernen müsste, da die Struktur sonst nicht $\{-\}$-abgeschlossen ist. Dann würde das Universum dieser Struktur jedoch nicht mehr $\mathbb{N}$ enthalten!
 				
 				\item	$\mathfrak{B} \coloneqq (2\mathbb{Z}, +, - , \cdot) \subseteq \mathfrak{R}$
 						\begin{itemize}
 							\item 	$2\mathbb{Z} \subseteq \mathbb{R}$ ist offensichtlich
-							\item	Für alle $a,b \in 2\mathbb{Z}$ gilt offensichtlich $a+b, a-b, a \cdot b \in 2\mathbb{Z}$. Damit sind $+,-,\cdot$ Restriktionen auf $2\mathbb{Z}$ und $\mathfrak{B}$ ist $\{+,-,\cdot\}$-abgeschlossen.
+							\item	Für alle $a,b \in 2\mathbb{Z}$ gilt offensichtlich $a+b, a-b, a \cdot b \in 2\mathbb{Z}$. $\cdot$ ist eine wohldefinierte Funktion weil die Multiplikation zweier gerader Zahlen immer ein vielfaches von $4$ ist und somit ebenfalls eine gerade Zahl ergibt. Damit sind $+,-,\cdot$ Restriktionen auf $2\mathbb{Z}$ und $\mathfrak{B}$ ist $\{+,-,\cdot\}$-abgeschlossen.
 						\end{itemize}
 			\end{enumerate}
 						
@@ -175,7 +175,7 @@ E-Test
 				\item	$\mathfrak{C} \coloneqq (B, \cup, \cap, \overline{\phantom{A}}) \nsubseteq \mathfrak{B}$\\
 						$\mathfrak{C}$ ist nicht $\{\cap\}$-abgeschlossen, da $2\mathbb{N}, 2\mathbb{N}+1 \in B$, aber $2\mathbb{N} \cap 2\mathbb{N}+1 = \emptyset \not\in B$.\\
 						
-						Da jede Substruktur von $\mathfrak{B}$ $\{\cap\}$-abgeschlossen sein soll und $B$ für jedes gerade $n \in \mathbb{N}$ die Menge ${2\mathbb{N} + 1}_{n} \coloneqq 2\mathbb{N} \cup \{n\}$ bzw. für jedes ungerade $m \in \mathbb{N}$ die Menge ${2\mathbb{N}}_{m} \coloneqq 2\mathbb{N} \cup \{m\}$ besitzt, muss jede Substruktur die einelementigen Mengen $\{n\} = {2\mathbb{N} + 1}_{n} \cap 2\mathbb{N}+1$ bzw. $\{m\} = {2\mathbb{N}}_{m} \cap 2\mathbb{N}$ besitzen.\\
+						Da jede Substruktur von $\mathfrak{B}$ $\{\cap\}$-abgeschlossen sein soll und $B$ für jedes gerade $n \in \mathbb{N}$ die Menge ${2\mathbb{N} + 1}_{n} \coloneqq 2\mathbb{N}+1 \cup \{n\}$ bzw. für jedes ungerade $m \in \mathbb{N}$ die Menge ${2\mathbb{N}}_{m} \coloneqq 2\mathbb{N} \cup \{m\}$ besitzt, muss jede Substruktur die einelementigen Mengen $\{n\} = {2\mathbb{N} + 1}_{n} \cap 2\mathbb{N}+1$ bzw. $\{m\} = {2\mathbb{N}}_{m} \cap 2\mathbb{N}$ besitzen.\\
 						Rest: analog zu \ref{marker}\\
 						Folglich ist die kleinste Substruktur, die $B$ enthält, $\mathfrak{B}$ selber.
 			\end{enumerate}
@@ -197,7 +197,7 @@ E-Test
 			\end{enumerate}
 	
 	\item	\textit{Es gibt einen Pfad von der Wurzel ausgehend der Länge $n$.}\\
-			Im Beispielbaum gilt dieser Satz nur für $0 \leq n \leq 2, n \in \mathbb{N}$, also nur für $n \in \{1,2\}$.
+			Im Beispielbaum gilt dieser Satz nur für $0 < n \leq 2, n \in \mathbb{N}$, also nur für $n \in \{1,2\}$.
 	
 	\item	$$\varphi(x) \coloneqq \forall y (\neg Eyx)$$
 \end{enumerate}
@@ -209,17 +209,22 @@ E-Test
 \section*{Aufgabe 4}
 \begin{enumerate}[label=(\alph*)]
 	\item	\begin{enumerate}[label=(\roman*)]
-				\item	$$\psi_1(x) \coloneqq \forall y (x \circ y = y)$$
-				\item	$$\psi_2(x) \coloneqq \forall y ((x \simeq y) \impl (x = y))$$
+				\item	$$\psi_1(x) \coloneqq \forall y (x \circ y = y)$$ Die Konkatenation des Wortes $x$ mit einem beliebigen Wort $y$ ergibt genau dann $y$, wenn $x$ das leere Wort ist.
+				\item	$$\psi_2(x) \coloneqq \forall y ((x \simeq y) \impl (x = y))$$ Es gilt nur für $x = \epsilon$, dass jedes Wort derselben Länge dann auch $\epsilon$ sein muss. Für $x=1$ z.B. kann $y=0$ sein und dann gilt die Aussage schon nichtmehr.
 			\end{enumerate}
 	
-	\item	$$\psi_3(x,y) \coloneqq \exists z (x \circ z = y)$$
+	\item	$$\psi_3(x,y) \coloneqq \exists z (x \circ z = y)$$ $x$ ist genau dann ein Präfix von $y$, wenn es sein Subwort $z$ von $y$ gibt, sodass $x \circ z = y$.
 	\item	Hilffunktion $f_1(x) \coloneqq \exists x_1 \exists x_2 (x_1 \neq x_2 \land x_1 \simeq x \land x_2 \simeq x \land \forall y_1 ((y \simeq x) \impl (y = x_1 \lor y=x_2))$ besagt, dass $x \in \Sigma$.
-			
-			$$\psi_4(x) \coloneqq ???$$
-	\item	$${\psi_5}_n(x) \coloneqq \exists x_1 \dots \exists x_n ((x_1 \circ \dots \circ x_n = x) \impl (\bigwedge_{i=1}^{n} (f_1(x_i) \lor \psi_1(x_i))))$$
 	
-	\item	$$\psi_6(x) \coloneqq ???$$
+			$$\psi_4(x) \coloneqq f_1(x) \lor (\exists x_1 \exists x_2 \exists x' (f_1(x_1) \land f_1(x_2) \land x_1 \circ x_2 \circ x' = x \land \psi_4(x')))$$
+			Entweder ist $x$ die Länge eins (also ungerade), oder wir können rekursiv immer 2 Zeichen von $x$ entfernen, sodass die Funktion erfüllt ist.
+	\item	$${\psi_5}_n(x) \coloneqq \exists x' \exists x_1 \dots \exists x_n ((x' \circ x_1 \circ \dots \circ x_n = x) \impl ((\bigwedge_{i=1}^{n} (f_1(x_i) \lor \psi_1(x_i))) \land \psi_1(x')))$$
+			Es existieren $n$ Zeichen der Länge maximal 1, die mit Konkatenation zusammen $x$ ergeben. $x'$ dient für den Fall, dass $n=0$.
+	\item	\begin{align*}
+				\psi_6(x) \coloneqq &(\exists x_1 \dots \exists x_5 (f_1(x_1) \land \dots \land f_1(x_5) \land x_1 \circ \dots \circ x_5 = x)) \\
+				&\lor (\exists x_1 \dots \exists x_7 \exists x' (f_1(x_1) \land \dots \land f_1(x_7) \land x_1 \circ \dots \circ x_7 \circ x' = x \land \psi_6(x')))
+			\end{align*}
+			Entweder ist $x$ die Länge 5, oder wir können rekursiv immer 7 Zeichen von $x$ entfernen, sodass die Funktion erfüllt ist.
 \end{enumerate}
 
 
