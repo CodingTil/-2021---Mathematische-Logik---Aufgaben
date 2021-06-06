@@ -142,8 +142,8 @@ E-Test
 			\end{align*}
 	\item	\begin{align*}
 				\theta_1	&\coloneqq (\neg \exists x Pffx \lor \forall x (Qx \land Rxy)) \land x < y \land Rcz \\
-							&\coloneqq (\forall a (\neg Pffa) \lor \forall b (Qb \land Rby)) \land x < y \land Rcz  \\
-							&\coloneqq \forall a \forall b (((\neg Pffa) \lor (Qb \land Rby)) \land x < y \land Rcz)  \\
+							&\equiv (\forall a (\neg Pffa) \lor \forall b (Qb \land Rby)) \land x < y \land Rcz  \\
+							&\equiv \forall a \forall b (((\neg Pffa) \lor (Qb \land Rby)) \land x < y \land Rcz)  \\
 			\end{align*}
 \end{enumerate}
 
@@ -177,10 +177,8 @@ E-Test
 				\item	\begin{align*}
 							\Phi_{ii} \coloneqq \{	& \forall x (x < x), 	& \text{reflexiv} \\
 													& \forall x \forall y ((x < y \land y < x) \impl x = y), 	& \text{asymmetrie} \\
-													& \forall x \forall y \forall z ((x < y \land y < z) \impl x < z) 	& \text{transitiv} \\
-													& \dots \}
+													& \forall x \forall y \forall z ((x < y \land y < z) \impl x < z)\} 	& \text{transitiv}
 						\end{align*}
-						Da fehlt noch was!
 				\item	\begin{align*}
 							\Phi_{iii} \coloneqq \{	& \forall x \forall y (f(x) = f(y) \impl x = y),	& \text{injektiv} \\
 													& \forall x \exists y (y = f(x) \land Oy), 	& f(U) \subseteq O \\
@@ -196,7 +194,7 @@ E-Test
 						\end{align*}
 			\end{enumerate}
 	\item	$\mathfrak{A} = (\mathbb{N}, f, \mathbb{N}\setminus \{0\}, 0)$ mit $f: \mathbb{N} \rightarrow \mathbb{N}\setminus \{0\}, x \mapsto x + 1$.\\
-			Jedes Modell muss unendlich sein, da $s \not\in O = f(U)$. Demnach ist $U \geq O + 1$. Dies ist nur erfüllt, wenn sowohl $U$ als auch $O$ unendlich sein.
+			Jedes Modell muss unendlich sein, da $s \not\in O = f(U)$. Demnach ist $\vert U \vert \geq \vert O \vert + 1$. Dies ist nur erfüllt, wenn sowohl $U$ als auch $O$ unendlich sein.
 	\item	Bauch sagt ja.
 \end{enumerate}
 
