@@ -195,7 +195,8 @@ E-Test
 			\end{enumerate}
 	\item	$\mathfrak{A} = (\mathbb{N}, f, \mathbb{N}\setminus \{0\}, 0)$ mit $f: \mathbb{N} \rightarrow \mathbb{N}\setminus \{0\}, x \mapsto x + 1$.\\
 			Jedes Modell muss unendlich sein, da $s \not\in O = f(U)$. Demnach ist $\vert U \vert \geq \vert O \vert + 1$. Dies ist nur erfüllt, wenn sowohl $U$ als auch $O$ unendlich sein.
-	\item	Bauch sagt ja.
+		\item	$\phi_n := \forall x_1 \dots \forall x_n (\neg Exx_1 \land (\bigwedge_{1\leq i < n} Ex_ix_{i+1} \land Ex_ny))$ gibt an ob für beliebige Knoten $x$ und $y$ gilt, dass $y$ durch $n+1$ Schritte von $x$ erreichbar ist.\\
+			$\Phi_c = \{ \forall x \forall y (Exy \rightarrow Eyx) \} \cup \{ \exists x \exists y (\phi_n) : n \in \mathbb{N} \}$ ist somit das Axiomensystem für $K$.
 \end{enumerate}
 
 
@@ -206,7 +207,8 @@ E-Test
 \begin{enumerate}[label=(\alph*)]
 	\item	Sei $\varphi = x \lor y$, $\psi = \neg x \lor y$ und $\Phi = \{y\}$. Dann ist offensichtlich $\varphi \not\equiv \psi$, jedoch gilt $\Phi \models \varphi \leftrightarrow \psi$.
 	\item	
-	\item	
+	\item	Für $(\mathbb{N}, >, 0)$ sei $\varphi = 0 > x \lor y = 0$.\\
+		$\forall x \varphi \equiv \forall y \varphi$ gilt offensichtlich, denn in beiden Fällen gibt es Werte für die $\varphi$ nicht gilt und somit sind beide Aussagen falsch und äquivalent. $\exists x \varphi \equiv \exists y \varphi$ gilt hingegen nicht, denn $y=0$ erfüllt die rechte Seite, doch die linke ist immer noch unerfüllbar.
 \end{enumerate}
 
 
