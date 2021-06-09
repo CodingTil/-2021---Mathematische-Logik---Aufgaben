@@ -134,9 +134,29 @@ E-Test
 
 \section*{Aufgabe 2}
 \begin{enumerate}[label=(\alph*)]
-	\item	
-	\item	
-	\item	
+	\item	\begin{align*}
+				W_0 &= \{6,7,8,9\} \\
+				W_1 &= \{0,1,2,3,4,5\}
+			\end{align*}
+			\begin{center}
+			\begin{tabular}{c|c|c}
+				Position	& Spieler $0$	& Spieler $1$	\\
+				\hline
+				0 & - & 0 \\
+				1 & - & 1 \\
+				2 & - & 2 \\
+				3 & - & 4 \\
+				4 & - & 3 \\
+				5 & - & 0 \\
+				6 & $\infty$ & - \\
+				7 & 1 & - \\
+				8 & $\infty$ & - \\
+				9 & 0 & - \\
+			\end{tabular}
+			\end{center}
+	\item	$\mathcal{G}$ ist nicht fundiert, da es unendliche Partien gibt (z.B. $(6,8,6,8,\dots)$).\\
+			$\mathcal{G}$ ist determiniert, $W_0 \cup W_1 = V$
+	\item	Wenn Spieler $1$ vorher die Position $9$ entfernt, hat nun Spieler $1$ eine Gewinnstrategie für jede Position und Spieler $0$ hat keine mehr. Sprich, Spieler $1$ gewinnt dann immer.
 \end{enumerate}
 
 
@@ -145,7 +165,18 @@ E-Test
 
 \section*{Aufgabe 3}
 \begin{enumerate}[label=(\alph*)]
-	\item	
+	\item	\begin{enumerate}
+				\item[{$v_s \coloneqq 2$}]	\begin{align*}
+												f_0: 1 \mapsto 0, 3 \mapsto 2, 6 \mapsto 8, 7 \mapsto 9 \\
+												f_1: 2 \mapsto 1, 4 \mapsto 2, 8 \mapsto 6
+											\end{align*}
+											Spieler $1$ gewinnt.
+				\item[{$v_s \coloneqq 2$}]	\begin{align*}
+												f_0: 1 \mapsto 0, 3 \mapsto 2, 6 \mapsto 8, 7 \mapsto 9 \\
+												f_1: 2 \mapsto 1, 4 \mapsto 2, 8 \mapsto 6
+											\end{align*}
+											Unentschieden. Spieler $0$ muss zu $8$ gehen, da sonst verloren. Spieler $8$ muss zurück zu $6$ gehen, da sonst verloren (Spieler $0$ kann sonst von $7$ zu $9$).
+			\end{enumerate}
 	\item	
 \end{enumerate}
 
