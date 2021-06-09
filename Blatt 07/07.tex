@@ -135,7 +135,7 @@ E-Test
 \section*{Aufgabe 2}
 \begin{enumerate}[label=(\alph*)]
 	\item	\begin{align*}
-				W_0 &= \{6,7,8,9\} \\
+				W_0 &= \{7,9\} \\
 				W_1 &= \{0,1,2,3,4,5\}
 			\end{align*}
 			\begin{center}
@@ -148,15 +148,15 @@ E-Test
 				3 & - & 4 \\
 				4 & - & 3 \\
 				5 & - & 0 \\
-				6 & $\infty$ & - \\
+				6 & - & - \\
 				7 & 1 & - \\
-				8 & $\infty$ & - \\
+				8 & - & - \\
 				9 & 0 & - \\
 			\end{tabular}
 			\end{center}
-	\item	$\mathcal{G}$ ist nicht fundiert, da es unendliche Partien gibt (z.B. $(6,8,6,8,\dots)$).\\
-			$\mathcal{G}$ ist determiniert, $W_0 \cup W_1 = V$
-	\item	Wenn Spieler $1$ vorher die Position $9$ entfernt, hat nun Spieler $1$ eine Gewinnstrategie für jede Position und Spieler $0$ hat keine mehr. Sprich, Spieler $1$ gewinnt dann immer.
+	\item $\mathcal{G}$ ist nicht fundiert weil es im Graphen einen Zykel gibt (Knoten 6 und 8).\\
+		$\mathcal{G}$ ist ebenfalls nicht determiniert weil der Knoten 6 in keiner Gewinnregion ist und die Vereinigungsmenge von den Gewinnregionen nicht alle Knoten enthält. Dass Knoten 6 in keiner Gewinnregion ist liegt daran, dass im Knoten 6 Spieler 0 nach Knoten 8 gehen würde. Dort würde jedoch Spieler 1 wieder nach 6 zurückwollen, da Knoten 7 in der Gewinnregion von Spieler 0 liegt.
+	\item Spieler 0 wird einen der Knoten aus seiner Gewinnmenge wählen wollen. Somit muss Spieler 1 versuchen diese zu leeren. Wenn Spieler 1 nicht den Knoten 9 entfernt, dann wählt Spieler 0 Knoten 9 und hat somit direkt gewonnen. Also muss Spieler 1 Knoten 9 entfernen. Danmit ist auch Knoten 7 kein Knoten der Gewinnmenge mehr, denn da Knoten 9 nicht mehr zur Verfügung steht muss in diesem Knoten Spieler 0 die Kante nach Knoten 5 wählen welches ein Siegesknoten von Spieler 1 ist.
 \end{enumerate}
 
 
@@ -177,7 +177,20 @@ E-Test
 											\end{align*}
 											Unentschieden. Spieler $0$ muss zu $8$ gehen, da sonst verloren. Spieler $8$ muss zurück zu $6$ gehen, da sonst verloren (Spieler $0$ kann sonst von $7$ zu $9$).
 			\end{enumerate}
-	\item	
+	\item Um zu beweisen, dass jeder abgeschnittenes Spiel für jeden Startknoten entweder eine Gewinnstrategie für einen der beiden Spieler gibt oder dass beide Spieler ein Remis erzwingen können unterscheiden wir für alle Startknoten zwei Fälle:
+		\begin{itemize}
+			\item Fall $v_s \in V$ hat Gewinnstrategie für einen der Spieler: Aussage gilt trivialerweise.
+
+			\item Fall $v_s \in V$ hat keine Gewinnstrategie für beide Spieler: z.z. Es gibt eine Strategie für beide Spieler um ein Remis zu erzwingen. Dazu konstruieren wir zwei neue zykelfreie Graphen in denen ein Remis jeweils als Gewinn für einen der beiden Spieler gilt. Diese neue Graphen entstehen durch eine Tiefensuche über den ursprünglichen Graphen. Man startet beim Startknoten $v_s$, fügt diesen zu den neuen Graphen hinzu und sucht alle Nachfolgeknoten $v_i \in v_sE$. Für jeden dieser Nachfolgeknoten $v_i \in v_sE$ fügt man einen Knoten $v_{s,i}$ in die neuen Graphen hinzu. Dabei ist $v_{s,i} \in V_0$ des neuen Graphens falls $v_i \in V_0$ im alten Graphen galt. Ebenso gilt $v_{s,i} \in V_1$ falls $v_i \in V_1$. An dem Index der neuen Knoten kann man erkennen welche Knoten des ursprünglichen Graphens durchlaufen wurden. Somit ist ein Knoten genau dann ein Remis wenn ein Indize doppelt vorkommt. In diesen Fällen liegt $v_{s,i} \in V_1$ im ersten neuen Graphen und $v_{s,i} \in V_0$ im zweiten neuen Graphen. Dies ist hier natürlich nur möglich wenn $s = i$ also wenn der Knoten $v_s$ eine Kante zu sich selber hat. Für alle anderen Knoten wird die Tiefensuche gleichermassen fortgeführt. Zusammenfassend haben wir zwei zykelfreien Graphen in dem jeweils der Spieler 0 oder 1 bei Remis gewinnt. Bis auf das Verhalten bei Remis verhalten sich diese zwei Graphen offensichtlich genau gleich wie der ursprüngliche Graph, denn es werden alle möglichen Spiele aufgelistet die dort möglich gewesen wären, wobei das Gewinnverhalten bis auf das Remis beibehalten bleibt.\\
+				Betrachtet man nun den ersten neuen Graphen fallen zwei neue Eigenschaften auf:
+				\begin{itemize}
+					\item Da der Graph zykelfrei ist, ist er fundiert und somit determiniert. Dementsprechen gilt: $W_0 \cup W_1 = V$.
+					\item Weil es für $v_s$ keine Gewinnstrategie für Spieler 1 im ursprünglichen Graphen gab gilt auch in diesem neuen Graphen $v_s \not \in W_1$, denn es wurden keine neuen Knoten hinzugefügt die zu einem Gewinn von Spieler 1 führen.
+				\end{itemize}
+				Daraus folgt dass $v_s \in W_0$ und da $v_s \not \in W_0$ im ursprünglichen Graphen galt, muss die Gewinnstrategie zu einem Remis führen. Somit hat Spieler 0 eine Spielstrategie das ein Remis erzwingt.\\
+				Das selbe Argument gilt für Spieler 1 und dem zweiten neuen Graphen. Deswegen hat auch Spieler 1 eine Spielstrategie um ein Remis zu erzwingen.
+		\end{itemize}
+	Da die Aussge für beide Fälle gilt, ist die Aussage bewiesen.
 \end{enumerate}
 
 
