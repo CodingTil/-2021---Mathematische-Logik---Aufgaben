@@ -27,9 +27,28 @@
 % PDF-Tools
 \usepackage[hidelinks, unicode]{hyperref}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TIKZ-EINSTELLUNGEN FÜR SPIELE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Abbildungen
 \usepackage{tikz}
-\usetikzlibrary{arrows,calc}
+
+% einige Bibliotheken
+\usetikzlibrary{calc, tikzmark}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows, arrows.meta}
+\usetikzlibrary{decorations.markings}
+
+% macht Linien und Pfeile dicker
+\tikzset{every picture/.style={thick, >={Latex[round, length=2.5mm, width=2.5mm]}}}
+\tikzset{every path/.style={shorten <= 2pt, shorten >= 2pt}}
+
+% Styles für die Knoten der Verifiziererin und des Falsifizierers
+\tikzstyle{MCverifier} = [draw, rectangle, rounded corners=1em, semithick, minimum height=2em]
+\tikzstyle{MCfalsifier} = [draw, rectangle, thick, minimum height=2em]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Reelle, Natürliche, Ganze, Rationale Zahlen
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
@@ -198,7 +217,31 @@ E-Test
 
 
 \section*{Aufgabe 4}
+$\A \models \psi$ kann als folgendes Auswertungsspiel $MC(\A, \psi)$ modeliert werden:
 
+\begin{center}
+	\begin{tikzpicture}
+		\node[MCfalsifier] (psi) at (0,0) {$\psi$};
+		\node[MCverifier] (and1) at (-4, -1) {$\exists x(x \sim x)$};
+		\node[MCfalsifier] (and2) at (4, -1) {$\forall y (\neg Py \rightarrow Qy)$};
+		\node[MCfalsifier] (1-sim-1) at (-6, -3) {$1 \sim 1$};
+		\node[MCverifier] (2-sim-2) at (-4, -3) {$2 \sim 2$};
+		\node[MCfalsifier] (3-sim-3) at (-2, -3) {$3 \sim 3$};
+		\node[MCfalsifier] (forall-1) at (1, -3) {$\neg P1 \rightarrow Q1$};
+		\node[MCfalsifier] (forall-2) at (4, -3) {$\neg P2 \rightarrow Q2$};
+		\node[MCverifier] (forall-3) at (7, -3) {$\neg P3 \rightarrow Q3$};
+		\draw[->] (psi) to (and1);
+		\draw[->, blue] (psi) to (and2);
+		\draw[->] (and1) to (1-sim-1);
+		\draw[->] (and1) to (2-sim-2);
+		\draw[->] (and1) to (3-sim-3);
+		\draw[->] (and2) to (forall-1);
+		\draw[->] (and2) to (forall-2);
+		\draw[->, blue] (and2) to (forall-3);
+	\end{tikzpicture}
+\end{center}
+
+Der Falsifizierer hat eine Gewinnstrategie von der Ausgangsposition aus: siehe blaue Pfeile. Also gilt $\A \models \psi$ nicht.
 
 \newpage
 
