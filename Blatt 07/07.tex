@@ -249,9 +249,13 @@ Der Falsifizierer hat eine Gewinnstrategie von der Ausgangsposition aus: siehe b
 \section*{Aufgabe 5}
 \begin{enumerate}[label=(\alph*)]
 	\item	\begin{enumerate}[label=(\roman*)]
-				\item	
-				\item	
-				\item	
+			\item	Sei $\pi$ die Abbildung die jede Zahl $n \in \N$ in seine Primfaktoren zerlegt, jedes Vorkommen von 2 durch eine 3 ersetzt und jedes Vorkommen von einer 3 durch eine 2 ersetzt und diese Faktoren dann wieder aufmultipliziert. Diese Abbildung ist bijektiv, weil $a \not = b \Rightarrow \pi(a) \not = \pi(b)$, denn wegen $a \not = b$ sind auch die Primfaktorenzerlegungen unterschiedlich und auch nach dem Vertauschen von 2 und 3 diese unterschiedlich sein müssen und somit $\pi(a) \not = \pi(b)$ gelten muss, und $\forall y \exists x (y = \pi(x))$ indem man $x = \pi(y)$ wählt, da $\pi(\pi(x)) = x$ für alle $x \in \N$.\\
+				Nun muss noch gezeigt werden, dass für alle $a_1, a_2 \in \N$ gilt: $\pi(a_1 \cdot a_2) = \pi(a_1) \cdot \pi(a_2)$. Das ist jedoch offensichtlich, da bei Multiplikation die Primfaktoren beider Zahlen erhalten bleiben und es somit irrelevant ist ob die Vertauschung der Primfaktoren vor oder nach der Multiplikation stattfindet.\\
+				Somit ist $\pi$ ein nicht-trivialer Automorphismus von $(\N, \mathbb{P}, \cdot)$.\\
+				Not sure ob wir noch zeigen müssen dass das auch für die Nullstelligen Funktionen aka $\mathbb{P}$ gilt????
+			\item	Es gibt den folgenden nicht-trivialen Automorphismus: $\pi(1) = 1$, $\pi(2) = 4$, $\pi(4) = 2$ und $\pi(3) = 3$.\\
+				Beweis??? Intuitiv gilt: 1 und 3 sind unterscheidbar (einer hat nur ausgehende Kanten, der andere nur eingehende) aber 2 und 4 sind genau gleich (Empfangen eine Kante von 1, haben eine zu 3 und haben jeweils eine Kante zum jeweils anderen). Beweis muss zeigen, dass jegliche FO diese beiden nicht unterscheiden kann. Wahrscheinlich per strukturelle Induktion aber keine Ahnung.
+			\item	Angenommen es gäbe eine Permutation $\pi$ die ein nicht-trivialer Automorphismus ist. $\pi(-1) = -1$ denn sonst $\exists x (-1 < x \land x < 0)$. Selbe Argument lässt sich für alle negativen Zahlen fortführen. Ausserdem gilt $\pi(1) = 1$ denn sonst $\exists x (0 < x \land x < 1$. Dieses Argument lässt sich für alle positiven Zahlen fortführen. Schliesslich muss $\pi(0) = 0$ sein weil kein anderes Bild mehr zur verfügung steht. Somit ist $\pi$ aber der triviale Automorphismus.
 			\end{enumerate}
 	\item	
 	\item	
