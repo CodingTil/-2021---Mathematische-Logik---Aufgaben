@@ -251,14 +251,20 @@ Der Falsifizierer hat eine Gewinnstrategie von der Ausgangsposition aus: siehe b
 	\item	\begin{enumerate}[label=(\roman*)]
 			\item	Sei $\pi$ die Abbildung die jede Zahl $n \in \N$ in seine Primfaktoren zerlegt, jedes Vorkommen von 2 durch eine 3 ersetzt und jedes Vorkommen von einer 3 durch eine 2 ersetzt und diese Faktoren dann wieder aufmultipliziert. Diese Abbildung ist bijektiv, weil $a \not = b \Rightarrow \pi(a) \not = \pi(b)$, denn wegen $a \not = b$ sind auch die Primfaktorenzerlegungen unterschiedlich und auch nach dem Vertauschen von 2 und 3 diese unterschiedlich sein müssen und somit $\pi(a) \not = \pi(b)$ gelten muss, und $\forall y \exists x (y = \pi(x))$ indem man $x = \pi(y)$ wählt, da $\pi(\pi(x)) = x$ für alle $x \in \N$.\\
 				Nun muss noch gezeigt werden, dass für alle $a_1, a_2 \in \N$ gilt: $\pi(a_1 \cdot a_2) = \pi(a_1) \cdot \pi(a_2)$. Das ist jedoch offensichtlich, da bei Multiplikation die Primfaktoren beider Zahlen erhalten bleiben und es somit irrelevant ist ob die Vertauschung der Primfaktoren vor oder nach der Multiplikation stattfindet.\\
+				Desweiteren gilt offensichtlich $\forall x (\mathbb{P}x \leftrightarrow \mathbb{P}\pi(x))$. Ist nämlich $x \in \mathbb{P}$, so besteht $x$ per Definition nur aus einem Primfaktor. Nach der Konstruktion von $\pi$ besteht $\pi(x)$ dann aber auch nur aus einem Primfaktor (womöglich aber einen von dem von $x$ verschiedenen). Deshalb ist $\pi(x) \in \mathbb{P}$. Ist $x \not\in \mathbb{P}$, so besteht $x$ aus mindestens zwei Primfaktoren. Deshalb besteht $\pi(x)$ auch aus mindestens zwei Primfaktoren und ist somit auch nicht in $\mathbb{P}$ enthalten.\\
 				Somit ist $\pi$ ein nicht-trivialer Automorphismus von $(\N, \mathbb{P}, \cdot)$.\\
-				Not sure ob wir noch zeigen müssen dass das auch für die Nullstelligen Funktionen aka $\mathbb{P}$ gilt????
 			\item	Es gibt den folgenden nicht-trivialen Automorphismus: $\pi(1) = 1$, $\pi(2) = 4$, $\pi(4) = 2$ und $\pi(3) = 3$.\\
-				Beweis??? Intuitiv gilt: 1 und 3 sind unterscheidbar (einer hat nur ausgehende Kanten, der andere nur eingehende) aber 2 und 4 sind genau gleich (Empfangen eine Kante von 1, haben eine zu 3 und haben jeweils eine Kante zum jeweils anderen). Beweis muss zeigen, dass jegliche FO diese beiden nicht unterscheiden kann. Wahrscheinlich per strukturelle Induktion aber keine Ahnung.
-			\item	Angenommen es gäbe eine Permutation $\pi$ die ein nicht-trivialer Automorphismus ist. $\pi(-1) = -1$ denn sonst $\exists x (-1 < x \land x < 0)$. Selbe Argument lässt sich für alle negativen Zahlen fortführen. Ausserdem gilt $\pi(1) = 1$ denn sonst $\exists x (0 < x \land x < 1$. Dieses Argument lässt sich für alle positiven Zahlen fortführen. Schliesslich muss $\pi(0) = 0$ sein weil kein anderes Bild mehr zur verfügung steht. Somit ist $\pi$ aber der triviale Automorphismus.
+				$1$ und $3$ sind offensichtlich unterscheidbar ($1$ enthält nur ausgehende Kanten, $3$ nur eingehende Kanten). $2$ und $4$ sind jedoch nicht voneinander unterscheidbar. Es gilt hier nämlich $\varphi \coloneqq \forall x((E2x \leftrightarrow E4x) \land (Ex2 \leftrightarrow Ex4))$. Aus diesem Grund sind beide Knoten nicht voneinander unterscheidbar und wir können sie mit $\pi$ "vertauschen". Dann gilt offensichtlich aufgrund von $\varphi$ $\forall x ((E2x \leftrightarrow E\pi(2)\pi(x) \land (Ex2 \leftrightarrow E\pi(x)\pi(2)))$\\
+				Somit ist $\pi$ ein nicht-trivialer Automorphismus von $(\N, \mathbb{P}, \cdot)$.\\
+			\item	Angenommen es gäbe eine Permutation $\pi$ die ein nicht-trivialer Automorphismus ist. Aufgrund von $\pi(0) = 0$ muss $\pi$ $0$ auf $0$ abbilden.\\
+					Ab jetzt können wir so argumentieren, wie in der Vorlesung argumentiert wurde über $(\mathbb{N}, <)$. Angenommen wir bilden $1$ nicht auf $1$ ab. Dann müssen wir $1$ auf eine größere Zahl abbilden, da sonst $\pi(0) \nless \pi(1)$. Hier stoßen wir auf das Problem, dass wir keine andere Zahl auf $1$ abbilden können. Würden wir eine negative Zahl $a$ auf $1$ abbilden, so wäre $\pi(a) \nless \pi(0)$. Würden wir eine positive Zahl $b$ auf $1$ abbilden (folglich $1 < b$), so wäre $\pi(1) \nless \pi(b)$. Deshalb muss auch $1$ auf $1$ abgebildet werden.\\
+					Per Induktion sehen wir wie in der Vorlesung, dass alle positiven Zahlen auf sich selber abgebildet werden müssen. Äquivalent gehen wir für die negativen Zahlen vor.\\
+					Somit ist die Identität der einzige Automorphismus auf $(\mathbb{Z}, 0, <)$.
 			\end{enumerate}
-	\item	
-	\item	
+	\item	Wir wissen unter anderem aus Hausaufgabe 05 Aufgabe 04, dass solche Strukturen ein Nullelement, das sogenannte leere Wort $\epsilon$ besitzen, welches wir mit einer einfachen Formel $\varphi$ bestimmen können. $\varphi(x)$ sei also genau dann erfüllt, wenn $x$ das leere Wort $\epsilon$ ist.\\
+			Für jeden Automorphismus $\pi$ auf $\mathfrak{A}$ muss gelten, dass $\forall x \forall y \pi(x) \circ \pi(y) = \pi(x \circ y)$. Es muss also auch gelten: $\exists x \forall y (\varphi(x) \land \pi(x) \circ \pi(y) = \pi(x \circ y))$. Da $x$ also das leere Wort ist, ist $x \circ y = y$. $\pi(x) \circ \pi(y) = \pi(y)$ ist nur dann für alle $y$ erfüllt, wenn $\pi(x)$ das leere Wort ist. Also ist $\pi(\epsilon) = \epsilon$, nachdem wir $\epsilon$ als das leere Wort bestimmt haben.\\
+			Eine weitere Eigenschaft von jedem $\pi$ ist, dass $\vert \pi(x) \vert = \vert x \vert$ für jedes $x$ sein muss, also $\pi$ die Längen der Elemente nicht verändern darf. \textit{Hab grad kp, bin aber sicher.}\\
+			\textit{Denke sowas wie alle} $a \mapsto b, b \mapsto a$.
 \end{enumerate}
 
 
@@ -267,10 +273,14 @@ Der Falsifizierer hat eine Gewinnstrategie von der Ausgangsposition aus: siehe b
 
 \section*{Aufgabe 6}
 \begin{enumerate}[label=(\alph*)]
+	\item	Ist nur möglich, wenn $1$ in $(\mathbb{Q},0,+,<)$ elementar definierbar ist.\\
+			$1$ ist jedoch nicht elementar definierbar.\\
+			\textit{Beweis?}
+	\item	$$\varphi(n,p) \coloneqq (n < p \lor n=p) \land 1 < p \land (\forall y \exists z (y \cdot z = p \rightarrow (y=1 \lor z=1)))$$
+			Besteht aus $n \leq p$ und $p \in \mathbb{P}$.
 	\item	
-	\item	
-	\item	
-	\item	
+	\item	$$\varphi(x) \coloneqq x \circ 0 = 1 \land D(x) = x$$
+			Siehe \href{https://de.wikipedia.org/wiki/Exponentialfunktion#Ableitung}{\underline{Wikipedia - Exponentialfunktion - Ableitung}}.
 \end{enumerate}
 
 
