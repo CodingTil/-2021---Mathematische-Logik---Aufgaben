@@ -262,9 +262,13 @@ Der Falsifizierer hat eine Gewinnstrategie von der Ausgangsposition aus: siehe b
 					Somit ist die Identität der einzige Automorphismus auf $(\mathbb{Z}, 0, <)$.
 			\end{enumerate}
 	\item	Wir wissen unter anderem aus Hausaufgabe 05 Aufgabe 04, dass solche Strukturen ein Nullelement, das sogenannte leere Wort $\epsilon$ besitzen, welches wir mit einer einfachen Formel $\varphi$ bestimmen können. $\varphi(x)$ sei also genau dann erfüllt, wenn $x$ das leere Wort $\epsilon$ ist.\\
+	
 			Für jeden Automorphismus $\pi$ auf $\mathfrak{A}$ muss gelten, dass $\forall x \forall y \pi(x) \circ \pi(y) = \pi(x \circ y)$. Es muss also auch gelten: $\exists x \forall y (\varphi(x) \land \pi(x) \circ \pi(y) = \pi(x \circ y))$. Da $x$ also das leere Wort ist, ist $x \circ y = y$. $\pi(x) \circ \pi(y) = \pi(y)$ ist nur dann für alle $y$ erfüllt, wenn $\pi(x)$ das leere Wort ist. Also ist $\pi(\epsilon) = \epsilon$, nachdem wir $\epsilon$ als das leere Wort bestimmt haben.\\
-			Eine weitere Eigenschaft von jedem $\pi$ ist, dass $\vert \pi(x) \vert = \vert x \vert$ für jedes $x$ sein muss, also $\pi$ die Längen der Elemente nicht verändern darf. \textit{Hab grad kp, bin aber sicher.}\\
-			\textit{Denke sowas wie alle} $a \mapsto b, b \mapsto a$.
+			
+			Angenommen es gäbe einen Automorphismus $\pi$, sodass irgendein $x \in \Sigma$ $pi(x) \not\in \Sigma$. Dann muss es ein Wort $w \in \Sigma^*$ mit $\vert w \vert > 1$, sodass $\pi(w) \in \Sigma$. Jetzt können wir $w$ durch $\circ$ in alle $w_i \in \Sigma, 1 \leq i \leq \vert w \vert = n$ aufteilen mit $w = w_1 \circ \dots \circ w_n$. Da nur $\pi(\epsilon) = \epsilon$, kann keines der $w_i$ auf $\epsilon$ abbilden. Somit muss $\vert \pi(w) \vert \geq n$ sein, was ein Widerspruch ist. Somit gilt für alle $y \in \Sigma$, dass $\pi(y) \in \Sigma$.\\
+			Da jedes $v \in \Sigma^*, m = \vert v \vert \geq 1$ in $v_i \in \Sigma$ aufgeteilt werden kann und $\pi(v) = \pi(v_1) \circ \dots \circ \pi(v_m)$, muss $\vert v \vert = \vert \pi(v) \vert$.\\
+			
+			Somit kann man alle Automorphismen auf $\mathfrak{A}$ so beschreiben, die jedem Buchstaben einen anderen (oder gleichen) Buchstaben zuordnen.
 \end{enumerate}
 
 
@@ -273,12 +277,15 @@ Der Falsifizierer hat eine Gewinnstrategie von der Ausgangsposition aus: siehe b
 
 \section*{Aufgabe 6}
 \begin{enumerate}[label=(\alph*)]
-	\item	Ist nur möglich, wenn $1$ in $(\mathbb{Q},0,+,<)$ elementar definierbar ist.\\
-			$1$ ist jedoch nicht elementar definierbar.\\
-			\textit{Beweis?}
-	\item	$$\varphi(n,p) \coloneqq (n < p \lor n=p) \land 1 < p \land (\forall y \forall z (y \cdot z = p \rightarrow (y=1 \lor z=1)))$$
-			Besteht aus $n \leq p$ und $p \in \mathbb{P}$.
-	\item	
+	\item	Es gibt den nicht-trivialen Automorphismus $\pi: x \mapsto x \cdot 2$. Angenommen es gäbe ein $\psi \in \operatorname{FO}(\tau)$, das $\mathbb{Q}_{\geq 1}$ elementar definiert.\\
+			Dann können wir $1$ definieren als $1(x) \coloneqq \mathbb{Q}_{\geq 1}x \land \forall y (\mathbb{Q}_{\geq 1}y \impl (x < y \lor x = y))$.\\
+			Dann ist aber $\pi$ kein Automorphismus mehr, denn $\psi(\pi(x)) \neq \psi(x)$ für ein $x \in \mathbb{Q}$, denn es existiert ja ein $x$ mit $1(x)$, also $x=1$, sodass $\psi(\pi(1)) = \psi(2) \neq \psi(1)$.
+	\item	\begin{align*}
+				\varphi(n,p) \coloneqq & (n < p \lor n=p) \land 1 < p \land (\forall y \forall z (y \cdot z = p \impl (y=1 \lor z=1))) \\ & \land \forall x ((n < x \lor x < p) \impl \neg (\forall y \forall z (y \cdot z = p \impl (y=1 \lor z=1))))
+			\end{align*}
+			Besteht aus $n \leq p$ und $p \in \mathbb{P}$ und alle Zahlen dazwischen sind keine Primzahlen.
+	\item	In unserer Struktur gibt es den Automorphismus $\pi: x \mapsto x + (2 \cdot 4 \cdot 7)$. Damit verschieben wir intuitiv den gemeinsamen Nullpunkt.\\
+			Somit kann kein $\psi \in \operatorname{FO}(\tau)$ geben, das $11\mathbb{Z}$ elementar definiert, weil für diese Formel nicht gilt: $\psi(\pi(x)) = \psi(x)$ für alle $x \in \mathbb{Z}$
 	\item	$$\varphi(x) \coloneqq x \circ 0 = 1 \land D(x) = x$$
 			Siehe \href{https://de.wikipedia.org/wiki/Exponentialfunktion#Ableitung}{\underline{Wikipedia - Exponentialfunktion - Ableitung}}.
 \end{enumerate}
