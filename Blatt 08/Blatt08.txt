@@ -1,0 +1,46 @@
+2. a) Folgt aus Skript Lemma 3.14: Eine Theorie ist genau dann vollständig, wenn alle ihre Modelle elementar äquivalent sind. Aus der Aufgabenstellung folgt, dass alle Modelle von der Theorie elementar äquivalent zu (\N, \cdot, <) sind und somit gilt: alle Modelle sind elementar äquivalent und deswegen ist die Theorie vollständig. (Beweis des Lemmas ist im Skript falls er nötig sein sollte)
+
+b) Nach Skript Definition 3.12: die Theorie von jeder Struktur \A ist "offensichtlich" vollständig, also auch Th((\C, 0, 1, +, \cdot))
+
+c) 
+
+d) Alle zu (\Z, <) isomorphen Strukturen sind implizit auch elementar äquivalent. Deswegen folgt wie in a), dass die Theorie vollständig sein muss.
+
+
+3. a) [0,1] \in \Q und [0,1] \in \R
+
+b) z.z. Falls \psi \not \in T_E dann ist \neq \psi \in \T_E
+Dafür erweitern wir dasn endliche Axiomensystem durch die Formel \exists x (\forall y (x < y \lor x = y)) \land \exists x (\forall y (y < x \lor x = y))
+
+Sei \psi beliebig sodass \psi \not \in T_E.
+
+Wenn \psi \not \in T_E muss es eine Bedingung aus dem endlichen Axiomensystem geben dass \psi nicht erfüllt:
+
+Falls \exists x \exists y (x \not = y) \models \psi: Dann ist \not \psi einelementig oder leer. Somit
+
+
+4. a) m = 5/6
+Strategie des Herausforderers für m=6: Einfach alle Knoten in \mathfrak{A} durchlaufen. Die Duplikatorin kann keine 6 Knoten in \mathfrak{B} finden sodass diese einen Kreis bilden.
+?Not sure if this works:?
+Strategie des Herausforderers für m=5: Er beginnt mit dem Knoten 3. Dann muss die Duplikatorin einen Knoten k \in \mathfrak{B} wählen. Egal welchen Knoten sie wählt wird es einen 5-er Kette in \A geben die sowohl den Knoten 3 als auch den Knoten 6 enthält den die Duplikatorin nicht in \mathfrak{B} nachmachen kann:
+- k = v: 1,2,3,4,5
+- k = p: 2,3,4,5,6
+- k = q: 3,4,5,6,1
+- k = r: 3,4,5,6,1
+- k = s: 5,6,1,2,3
+- k = t: 6,1,2,3,4
+- k = u: 6,1,2,3,4
+
+b) m = 2
+Strategie des Herausforderers für m=2: wähle {0,1}, dann ist es egal welchen knoten k \in P(\Z) die Duplikatorin wählt weil eine beliebige obermenge von k von dem Herausforderer im zweiten Schritt ausgewählt werden kann und dies von der Duplikatorin in P({0,1}) nicht nachmachen kann.
+Strategie der Duplikatorin für m=1: Egal was gewählt wird einfach irgend ein element aus der anderen Potenzmenge wählen.
+
+c) m = 2
+\phi = \exists x \exists y (M(x,x,x) \land M(y,y,x) \land x \not = y)
+Für Z geht das für x = 1, y = -1.
+Für N geht das nicht, denn x müss 0 oder 1 sein aber es gibt keine Zahl y unterschiedlich zu x die multipliziert mit sich selber x ergibt.
+Strategie der Duplikatorin für m=1: Falls der Herausforderer 0 oder 1 wählt nehme die selbe Zahl im anderen Universum. Andernfalls wähle die 2 im entsprechenden Universum.
+
+5.
+Sei B ein unendliche ungerichtete Graph sodass es einen Knoten k gibt der zu allen anderen Knoten verbunden ist ohne dass diese anderen unter sich verbunden sind (Sterförmig). Dieser Graph ist offensichtlich nicht in K weil k einen unendlichen Grad hat.
+Für beliebiges m sei A_m ein Graph mit m+1 Knoten. A hat ebenfalls einen zentralen Knoten k' und weitere m Peripherieknoten die alle mit dem zentralen Knoten verbunden sind ohne untereinander verbunden zu sein. Egal welche m Knoten der Herausforderer in einem der beiden Graphen auswählt, die Duplikatorin kann immer einen entsprechenden Peripherieknoten bzw. den zentralen Knoten im anderen Graphen finden und trotzdem die Kantenrelation nicht verletzen. Da alle A_m in der Klasse K liegen und alle A_m m-equivalent zu B sind ist K nicht FO-axiomatisierbar.
