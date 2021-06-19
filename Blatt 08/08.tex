@@ -153,14 +153,13 @@ E-Test
 
 \section*{Aufgabe 2}
 \begin{enumerate}[label=(\alph*)]
-	\item	
-	\item	
+	\item	Folgt aus Skript Lemma 3.14: Eine Theorie ist genau dann vollständig, wenn alle ihre Modelle elementar äquivalent sind. Aus der Aufgabenstellung folgt, dass alle Modelle von der Theorie elementar äquivalent zu $(\mathbb{N}, \cdot, <)$ sind und somit gilt: alle Modelle sind elementar äquivalent und deswegen ist die Theorie vollständig.
+	\item	Nach Skript Definition 3.12: die Theorie von jeder Struktur \A ist "offensichtlich" vollständig, also auch $\operatorname{Th}((\mathbb{C}, 0, 1, +, \cdot))$
 	\item	\begin{enumerate}[label=(\roman*)]
 				\item	
 				\item	
-				\item	
 			\end{enumerate}
-	\item	
+	\item	Alle zu $(\mathbb{Z}, <)$ isomorphen Strukturen sind implizit auch elementar äquivalent. Deswegen folgt wie in a), dass die Theorie vollständig sein muss.
 \end{enumerate}
 
 
@@ -169,7 +168,8 @@ E-Test
 
 \section*{Aufgabe 3}
 \begin{enumerate}[label=(\alph*)]
-	\item	
+	\item	$\mathfrak{A} \coloneqq (\{q \mid q \in \mathbb{Q}, 0 \leq q \leq 1\}, <)$ \\
+			$\mathfrak{B} \coloneqq (\{r \mid r \in \mathbb{R}, 0 \leq r \leq 1\}, <)$
 	\item	
 	\item	
 \end{enumerate}
@@ -180,9 +180,25 @@ E-Test
 
 \section*{Aufgabe 4}
 \begin{enumerate}[label=(\alph*)]
-	\item	
-	\item	
-	\item	
+	\item	$m=4$: \\
+			Strategie des Herausforderers für $m=4$:\\
+			Wähle $v$. Um die Kantenrelation (Selbstkante) nicht zu verletzen, muss die Duplikatorin nun $6$ auswählen. Anschließend wählt der Herausforderer $p$ aus. Da es eine Kante zwischen $v$ und $p$ gibt, muss $p$ auf einen Knoten abgebildet werden, sodass dieser auch mit $6$ verbunden ist. Die Duplikatorin wählt also $1$ aus. Nun wählt der Herausforderer $r$ aus. $r$ steht nicht in der Kantenrelation bezüglich $p$ oder $v$, folglich muss die Duplikatorin entweder $3$ oder $4$ auswählen. Unabhängig davon, was gewählt wird, wählt der Herausforderer nun $t$, welcher ebenfalls keine Kante zu den anderen Knoten hat. Die Duplikatorin kann nun aber nichtmehr einen Knoten auswählen.\\
+			
+			Strategie der Duplikatorin für $m=3$:\\
+			Egal welche Knoten der Herausforder wählt, kann die Duplikatorin immer einen passenden Knoten finden, sodass die Kantenrelationen zwischen $\mathfrak{A}$ und $\mathfrak{B}$ übereinstimmen.
+	\item	$m=2$:\\
+			Strategie des Herausforderers für $m=2$:\\
+			Wähle $\{0,1\}$, dann ist es egal welchen knoten $k \in \mathcal{P}(\mathbb{Z})$ die Duplikatorin wählt weil eine beliebige Obermenge von k von dem Herausforderer im zweiten Schritt ausgewählt werden kann und dies von der Duplikatorin in $\mathcal{P}(\{0,1\})$ nicht nachmachen kann.\\
+			
+			Strategie der Duplikatorin für $m=1$:\\
+			Egal was gewählt wird einfach irgend ein Element aus der anderen Potenzmenge wählen.
+	\item	$m = 2$:\\
+			$\phi = \exists x \exists y (M(x,x,x) \land M(y,y,x) \land x \not = y)$\\
+			Für $\mathbb{Z}$ geht das für $x = 1, y = -1$.\\
+			Für $\mathbb{N}$ geht das nicht, denn $x$ müsste $0$ oder $1$ sein aber es gibt keine Zahl $y$ unterschiedlich zu $x$ die multipliziert mit sich selber $x$ ergibt.\\
+			
+			Strategie der Duplikatorin für $m=1$:\\
+			Falls der Herausforderer $0$ oder $1$ wählt, nehme die selbe Zahl im anderen Universum. Andernfalls wähle die $2$ im entsprechenden Universum.
 \end{enumerate}
 
 
@@ -190,5 +206,9 @@ E-Test
 
 
 \section*{Aufgabe 5}
+Sei $B$ ein unendlicher ungerichtete Graph, sodass es einen Knoten $k$ gibt, der zu allen anderen Knoten verbunden ist, ohne dass diese anderen unter sich verbunden sind (Sterförmig). Dieser Graph ist offensichtlich nicht in $\mathcal{K}$, weil $k$ einen unendlichen Grad hat.\\
+Für beliebiges $m \in \mathbb{N}$ sei $A_m$ ein Graph mit $m+1$ Knoten. $A_m$ hat ebenfalls einen zentralen Knoten $k'$ und weitere $m$ Peripherieknoten, die alle mit dem zentralen Knoten verbunden sind, ohne untereinander verbunden zu sein. Egal welche $m$ Knoten der Herausforderer in einem der beiden Graphen auswählt, die Duplikatorin kann immer einen entsprechenden Peripherieknoten bzw. den zentralen Knoten im anderen Graphen finden und trotzdem die Kantenrelation nicht verletzen.\\
+Da alle $A_m$ in der Klasse $\mathcal{K}$ liegen und alle $A_m$ $m$-equivalent zu $B$ sind, ist $\mathcal{K}$ nicht FO-axiomatisierbar.
+
 
 \end{document}
