@@ -158,7 +158,42 @@ E-Test
 
 
 \section*{Aufgabe 3}
-
+\begin{prooftree}
+			\AxiomC{$c_1 < c_2, c_2 < c_1 \Rightarrow t_1 < t_1, t_2 < t_3$}
+			\AxiomC{$c_1 < c_2, c_2 < c_1 \Rightarrow t_1 < t_1, t_3 < t_4$}
+		
+		\LeftLabel{$(\Rightarrow \land)$}
+		\BinaryInfC{$c_1 < c_2, c_2 < c_1 \Rightarrow t_1 < t_1, t_2 < t_3 \land t_3 < t_4$}		
+		
+		\AxiomC{$t_2 < t_4, c_1 < c_2, c_2 < c_1 \Rightarrow t_1 < t_1$}
+	
+	\LeftLabel{$(\impl \Rightarrow)$}
+	\BinaryInfC{$(t_2 < t_3 \land t_3 < t_4) \impl t_2 < t_4, c_1 < c_2, c_2 < c_1 \Rightarrow t_1 < t_1$}
+	
+	\LeftLabel{$(\land \Rightarrow)$}
+	\UnaryInfC{$(t_2 < t_3 \land t_3 < t_4) \impl t_2 < t_4, c_1 < c_2 \land c_2 < c_1 \Rightarrow t_1 < t_1$}
+	
+	\LeftLabel{$(\neg \Rightarrow)$}
+	\UnaryInfC{$\neg t_1 < t_1, (t_2 < t_3 \land t_3 < t_4) \impl t_2 < t_4 \Rightarrow \neg (c_1 < c_2 \land c_2 < c_1)$}
+	
+	\LeftLabel{$(\Rightarrow \forall)$}
+	\UnaryInfC{$\neg t_1 < t_1, (t_2 < t_3 \land t_3 < t_4) \impl t_2 < t_4 \Rightarrow \forall y \neg (c_1 < y \land y < c_1)$}
+	
+	\LeftLabel{$(\Rightarrow \forall)$}
+	\UnaryInfC{$\neg t_1 < t_1, (t_2 < t_3 \land t_3 < t_4) \impl t_2 < t_4 \Rightarrow \forall x \forall y \neg (x < y \land y < x)$}
+	
+	\LeftLabel{$(\forall \Rightarrow)$}
+	\UnaryInfC{$\neg t_1 < t_1, \forall z ((t_2 < t_3 \land t_3 < z) \impl t_2 < z) \Rightarrow \forall x \forall y \neg (x < y \land y < x)$}
+	
+	\LeftLabel{$(\forall \Rightarrow)$}
+	\UnaryInfC{$\neg t_1 < t_1, \forall y \forall z ((t_2 < y \land y < z) \impl t_2 < z) \Rightarrow \forall x \forall y \neg (x < y \land y < x)$}
+	
+	\LeftLabel{$(\forall \Rightarrow)$}
+	\UnaryInfC{$\neg t_1 < t_1, \forall x \forall y \forall z ((x < y \land y < z) \impl x < z) \Rightarrow \forall x \forall y \neg (x < y \land y < x)$}
+	
+	\LeftLabel{$(\forall \Rightarrow)$}
+	\UnaryInfC{$\forall x (\neg x < x), \forall x \forall y \forall z ((x < y \land y < z) \impl x < z) \Rightarrow \forall x \forall y \neg (x < y \land y < x)$}
+\end{prooftree}
 
 \newpage
 
@@ -182,11 +217,47 @@ E-Test
 \section*{Aufgabe 5}
 \begin{enumerate}[label=(\alph*)]
 	\item	\begin{enumerate}[label=(\roman*)]
-				\item	
-				\item	
+				\item	Damit $\sim$ eine Äquivalenzrelation auf $\mathcal{P}(\mathbb{N})$ ist, muss sie reflexiv, symmetrisch und transitiv sein.\\
+						
+						Für jedes $A \in \mathcal{P}(\mathbb{N})$ gilt offensichtlich $A \sim A$, da $\vert A \vert = \vert A \vert$. $\sim$ ist also reflexiv.\\
+						
+						Seien $A,B \in \mathcal{P}(\mathbb{N})$. Angenommen es gilt $A \sim B$. Dann gilt $\vert A \vert = \vert B \vert$, welches äquivalent ist zu $\vert B \vert = \vert A \vert$. Folglich ist $\sim$ symmetrisch.\\
+						
+						Seien $A,B,C \in \mathcal{P}(\mathbb{N})$. Angenommen es gilt sowohl $A \sim B$ als auch $B \sim C$. Dann muss ja gelten, dass $\vert A \vert = \vert B \vert$ und $\vert B \vert = \vert C \vert$. Insbesondere gilt dann auch $\vert A \vert = \vert C \vert$. Folglich muss dann auch $A \sim C$ gelten. $\sim$ ist also transitiv.\\
+						
+						Damit ist $\sim$ eine Äquivalenzrelation auf $\mathcal{P}(\mathbb{N})$.
+				\item	Damit $\sim$ auf $\mathfrak{A}$ eine Kongruenzrelation ist, muss unter anderem $\cup$ mit $\sim$ verträglich sein.\\
+						
+						Seien $A_1 \coloneqq \{1,2\}, A_2 \coloneqq \{3,4\}, B_1 \coloneqq \{5,6\}, B_2 \coloneqq \{6,7\}$.\\
+						Es gilt offensichtlich $A_1 \sim B_1$ und $A_2 \sim B_2$. Jedoch gilt $A_1 \cup A_2 \sim B_1 \cup B_2$ nicht, da $\vert A_1 \cup A_2 \vert = \vert \{1,2,3,4\} \vert = 4 \neq 3 = \vert \{5,6,7\} \vert = \vert B_1 \cup B_2 \vert$.\\
+						
+						Damit ist $\sim$ keine Kongruenzrelation auf $\mathfrak{A}$.
 			\end{enumerate}
 	\item	\begin{enumerate}[label=(\roman*)]
-				\item	
+				\item	Seien $A_1, A_2, B_1, B_2 \in \mathcal{P}(\mathbb{N})$ und gelte $A_1 \sim_2 B_1, A_2 \sim_2 B_2$. Wir müssen nun zeigen, dass $\cup$ und $\cap$ mit $\sim_2$ verträglich sind.\\
+						
+						Es gelte $A_1 \cup A_2 \sim_2 B_1 \cup B_2$, denn:
+						\begin{align*}
+							((A_1 \cup A_2) \cap 2\mathbb{N}) &= (A_1 \cap 2\mathbb{N}) \cup (A_2 \cap 2\mathbb{N}) \\
+								&\overset{*}{=} (B_1 \cap 2\mathbb{N}) \cup (B_2 \cap 2\mathbb{N}) \\
+								&= ((B_1 \cup B_2) \cap 2\mathbb{N})
+						\end{align*}
+						$*$ gilt, da eben $A_1 \sim_2 B_1, A_2 \sim_2 B_2$.\\
+						Folglich ist $\cup$ mit $\sim$ verträglich.\\
+						
+						Es gelte $A_1 \cap A_2 \sim_2 B_1 \cap B_2$, denn:
+						\begin{align*}
+							((A_1 \cap A_2) \cap 2\mathbb{N}) &\overset{*}{=} (A_1 \cap A_2 \cap 2\mathbb{N} \cap 2\mathbb{N}) \\
+								&= (A_1 \cap 2\mathbb{N}) \cap (A_2 \cap 2\mathbb{N}) \\
+								&\overset{**}{=} (B_1 \cap 2\mathbb{N}) \cap (B_2 \cap 2\mathbb{N}) \\
+								&\overset{*}{=} (B_1 \cap B_2 \cap 2\mathbb{N} \cap 2\mathbb{N}) \\
+								&= ((B_1 \cap B_2) \cap 2\mathbb{N})
+						\end{align*}
+						$*$ gilt, da eben $A_1 \sim_2 B_1, A_2 \sim_2 B_2$.\\
+						$**$ gilt, da offensichtlich für jede Menge $X$ gilt: $X = X \cap X$.\\
+						Folglich ist $\cap$ mit $\sim$ verträglich.\\
+						
+						Also ist $\sim_2$ eine Kongruenzrelation auf $\mathfrak{A}$.
 				\item	
 			\end{enumerate}
 \end{enumerate}
