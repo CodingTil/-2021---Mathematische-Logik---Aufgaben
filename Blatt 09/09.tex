@@ -153,6 +153,14 @@ Gesamtpunkte: \\[2mm]
 E-Test
 
 \section*{Aufgabe 2}
+Idee: Wähle $A_m \in K$ und $B_m \not \in K$ sodass für belibiges $m \in \N$ $G_m(A_m,B_m)$ von der Duplikatorin gewinnbar ist.
+
+$A_m$ hat zwei Kreise mit jeweils $2^m$ und $2^m+1$ Knoten. $A_m$ ist offensichtlich in $K$ weil beide Zusammenhangskomponenten unterschiedliche Knotenanzahl haben.
+Nenne den Kreis mit $2^m$ Knoten $AI$ und den mit $2^m+1$ Knoten $AII$.
+$B_m$ hat hingegen zwei Kreise mit jeweils $2^m$ Knoten. $B_m$ ist offensichtlich nicht in $K$ weil beide Zusammenhangskomponente $2^m$ Knoten haben.
+$B_m$ hat ebenfalls zwei Kreise $BI$ und $BII$.
+
+Da das Spiel nur $m$ Schritte hat kann der Herausforderer nie einen Kreis schliessen. Somit ist es möglich immer alle Schritte des Herausforderers zu imitieren ohne nie eien Widerspruch zu führchten solange immer Knoten aus $BI$ gewählt werden wenn ein Knoten aus $AI$ gewählt wurde und einen aus $BII$ wenn ein Knoten aus $AII$ genommen wurde. Das gleiche gilt in die andere Richtung.
 
 
 \newpage
@@ -208,7 +216,7 @@ Da alle Blätter Axiome sind, ist die Sequenz gültig.
 \section*{Aufgabe 4}
 \begin{enumerate}[label=(\alph*)]
 	\item	\begin{enumerate}[label=(\roman*)]
-				\item	
+				\item	Egal wie $f$ definiert ist, können wir das $x$ aus der Konklusion so wählen, dass es $fxy$ für ein $x$ und $y$ aus der Prämisse entspricht. Somit gilt die Konklusion immer.
 				\item	Da $g$ nicht in $\Gamma \cup \Delta \cup \{\varphi\}$ vorkommt, kann man $g$ so wählen, dass $g(x)$ genau dem $y$ aus der Konklusion entspricht. Gilt die Prämisse, so folglich auch die Konklusion, da wir $y$ mit dem $g(x)$ ``ersetzen'' können.
 			\end{enumerate}
 	\item	\begin{enumerate}[label=(\roman*)]
@@ -265,7 +273,19 @@ Da alle Blätter Axiome sind, ist die Sequenz gültig.
 						Folglich ist $\cap$ mit $\sim_2$ verträglich.\\
 						
 						Also ist $\sim_2$ eine Kongruenzrelation auf $\mathfrak{A}$.
-				\item	
+				\item	$\pi(M) = \{2i \mid i \in M\}$
+					Bijektion:
+					\begin{itemize}
+						\item Surjektiv: Für jedes Element $x$ aus $\A / \sim_2$ kann ein Element $y$ aus $\A$ gefunden werden sodass $\pi(x) = y$, für $x = \{i/2 \mid i \in y\}$
+						\item Injektiv: Für zwei Elemente $x$ und $y$ aus $\A$ gilt immer: $\pi(x) \not = \pi(y)$, da andernfalls alle Elemente in $\pi(x)$ und $\pi(y)$ gleich sein würden und somit auch die Elemente von $x$ und $y$ da man einfach alle  Werte durch $2$ teilt.
+					\end{itemize}
+
+					z.z.: $\pi(a) \cap \pi(b) = \pi(a \cap b)$:\\
+					$\pi(a) \cap \pi(b) = \{2i \mid i \in a\} \cap \{2i \mid i \in b\} = \{2i \mid i \in a \land i \in b\} = \{2i \mid i \in a \cap b\} = \pi(a \cap b)$
+					
+
+					z.z.: $\pi(a) \cup \pi(b) = \pi(a \cup b)$:\\
+					$\pi(a) \cup \pi(b) = \{2i \mid i \in a\} \cup \{2i \mid i \in b\} = \{2i \mid i \in a \lor i \in b\} = \{2i \mid i \in a \cup b\} = \pi(a \cup b)$
 			\end{enumerate}
 \end{enumerate}
 
