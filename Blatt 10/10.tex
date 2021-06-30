@@ -162,10 +162,10 @@ E-Test
 				\item	Da $f^4c_0 = c_1$ gilt auch $f^4c_1 = c_1$. Es gilt also $f^4c_0 \xmapsto{f} c_1$ und $f^4c_1 \xmapsto{f} c_1$.
 				\item	Es gilt auch $Rf^2c_1$ und für alle $n \in N$: $Rf^{2 + 4 \cdot n}c_0, Rf^{2 + 4 \cdot n}c_0$.
 			\end{itemize}
-			Sei $G_\tau$ die Menge aller Grundterme über $\tau$, $F_\tau \subseteq G_\tau$ Menge aller funktionalen Grundterme, $R_\tau \subseteq G_\tau$ Menge aller relationalen Grundterme.
+			Sei $G_\tau$ die Menge aller Grundterme über $\tau$.
 			\begin{align*}
-				\Sigma &= \{t = t' \mid t,t' \in F_\tau, \text{ in } t \text{ bzw. } t' \text{ kommen } k \geq 1 \text{ bzw. } m \geq 1 \text{ } f \text{ vor, mit } k = 4 \cdot z \cdot m, z \in \Z\} \\
-					&\cup \{t = c_1, c_1 = t \mid t \in F_\tau, \text{ in } t \text{ kommt } f \text{ } k \text{-mal vor, mit } k = 4 \cdot (1 + n), n \in \N\} \\
+				\Sigma &= \{t = t' \mid t,t' \in G_\tau, \text{ in } t \text{ bzw. } t' \text{ kommen } k \geq 1 \text{ bzw. } m \geq 1 \text{ } f \text{ vor, mit } k = 4 \cdot z \cdot m, z \in \Z\} \\
+					&\cup \{t = c_1, c_1 = t \mid t \in G_\tau, \text{ in } t \text{ kommt } f \text{ } k \text{-mal vor, mit } k = 4 \cdot (1 + n), n \in \N\} \\
 					&\cup \{c_0 = c_0, c_1 = c_1\} \\
 					&\cup \{Rf^kc_0, Rf^kc_1 \mid k = 2 + 4 \cdot n, n \in \N\} \\
 					&\cup \{Rc_0\}
@@ -205,7 +205,7 @@ E-Test
 			
 			Sei $\psi \impl \theta \in \operatorname{Th}(\A)$. Dann ist entweder $\A$ kein Modell von $\psi$. Also gilt $\A \not\models \psi$, weshalb $\psi \in \overline{\operatorname{Th}}(\A)$. Oder $\A$ ist Modell von sowohl $\psi$ als auch $\theta$. Dann ist folglich $\theta \in \operatorname{Th}(\A)$, da ja $\A \models \theta$.\\
 			Sei $\psi \impl \theta \in \overline{\operatorname{Th}}(\A)$. Dann ist ja $\A$ zwar ein Modell von $\psi$, aber keines von $\theta$. Deshalb gilt $\A \models \psi$ und $\A \not\models \theta$, also ist $\psi \in \operatorname{Th}(\A)$, aber $\psi \in \overline{\operatorname{Th}}(\A)$.
-	\item	
+	\item	Offensichtlich ist $\exists x \psi(x) \in \operatorname{Th}(\A)$ mit $\psi \coloneqq 2 = x \cdot x$ ($x \in \R, x = \sqrt{2}$). Jedoch sind alle Grundterme rationale Zahlen. Es gibt also keinen Grundterm $t$, bei dem $\A \models \psi(t)$. Folglich ist $\psi(t) \not\in \operatorname{Th}(\A)$.
 \end{enumerate}
 
 
@@ -216,9 +216,13 @@ E-Test
 \begin{enumerate}[label=(\alph*)]
 	\item	
 	\item	
+	\item	Falsch! \\
+			Seien $\tau \coloneqq \{<\}$, $\Phi \coloneqq \{\exists x \forall y (x = y \lor x < y), \exists x \forall (x = y \lor y < x)\}$. \\
+			 $\Phi$ axiomatisiert also die Klasse der $\tau$-Strukturen mit kleinstem und größtem Element. $\operatorname{Mod}(\phi_1)$ axiomatisiert nur die Klasse der $\tau$-Strukturen mit kleinstem Element, $\operatorname{Mod}(\phi_2)$ axiomatisiert nur die Klasse der $\tau$-Strukturen mit größtem Element. \\
+			Widerspruch!
 	\item	
-	\item	
-	\item	
+	\item	Richtig! \\
+			Es gibt ein endliches Axiomensystem $\Phi'$ für $K$. $K$ ist also auch axiomatisierbar durch $\phi \coloneqq \bigwedge \Phi'$. Für jede Struktur $\A \in K$ muss also gelten $\A \models \phi$ und für jede Struktur $\B \not\in K$ ($\B \in \overline{K}$) $\B \not\models \phi$. Folglich muss für $\B$ dann gelten $\B \models \overline{\phi}$ mit $\overline{\phi} \coloneqq \neg \phi = \neg \bigwedge \Phi = \bigvee\limits_{\phi' \in \Phi} \neg \phi'$. Folglich ist $\{\overline{\phi}\}$ ein endliches Axiomensystem von $\overline{K}$.
 \end{enumerate}
 
 
