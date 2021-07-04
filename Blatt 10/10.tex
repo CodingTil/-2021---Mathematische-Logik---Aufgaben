@@ -194,8 +194,10 @@ E-Test
 \begin{enumerate}[label=(\alph*)]
 	\item	\begin{enumerate}[label=(\roman*)]
 				\item	Wenn es ein $\psi \in \operatorname{Th}(\A) \cap \overline{\operatorname{Th}}(\A)$ gäbe, dann würde ja $\A \models \psi$ und $\A \not\models \psi$ gelten. Dies ist ein Widerspruch. Folglich sind $\operatorname{Th}(\A)$ und $\overline{\operatorname{Th}}(\A)$ disjunkt.
-				\item	i) $\Gamma$ enthält die Gleichung $t = t$. Offensichtlich, denn $t = t$ ist in der Theorie der Struktur.\\
-						ii) Angenommen $t = t'$ und $\psi(t)$ sind in der Theorie der Struktur. Dann ist auch $\psi(t')$ in der Theorie denn es gilt: $t = t', \psi(t) \models \psi(t')$. 	
+				\item	\begin{enumerate}[label=(\arabic*)]
+							\item	Sei $t$ ein beliebiger Term. Dann ist $t=t \in \operatorname{Th}(\A)$, denn $\A \models t=t$, denn $t=t$ ist eine Tautologie.
+							\item	Seien $t,t'$ beliebige Terme. Angenommen $t=t',\psi(t) \in \operatorname{Th}(\A)$. Dann ist auch $\psi(t') \in \operatorname{Th}(\A)$, denn es gilt: $\{t = t', \psi(t)\} \models \psi(t')$ und Theorien sind unter $\models$ abgeschlossen.
+						 \end{enumerate}
 				\item	Sei $\neg \psi \in \operatorname{Th}(\A)$. Es gilt folglich $\A \models \psi$. Angenommen es gilt aber $\psi \not\in \operatorname{Th}(\A)$. Da $\operatorname{Th}(\A) \cup \overline{\operatorname{Th}}(\A) = \operatorname{FO}(\tau)$ und beide disjunkt sind, muss $\psi \in \operatorname{Th}(\A)$, also $\A \models \psi$. Da $\A$ aber beliebig ist, ist dies ein Widerspruch. Folglich muss $\psi \in \overline{\operatorname{Th}}(\A)$ \\
 						Analog umgekehrt.
 				\item	Sei $\psi \lor \theta \in \operatorname{Th}(\A)$. Dann gilt $\A \models \psi \lor \theta$. $\A$ ist also ein Modell von mindestens eins von beidem. Es muss also $\A \models \psi$ oder $\A \models \theta$ gelten. Folglich muss auch eines zu $\operatorname{Th}(\A)$ gehören. \\
@@ -226,7 +228,7 @@ E-Test
 			Aber für das unendliche Axiomensystem $\Psi$ gibt es keine endliche Teilmenge, die die Klasse axiomatisiert und somit auch keine Konjunktion von Sätzen in $\Psi$, die die Klasse axiomatisiert.\\
 			Sei $\psi_n = \exists x_1 \exists x_2 \dots \exists x_n ( x_1 \not = x_2 \land x_1 \not = x_3 \land \dots \land x_1 \not = x_n \land x_2 \not = x_3 \land\dots \land x_{n-1} \not = x_n \land \forall y ((y = x_1 \lor y = x_2 \lor \dots \lor y = x_n) \land x_1 < x_2 \land x_2 < x_3 \land \dots \land x_{n-1} < x_n)$
 
-			$\psi_n$ axiomatisiert die Lineare Ordnung mit n Elementen. Also ist $\Psi = \{\psi_n : n \in \mathbb{N}\}$ ein unendliches Axiomensystem für die Endlichen Linearen Ordnungen.
+			$\psi_n$ axiomatisiert die Lineare Ordnung mit n Elementen. Also ist $\Psi = \{\psi_n \mid n \in \mathbb{N}\}$ ein unendliches Axiomensystem für die Endlichen Linearen Ordnungen.
 		Jegliche endliche Untermenge von $\Psi$ hat ein $\psi_m$ für maximales $m$. Somit kann eine Lineare Ordnung gewählt werden mit $m+1$ Elementen und diese wird kein Modell von besagten Untermenge sein.
 	\item	Richtig! \\
 			Es gibt ein endliches Axiomensystem $\Phi'$ für $K$. $K$ ist also auch axiomatisierbar durch $\phi \coloneqq \bigwedge \Phi'$. Für jede Struktur $\A \in K$ muss also gelten $\A \models \phi$ und für jede Struktur $\B \not\in K$ ($\B \in \overline{K}$) $\B \not\models \phi$. Folglich muss für $\B$ dann gelten $\B \models \overline{\phi}$ mit $\overline{\phi} \coloneqq \neg \phi = \neg \bigwedge \Phi = \bigvee\limits_{\phi' \in \Phi} \neg \phi'$. Folglich ist $\{\overline{\phi}\}$ ein endliches Axiomensystem von $\overline{K}$.
