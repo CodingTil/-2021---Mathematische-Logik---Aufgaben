@@ -194,14 +194,15 @@ E-Test
 \begin{enumerate}[label=(\alph*)]
 	\item	\begin{enumerate}[label=(\roman*)]
 				\item	Wenn es ein $\psi \in \operatorname{Th}(\A) \cap \overline{\operatorname{Th}}(\A)$ gäbe, dann würde ja $\A \models \psi$ und $\A \not\models \psi$ gelten. Dies ist ein Widerspruch. Folglich sind $\operatorname{Th}(\A)$ und $\overline{\operatorname{Th}}(\A)$ disjunkt.
-				\item	
+				\item	i) $\Gamma$ enthält die Gleichung $t = t$. Offensichtlich, denn $t = t$ ist in der Theorie der Struktur.\\
+						ii) Angenommen $t = t'$ und $\psi(t)$ sind in der Theorie der Struktur. Dann ist auch $\psi(t')$ in der Theorie denn es gilt: $t = t', \psi(t) \models \psi(t')$. 	
 				\item	Sei $\neg \psi \in \operatorname{Th}(\A)$. Es gilt folglich $\A \models \psi$. Angenommen es gilt aber $\psi \not\in \operatorname{Th}(\A)$. Da $\operatorname{Th}(\A) \cup \overline{\operatorname{Th}}(\A) = \operatorname{FO}(\tau)$ und beide disjunkt sind, muss $\psi \in \operatorname{Th}(\A)$, also $\A \models \psi$. Da $\A$ aber beliebig ist, ist dies ein Widerspruch. Folglich muss $\psi \in \overline{\operatorname{Th}}(\A)$ \\
 						Analog umgekehrt.
 				\item	Sei $\psi \lor \theta \in \operatorname{Th}(\A)$. Dann gilt $\A \models \psi \lor \theta$. $\A$ ist also ein Modell von mindestens eins von beidem. Es muss also $\A \models \psi$ oder $\A \models \theta$ gelten. Folglich muss auch eines zu $\operatorname{Th}(\A)$ gehören. \\
 						Sei $\psi \lor \theta \in \overline{\operatorname{Th}}(\A)$. Dann gilt ja $\A \not\models \psi \lor \theta$. Ist nun einer der beiden Formeln nicht in $\overline{\operatorname{Th}}(\A)$, so muss diese Formel dann in $\operatorname{Th}(\A)$ sein. Dann ist aber $\A$ ein Modell der Formel, weswegen $\A \models \psi \lor \theta$ gelten müssten. Widerspruch. Folglich muss $\psi, \theta \in \overline{\operatorname{Th}}(\A)$ gelten.
 			\end{enumerate}
 	\item	Wenn $\psi \land \theta \in \Gamma^*$, dann gehören $\psi$ und $\theta$ zu $\Gamma^*$. Wenn $\psi \land \theta \in \Delta^*$, dann gehört $\psi$ oder $\theta$ zu $\Delta^*$.
-	\item	Wenn $\psi \impl \theta \in \Gamma^*$, dann gehört $\psi$ zu $\Delta^*$ oder $\theta$ zu $\Gamma^*$. Wenn $\psi \impl \theta \in Delta^*$, dann gehören $\psi$ zu $\Gamma^*$ und $\theta$ zu $\Delta^*$. \\
+	\item	Wenn $\psi \impl \theta \in \Gamma^*$, dann gehört $\psi$ zu $\Delta^*$ oder $\theta$ zu $\Gamma^*$. Wenn $\psi \impl \theta \in \Delta^*$, dann gehören $\psi$ zu $\Gamma^*$ und $\theta$ zu $\Delta^*$. \\
 			
 			Sei $\psi \impl \theta \in \operatorname{Th}(\A)$. Dann ist entweder $\A$ kein Modell von $\psi$. Also gilt $\A \not\models \psi$, weshalb $\psi \in \overline{\operatorname{Th}}(\A)$. Oder $\A$ ist Modell von sowohl $\psi$ als auch $\theta$. Dann ist folglich $\theta \in \operatorname{Th}(\A)$, da ja $\A \models \theta$.\\
 			Sei $\psi \impl \theta \in \overline{\operatorname{Th}}(\A)$. Dann ist ja $\A$ zwar ein Modell von $\psi$, aber keines von $\theta$. Deshalb gilt $\A \models \psi$ und $\A \not\models \theta$, also ist $\psi \in \operatorname{Th}(\A)$, aber $\psi \in \overline{\operatorname{Th}}(\A)$.
@@ -220,7 +221,13 @@ E-Test
 			Seien $\tau \coloneqq \{<\}$, $\Phi \coloneqq \{\exists x \forall y (x = y \lor x < y), \exists x \forall (x = y \lor y < x)\}$. \\
 			 $\Phi$ axiomatisiert also die Klasse der $\tau$-Strukturen mit kleinstem und größtem Element. $\operatorname{Mod}(\phi_1)$ axiomatisiert nur die Klasse der $\tau$-Strukturen mit kleinstem Element, $\operatorname{Mod}(\phi_2)$ axiomatisiert nur die Klasse der $\tau$-Strukturen mit größtem Element. \\
 			Widerspruch!
-	\item	
+	\item	Gegenbeispiel: Die Klasse der Endlichen Linearen Ordnungen welche endlich axiomatisierbar ist durch $\phi = \forall x (\forall y (y < x \lor y = x) \lor \exists y (x < y \land \neg \exists z (x < z < y))) \land \exists x (\forall y (x < y \lor x = y)$\\
+			Also gibt es ein kleinstes und grösstes Element und jedes Element hat einen eindeutigen Nachfolger.\\
+			Aber für das unendliche Axiomensystem $\Psi$ gibt es keine endliche Teilmenge, die die Klasse axiomatisiert und somit auch keine Konjunktion von Sätzen in $\Psi$, die die Klasse axiomatisiert.\\
+			Sei $\psi_n = \exists x_1 \exists x_2 \dots \exists x_n ( x_1 \not = x_2 \land x_1 \not = x_3 \land \dots \land x_1 \not = x_n \land x_2 \not = x_3 \land\dots \land x_{n-1} \not = x_n \land \forall y ((y = x_1 \lor y = x_2 \lor \dots \lor y = x_n) \land x_1 < x_2 \land x_2 < x_3 \land \dots \land x_{n-1} < x_n)$
+
+			$\psi_n$ axiomatisiert die Lineare Ordnung mit n Elementen. Also ist $\Psi = \{\psi_n : n \in \mathbb{N}\}$ ein unendliches Axiomensystem für die Endlichen Linearen Ordnungen.
+		Jegliche endliche Untermenge von $\Psi$ hat ein $\psi_m$ für maximales $m$. Somit kann eine Lineare Ordnung gewählt werden mit $m+1$ Elementen und diese wird kein Modell von besagten Untermenge sein.
 	\item	Richtig! \\
 			Es gibt ein endliches Axiomensystem $\Phi'$ für $K$. $K$ ist also auch axiomatisierbar durch $\phi \coloneqq \bigwedge \Phi'$. Für jede Struktur $\A \in K$ muss also gelten $\A \models \phi$ und für jede Struktur $\B \not\in K$ ($\B \in \overline{K}$) $\B \not\models \phi$. Folglich muss für $\B$ dann gelten $\B \models \overline{\phi}$ mit $\overline{\phi} \coloneqq \neg \phi = \neg \bigwedge \Phi = \bigvee\limits_{\phi' \in \Phi} \neg \phi'$. Folglich ist $\{\overline{\phi}\}$ ein endliches Axiomensystem von $\overline{K}$.
 \end{enumerate}
