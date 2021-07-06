@@ -154,11 +154,11 @@ E-Test
 
 \section*{Aufgabe 2}
 Wir suchen ein unendliches Axiomensystem $\Psi$, welches die Klasse $\mathcal{K}$ widerspricht. $\Psi$ soll also genau die Klasse der ungerichteten Graphen $G$ axiomatisieren, welche eine unendliche Clique enthalten. Enthält $G$ eine unendliche Clique, so enthält $G$ offensichtlich für jedes $n \in \N\setminus\{0\}$ eine Clique der Länge $n$. Wir können $\Psi$ also wie folgt aufstellen:
-$$\Psi \coloneqq \{\forall x \forall y (Exy \rightarrow Eyx)\} \cup \{\psi_n \mid n \in \N\setminus\{0\}\}$$
+$$\Psi \coloneqq \{\forall x (\neg Exx), \forall x \forall y (Exy \rightarrow Eyx)\} \cup \{\psi_n \mid n \in \N\setminus\{0\}\}$$
 , wobei $\psi_n \coloneqq \exists x_1 \dots \exists x_n (\bigwedge\limits_{1 \leq i < j \leq n} x_i \neq x_j \land Ex_ix_j)$ für alle $n \in \N\setminus\{0\}$ die Hilfsformel für eine Clique der Länge $n$ ist.\\
 
 Nehmen wir nun an, es gibt ein Axiomensystem $\Phi$, welches $\mathcal{K}$ axiomatisiert. Dann ist $\Phi \cup \Psi$ unerfüllbar. Nach dem KS existiert eine endliche Teilmenge $\Theta_0 \subseteq \Phi \cup \Psi$, welches bereits unerfüllbar ist.\\
-Sei $\Psi_0 \coloneqq \Theta_0 \cap \Psi$. Es existert wegen Endlichkeit ein $m \in \N\setminus\{0\}$, sodass $\psi_n \not\in \Psi_0$ für alle $n \geq m$. Es folgt $\Psi_0 \subseteq \{\forall x \forall y (Exy \rightarrow Eyx)\} \cup \{\psi_n \mid n < m\}$\\
+Sei $\Psi_0 \coloneqq \Theta_0 \cap \Psi$. Es existert wegen Endlichkeit ein $m \in \N\setminus\{0\}$, sodass $\psi_n \not\in \Psi_0$ für alle $n \geq m$. Es folgt $\Psi_0 \subseteq \{\forall x (\neg Exx), \forall x \forall y (Exy \rightarrow Eyx)\} \cup \{\psi_n \mid n < m\}$\\
 Betrachte $\A \coloneqq (V \coloneqq \N, E \coloneqq \N \times \N)$. $\A$ ist dann also ein ungerichteter Graph, welcher eine Clique mit unendlicher Länge ist. Es gilt also $\A \in \mathcal{K}$, weshalb auch $\A \models \Phi$ gilt.\\
 Jedoch gilt auch $\A \models \Psi_0$ offensichtlich. Also folgt $\A \models \Theta_0$. Jedoch soll $\Theta_0$ unerfüllbar sein.\\
 
@@ -172,11 +172,13 @@ Dies ist ein Widerspruch. Also ist $\mathcal{K}$ nicht axiomatisierbar.
 \begin{enumerate}[label=(\alph*)]
 	\item	
 	\item	
+	\item	$U$ muss hier leer sein oder einelementig sein. Angenommen $U$ ist mindestens zweielementig, aber immer noch endlich. Dann gilt ja für alle $x,y \in U$ mit $x<y$, dass ein $z$ existiert, sodass $x<z \land z<y$. Per Induktion stellt man schnell fest, dass $U$ unendlich sein muss. Dies ist ein Widerspruch.\\
+			Man kann die Klasse $\mathcal{K}_c$ axiomatisieren durch: 
+			$$\Phi_c \coloneqq \{\forall x \forall y (x=y)\}$$
+	\item	Da $f(U) \subseteq U$, gilt auch $\vert f(U) \vert \leq \vert U \vert$. Da $f(U)$ unendlich ist, ist folglich auch $U$ unendlich.
 	\item	
-	\item	
-	\item	
-	\item	
-	\item	
+	\item	$\Phi_f = \operatorname{Th}(\A)$?
+	\item	$\vert A \vert = \vert \operatorname{Pot}(\N) \vert$
 \end{enumerate}
 
 
