@@ -171,13 +171,19 @@ Dies ist ein Widerspruch. Also ist $\mathcal{K}$ nicht axiomatisierbar.
 \section*{Aufgabe 3}
 \begin{enumerate}[label=(\alph*)]
 	\item	
-	\item	
+	\item	\begin{align*}
+				\Phi_b \coloneqq &\{\forall x \forall z \exists y (x+y=z),\\
+					& \exists x \forall y (x+y=y),\\
+					& \forall x \forall y (x+y = y+x),\\
+					& \exists x_1 \dots \exists x_n ((\bigwedge_{1 \leq i<j \leq n} x_i \neq x_y) \land (\exists y \bigvee_{1 \leq i \leq n} y = x_i))\}
+			\end{align*}
+			??? Darf man so Endlichkeit ausdrücken?
 	\item	$U$ muss hier leer sein oder einelementig sein. Angenommen $U$ ist mindestens zweielementig, aber immer noch endlich. Dann gilt ja für alle $x,y \in U$ mit $x<y$, dass ein $z$ existiert, sodass $x<z \land z<y$. Per Induktion stellt man schnell fest, dass $U$ unendlich sein muss. Dies ist ein Widerspruch.\\
 			Man kann die Klasse $\mathcal{K}_c$ axiomatisieren durch: 
 			$$\Phi_c \coloneqq \{\forall x \forall y (x=y)\}$$
 	\item	Da $f(U) \subseteq U$, gilt auch $\vert f(U) \vert \leq \vert U \vert$. Da $f(U)$ unendlich ist, ist folglich auch $U$ unendlich.
 	\item	
-	\item	$\Phi_f = \operatorname{Th}(\A)$?
+	\item	
 	\item	Die Signatur ist mit $\tau_g \coloneqq ((R_n)_{n\in\N})$ offensichtlich abzählbar. Wegen der Definition von $R_n$ sind alle $a_S$ unterscheidbar. Man kann also von jedem $a_S$ auf ein $S \subseteq \N$ schließen (bijektiv). Deshalb gilt: $\vert A \vert = \vert \operatorname{Pot}(\N) \vert$ überabzählbar.\\
 			Satz von LS$\downarrow$:\\
 			Angenommen es gibt ein $\Phi_g$, welches $\mathcal{K}_g$ axiomatisiert. Da die Signatur abzählbar ist, ist $\Phi_g$ abzählbar. Nach LS$\downarrow$ ein abzählbares Modell. Jedoch gibt es in $\mathcal{K}_g$ keine endlichen Strukturen.\\
