@@ -20,6 +20,7 @@
 \usepackage{stmaryrd}
 \usepackage{enumitem}
 \usepackage{bussproofs}
+\usepackage{bbm}
 
 % Grafiken und PDFs einfügen
 \usepackage{graphicx}
@@ -175,18 +176,29 @@ Dies ist ein Widerspruch. Also ist $\mathcal{K}$ nicht axiomatisierbar.
 				\Phi_b \coloneqq &\{\forall x \forall z \exists y (x+y=z),\\
 					& \exists x \forall y (x+y=y),\\
 					& \forall x \forall y (x+y = y+x),\\
-					& \exists x_1 \dots \exists x_n ((\bigwedge_{1 \leq i<j \leq n} x_i \neq x_y) \land (\exists y \bigvee_{1 \leq i \leq n} y = x_i))\}
+					& \exists x_1 \dots \exists x_n ((\bigwedge_{1 \leq i<j \leq n} x_i \neq x_y) \land (\forall y \bigvee_{1 \leq i \leq n} y = x_i))\}
 			\end{align*}
 			??? Darf man so Endlichkeit ausdrücken?
-	\item	$U$ muss hier leer sein oder einelementig sein. Angenommen $U$ ist mindestens zweielementig, aber immer noch endlich. Dann gilt ja für alle $x,y \in U$ mit $x<y$, dass ein $z$ existiert, sodass $x<z \land z<y$. Per Induktion stellt man schnell fest, dass $U$ unendlich sein muss. Dies ist ein Widerspruch.\\
+	\item	$U$ muss hier einelementig sein. Angenommen $U$ ist mindestens zweielementig, aber immer noch endlich. Dann gilt ja für alle $x,y \in U$ mit $x<y$, dass ein $z$ existiert, sodass $x<z \land z<y$. Per Induktion stellt man schnell fest, dass $U$ unendlich sein muss. Dies ist ein Widerspruch.\\
 			Man kann die Klasse $\mathcal{K}_c$ axiomatisieren durch: 
 			$$\Phi_c \coloneqq \{\forall x \forall y (x=y)\}$$
-	\item	Da $f(U) \subseteq U$, gilt auch $\vert f(U) \vert \leq \vert U \vert$. Da $f(U)$ unendlich ist, ist folglich auch $U$ unendlich.
+	\item	Da $f(U) \subseteq U$, gilt auch $\vert f(U) \vert \leq \vert U \vert$. Da $f(U)$ unendlich ist, ist folglich auch $U$ unendlich.\\
+			Sei $\phi_n$ eine Hilfsformel, dass mindestens $n$ verschiedene Elemente in $U$ existieren:\\
+			$\phi_n \coloneqq \exists x_1 \dots \exists x_n (\bigwedge_{1 \leq i<j \leq n} x_i \neq x_j)$\\
+			Sei $\phi'_n$ eine Hilfsformel, dass mindestens $n$ verschiedene Elemente in $f(U)$ existieren:\\
+			$\phi'_n \coloneqq \exists x_1 \dots \exists x_n (\bigwedge_{1 \leq i<j \leq n} x_i \neq x_j \land f(x_i) \neq f(x_j))$\\
+			Dann ist $\Phi_d$ ein unendliches Axiomensystem mit:
+			$$\Phi_d \coloneqq \{\phi_n \mid n \in \N\setminus\{0\}\} \cup \{\phi'_n \mid n \in \N\setminus\{0\}\}$$\\
+			
+			$\mathcal{K}_d$ ist nach dem Kompaktheitssatz nicht endlich axiomatisierbar, weil keine endliche Teilmenge von $\Phi_d$ existiert, welches $\mathcal{K}_d$ axiomatisiert.\\
+			Angenommen $\Phi_0 \subseteq \Phi_d$ sei eine Formel, die $\mathcal{K}_d$ endlich axiomatisiert. Dann gibt es ein $m,m' \in \N$, sodass $m$ der Index der größten Hilfsformel $\phi_n$ in $\Phi_0$ ist. Wenn kein $\phi_n$ in $\Phi_0$ ist, dann kann $\Phi_0$ $\mathcal{K}_d$ offensichtlich nicht axiomatisieren, weil die Unendlichkeit von $U$ nicht gegeben ist. Sei $m'$ der Index der größten Hilfsformel $\phi'_n$ in $\Phi_0$. Wenn kein $\phi'_n$ in $\Phi_0$ ist, dann kann $\Phi_0$ $\mathcal{K}_d$ offensichtlich nicht axiomatisieren, weil die Unendlichkeit von $f(U)$ nicht gegeben ist.\\
+			Sei $\A \coloneqq (\{0,\dots,\max(m,m')+1\}, \mathbbm{1}, 0)$. Dann gilt offensichtlich $\A \models \Phi_0$, aber, da $\A$ endlich ist, ist $\A \not\in \mathcal{K}_d$.\\
+			Nach dem KS ist $\mathcal{K}_d$ nicht endlich axiomatisierbar.
 	\item	
 	\item	
 	\item	Die Signatur ist mit $\tau_g \coloneqq ((R_n)_{n\in\N})$ offensichtlich abzählbar. Wegen der Definition von $R_n$ sind alle $a_S$ unterscheidbar. Man kann also von jedem $a_S$ auf ein $S \subseteq \N$ schließen (bijektiv). Deshalb gilt: $\vert A \vert = \vert \operatorname{Pot}(\N) \vert$ überabzählbar.\\
 			Satz von LS$\downarrow$:\\
-			Angenommen es gibt ein $\Phi_g$, welches $\mathcal{K}_g$ axiomatisiert. Da die Signatur abzählbar ist, ist $\Phi_g$ abzählbar. Nach LS$\downarrow$ ein abzählbares Modell. Jedoch gibt es in $\mathcal{K}_g$ keine endlichen Strukturen.\\
+			Angenommen es gibt ein $\Phi_g$, welches $\mathcal{K}_g$ axiomatisiert. Da die Signatur abzählbar ist, ist $\Phi_g$ abzählbar. Nach LS$\downarrow$ hat $\mathcal{K}_g$ ein abzählbares Modell. Jedoch gibt es in $\mathcal{K}_g$ keine endlichen Strukturen.\\
 			Widerspruch. $\mathcal{K}_g$ ist nicht axiomatisierbar.
 \end{enumerate}
 
@@ -204,11 +216,12 @@ Idee: Duplikatorin kann immer nachahmen solange es genügend Knoten zum auswähl
 
 \section*{Aufgabe 5*}
 \begin{enumerate}[label=(\alph*)]
-	\item	(i) z.z.: Für alle $\mathfrak{A} \in K$ gilt: $\mathfrak{A} \in K^*$.\\
-			Folgt aus Definition von $Th(K)$. $Th(K) \coloneqq \{\varphi \in FO(\tau) \mid \mathfrak{A} \models \varphi für alle \mathfrak{A} \in K\}$, also gilt für alle $\mathfrak{A} \in K$ offensichtlich auch $\mathfrak{A} \in Mod(Th(K))$.
-
-			(ii) z.z.: Für jedes Axiomensystem $\Phi$ sodass $K \subseteq Mod(\Phi)$ gilt auch $Mod(Th(K)) \subseteq Mod(\Phi)$.\\
-			Sei also $\Phi$ beliebig sodass für jedes $\mathfrak{A} \in K$ gilt: $\mathfrak{A} \models \Phi$. Dann gilt für jedes $\varphi \in Phi$: $\varphi \in Th(K)$ wegen definition von der Theorie einer Klasse. Also gilt offensichtlich auch $Mod(Th(K)) \subseteq Mod(\Phi)$
+	\item	\begin{enumerate}[label=(\roman*)]
+				\item	z.z.: Für alle $\mathfrak{A} \in K$ gilt: $\mathfrak{A} \in K^*$.\\
+			Folgt aus Definition von $\operatorname{Th}(\mathcal{K})$. $\operatorname{Th}(\mathcal{K}) \coloneqq \{\varphi \in \operatorname{FO}(\tau) \mid \mathfrak{A} \models \varphi, \forall \mathfrak{A} \in \mathcal{K}\}$, also gilt für alle $\mathfrak{A} \in \mathcal{K}$ offensichtlich auch $\mathfrak{A} \in \operatorname{Mod}(\operatorname{Th}(\mathcal{K}))$.
+				\item	z.z.: Für jedes Axiomensystem $\Phi$ sodass $K \subseteq \operatorname{Mod}(\Phi)$ gilt auch $\operatorname{Mod}(\operatorname{Th}(\mathcal{K})) \subseteq \operatorname{Mod}(\Phi)$.\\
+			Sei also $\Phi$ beliebig sodass für jedes $\mathfrak{A} \in \mathcal{K}$ gilt: $\mathfrak{A} \models \Phi$. Dann gilt für jedes $\varphi \in Phi$: $\varphi \in \operatorname{Th}(\mathcal{K})$ wegen definition von der Theorie einer Klasse. Also gilt offensichtlich auch $\operatorname{Mod}(\operatorname{Th}(\mathcal{K})) \subseteq \operatorname{Mod}(\Phi)$
+			\end{enumerate}
 	\item	
 \end{enumerate}
 
