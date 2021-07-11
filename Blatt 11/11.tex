@@ -195,14 +195,20 @@ Dies ist ein Widerspruch. Also ist $\mathcal{K}$ nicht axiomatisierbar.
 
 
 \section*{Aufgabe 4}
-
+Da die Klasse der Cliquen aufzählbar ist (für jedes $n \in \mathbb{N}$ gibt es bis auf Isomorphie genau ein Element in der Klasse der Cliquen mit $n$ Knoten) kann der Algorithmus einfach alle Cliquen durchlaufen und wird auf jeden Fall die Clique $G$ finden die $\varphi$ erfüllt.\\
+Zu klären ist aber noch wann dieser Algorithmus terminieren soll, wenn es solch eine Clique nicht gibt. Dafür verwenden wir den Quantorenrang des Satzes $\varphi$. Für Quantorenrang $m$ kann der Algorithmus nach $m$ Schritten aufhören, weil ...\\
+Idee: Duplikatorin kann immer nachahmen solange es genügend Knoten zum auswählen gibt, weil es immer irrelevant ist welchen Knoten aus der Clique sie wählt weil alle isomorph zueinander sind.
 
 \newpage
 
 
 \section*{Aufgabe 5*}
 \begin{enumerate}[label=(\alph*)]
-	\item	
+	\item	(i) z.z.: Für alle $\mathfrak{A} \in K$ gilt: $\mathfrak{A} \in K^*$.\\
+			Folgt aus Definition von $Th(K)$. $Th(K) \coloneqq \{\varphi \in FO(\tau) \mid \mathfrak{A} \models \varphi für alle \mathfrak{A} \in K\}$, also gilt für alle $\mathfrak{A} \in K$ offensichtlich auch $\mathfrak{A} \in Mod(Th(K))$.
+
+			(ii) z.z.: Für jedes Axiomensystem $\Phi$ sodass $K \subseteq Mod(\Phi)$ gilt auch $Mod(Th(K)) \subseteq Mod(\Phi)$.\\
+			Sei also $\Phi$ beliebig sodass für jedes $\mathfrak{A} \in K$ gilt: $\mathfrak{A} \models \Phi$. Dann gilt für jedes $\varphi \in Phi$: $\varphi \in Th(K)$ wegen definition von der Theorie einer Klasse. Also gilt offensichtlich auch $Mod(Th(K)) \subseteq Mod(\Phi)$
 	\item	
 \end{enumerate}
 
