@@ -208,8 +208,7 @@ Dies ist ein Widerspruch. Also ist $\mathcal{K}$ nicht axiomatisierbar.
 
 \section*{Aufgabe 4}
 Da die Klasse der Cliquen aufzählbar ist (für jedes $n \in \mathbb{N}$ gibt es bis auf Isomorphie genau ein Element in der Klasse der Cliquen mit $n$ Knoten) kann der Algorithmus einfach alle Cliquen durchlaufen und wird auf jeden Fall die Clique $G$ finden die $\varphi$ erfüllt.\\
-Zu klären ist aber noch wann dieser Algorithmus terminieren soll, wenn es solch eine Clique nicht gibt. Dafür verwenden wir den Quantorenrang des Satzes $\varphi$. Für Quantorenrang $m$ kann der Algorithmus nach $m$ Schritten aufhören, weil ...\\
-Idee: Duplikatorin kann immer nachahmen solange es genügend Knoten zum auswählen gibt, weil es immer irrelevant ist welchen Knoten aus der Clique sie wählt weil alle isomorph zueinander sind.
+Zu klären ist aber noch wann dieser Algorithmus terminieren soll, wenn es solch eine Clique nicht gibt. Dafür verwenden wir den Quantorenrang des Satzes $\varphi$. Für Quantorenrang $m$ kann der Algorithmus nach $m+1$ Schritten aufhören. Angenommen es gibt eine Lösung $\mathcal{G}$ mit mehr als $m+1$ Knoten. Dann ist $\mathcal{G}'$ mit $m+1$ Knoten ebenfalls eine Lösung, denn es gilt $\mathcal{G} \equiv_m \mathcal{G}'$. Dies liegt daran, dass die Duplikatorin für beliebigen Knoten in $\mathcal{G}$ oder $\mathcal{G}'$ jeweils einen beliebig noch nicht ausgesuchten Knoten aus dem anderen Graphen wählen kann weil alle Knoten einer Clique isomorph zueinander sind.
 
 \newpage
 
